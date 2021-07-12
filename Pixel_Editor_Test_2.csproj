@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\DrawLineCommand.cs" />
     <Compile Include="Commands\DrawPixelCommand.cs" />
-    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\DrawRectangleCommand.cs" />
     <Compile Include="Commands\ReplaceColorCommand.cs" />
     <Compile Include="Commands\SelectAreaCommand.cs" />
     <Compile Include="EditorWindow.cs">
@@ -67,6 +69,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\BresenhamLine.cs" />
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>
     </EmbeddedResource>

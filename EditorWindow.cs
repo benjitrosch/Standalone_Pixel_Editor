@@ -14,7 +14,7 @@ namespace Pixel_Editor_Test_2
     public partial class EditorWindow : Form
     {
         private Color _primaryColor, _secondaryColor;
-        private List<Color> _palette = new List<Color>();
+        private Color[] _palette = new Color[64];
 
         public EditorWindow()
         {
@@ -118,7 +118,13 @@ namespace Pixel_Editor_Test_2
             if (_palette.Contains(color))
                 return;
 
-            _palette.Add(color);
+            int openSlot = Array.FindIndex(_palette, c => c.IsEmpty);
+            if (openSlot == -1)
+                return;
+
+            _palette[openSlot] = color;
+
+            UpdatePalette();
         }
 
         private void buttonSwitchColors_Click(object sender, EventArgs e)
@@ -219,6 +225,31 @@ namespace Pixel_Editor_Test_2
             buttonEyedropper.BackColor = color;
         }
 
+        private void buttonLineTool_Click(object sender, EventArgs e)
+        {
+            SelectLineTool();
+        }
+
+        private void SelectLineTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
+        }
+
+        private void buttonEyedropperTool_Click(object sender, EventArgs e)
+        {
+            SelectEyedropperTool();
+        }
+
+        private void buttonRectangleTool_Click(object sender, EventArgs e)
+        {
+            SelectRectangleTool();
+        }
+
+        private void SelectRectangleTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
+        }
+
         private bool mouseDown;
         private Point lastLocation;
 
@@ -272,6 +303,7 @@ namespace Pixel_Editor_Test_2
                     SelectEraserTool();
                     break;
 
+                case Keys.F:
                 case Keys.G:
                     SelectFillTool();
                     break;
@@ -283,7 +315,83 @@ namespace Pixel_Editor_Test_2
                 case Keys.I:
                     SelectEyedropperTool();
                     break;
+
+                case Keys.L:
+                    SelectLineTool();
+                    break;
+
+                case Keys.R:
+                    SelectRectangleTool();
+                    break;
             }
+        }
+
+        private void UpdatePalette()
+        {
+            palette00.BackColor = _palette[0];
+            palette01.BackColor = _palette[1];
+            palette02.BackColor = _palette[2];
+            palette03.BackColor = _palette[3];
+            palette04.BackColor = _palette[4];
+            palette05.BackColor = _palette[5];
+            palette06.BackColor = _palette[6];
+            palette07.BackColor = _palette[7];
+            palette08.BackColor = _palette[8];
+            palette09.BackColor = _palette[9];
+            palette10.BackColor = _palette[10];
+            palette11.BackColor = _palette[11];
+            palette12.BackColor = _palette[12];
+            palette13.BackColor = _palette[13];
+            palette14.BackColor = _palette[14];
+            palette15.BackColor = _palette[15];
+            palette16.BackColor = _palette[16];
+            palette17.BackColor = _palette[17];
+            palette18.BackColor = _palette[18];
+            palette19.BackColor = _palette[19];
+            palette20.BackColor = _palette[20];
+            palette21.BackColor = _palette[21];
+            palette22.BackColor = _palette[22];
+            palette23.BackColor = _palette[23];
+            palette24.BackColor = _palette[24];
+            palette25.BackColor = _palette[25];
+            palette26.BackColor = _palette[26];
+            palette27.BackColor = _palette[27];
+            palette28.BackColor = _palette[28];
+            palette29.BackColor = _palette[29];
+            palette30.BackColor = _palette[30];
+            palette31.BackColor = _palette[31];
+            palette32.BackColor = _palette[32];
+            palette33.BackColor = _palette[33];
+            palette34.BackColor = _palette[34];
+            palette35.BackColor = _palette[35];
+            palette36.BackColor = _palette[36];
+            palette37.BackColor = _palette[37];
+            palette38.BackColor = _palette[38];
+            palette39.BackColor = _palette[39];
+            palette40.BackColor = _palette[40];
+            palette41.BackColor = _palette[41];
+            palette42.BackColor = _palette[42];
+            palette43.BackColor = _palette[43];
+            palette44.BackColor = _palette[44];
+            palette45.BackColor = _palette[45];
+            palette46.BackColor = _palette[46];
+            palette47.BackColor = _palette[47];
+            palette48.BackColor = _palette[48];
+            palette49.BackColor = _palette[49];
+            palette50.BackColor = _palette[50];
+            palette51.BackColor = _palette[51];
+            palette52.BackColor = _palette[52];
+            palette53.BackColor = _palette[53];
+            palette54.BackColor = _palette[54];
+            palette55.BackColor = _palette[55];
+            palette56.BackColor = _palette[56];
+            palette57.BackColor = _palette[57];
+            palette58.BackColor = _palette[58];
+            palette59.BackColor = _palette[59];
+            palette60.BackColor = _palette[60];
+            palette61.BackColor = _palette[61];
+            palette62.BackColor = _palette[62];
+            palette63.BackColor = _palette[63];
         }
     }
 }

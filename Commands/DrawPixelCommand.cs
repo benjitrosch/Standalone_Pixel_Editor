@@ -8,55 +8,21 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Commands
 {
-    public class DrawPixelCommand : ICommand
+    public class DrawPixelCommand : Command
     {
-        public PictureBox _destinationRef { get; set; }
-
-        public Dictionary<Point, Color> _previousColors { get; set; }
-        public Dictionary<Point, Color> _finalColors { get; set; }
-
         public DrawPixelCommand(PictureBox destination)
-        {
-            _destinationRef = destination;
-
-            _previousColors = new Dictionary<Point, Color>();
-            _finalColors = new Dictionary<Point, Color>();
-        }
-
-        public void Execute(Bitmap bmp, Point position, Color color)
-        {
-            if (position.X < 0 || position.X >= bmp.Width ||
-                position.Y < 0 || position.Y >= bmp.Height)
-                return;
-
-            _previousColors.Add(position, bmp.GetPixel(position.X, position.Y));
-            _finalColors.Add(position, color);
-            bmp.SetPixel(position.X, position.Y, color);
-
-            _destinationRef.Image = bmp;
-        }
-
-        public void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
+            :base(destination)
         {}
 
-        public void Undo(Bitmap bmp)
+        public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {
-            if (_previousColors.Count < 1)
-                return;
+            if (startPos.X < 0 || startPos.X >= bmp.Width ||
+                startPos.Y < 0 || startPos.Y >= bmp.Height)
+                            return;
 
-            foreach (KeyValuePair<Point, Color> pixel in _previousColors)
-                bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
-
-            _destinationRef.Image = bmp;
-        }
-
-        public void Redo(Bitmap bmp)
-        {
-            if (_finalColors.Count < 1)
-                return;
-
-            foreach (KeyValuePair<Point, Color> pixel in _finalColors)
-                bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
+            _previousColors.Add(startPos, bmp.GetPixel(startPos.X, startPos.Y));
+            _finalColors.Add(startPos, color);
+            bmp.SetPixel(startPos.X, startPos.Y, color);
 
             _destinationRef.Image = bmp;
         }

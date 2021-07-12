@@ -8,22 +8,13 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Commands
 {
-    public class SelectAreaCommand : ICommand
+    public class SelectAreaCommand : Command
     {
-        public PictureBox _destinationRef { get; set; }
-
-        public Dictionary<Point, Color> _previousColors { get; set; }
-        public Dictionary<Point, Color> _finalColors { get; set; }
-
         public SelectAreaCommand(PictureBox destination)
-        {
-            _destinationRef = destination;
+            :base(destination)
+        {}
 
-            _previousColors = new Dictionary<Point, Color>();
-            _finalColors = new Dictionary<Point, Color>();
-        }
-
-        public void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
+        public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {
             for (int x = Math.Min(startPos.X, endPos.X); x < Math.Max(startPos.X, endPos.X); x++)
             {
@@ -38,28 +29,6 @@ namespace Pixel_Editor_Test_2.Commands
                     bmp.SetPixel(x, y, color);
                 }
             }
-
-            _destinationRef.Image = bmp;
-        }
-
-        public void Undo(Bitmap bmp)
-        {
-            if (_previousColors.Count < 1)
-                return;
-
-            foreach (KeyValuePair<Point, Color> pixel in _previousColors)
-                bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
-
-            _destinationRef.Image = bmp;
-        }
-
-        public void Redo(Bitmap bmp)
-        {
-            if (_finalColors.Count < 1)
-                return;
-
-            foreach (KeyValuePair<Point, Color> pixel in _finalColors)
-                bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
 
             _destinationRef.Image = bmp;
         }
