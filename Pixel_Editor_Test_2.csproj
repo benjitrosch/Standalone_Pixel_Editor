@@ -55,6 +55,22 @@
     <Compile Include="Commands\DrawRectangleCommand.cs" />
     <Compile Include="Commands\ReplaceColorCommand.cs" />
     <Compile Include="Commands\SelectAreaCommand.cs" />
+    <Compile Include="Controls\ColorBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorBox.Designer.cs">
+      <DependentUpon>ColorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorChangedEventArgs.cs" />
+    <Compile Include="Controls\ColorModes.cs" />
+    <Compile Include="Controls\ColorSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorSlider.Designer.cs">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HslColor.cs" />
+    <Compile Include="Controls\MathExtensions.cs" />
     <Compile Include="EditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>

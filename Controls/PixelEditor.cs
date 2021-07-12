@@ -161,7 +161,7 @@ namespace Pixel_Editor_Test_2
                     Color col = TgtBitmap.GetPixel(sx, sy);
                     Color drawColor = GridColor;
 
-                    if (col.ToArgb() == 0)
+                    if (col.ToArgb() == 0 || col.ToArgb() == 16777215)
                     {
                         if (x % 2 == 1)
                             col = y % 2 == 1 ? Color.FromArgb(127, 127, 127) : Color.FromArgb(190, 190, 190);
@@ -175,12 +175,29 @@ namespace Pixel_Editor_Test_2
                     using (SolidBrush b = new SolidBrush(col))
                     using (Pen p = new Pen(drawColor))
                     {
-                        Rectangle rect = new Rectangle(x * Zoom, y * Zoom,
-                                                           Zoom, Zoom);
+                        Rectangle rect = new Rectangle(x * Zoom,
+                                                       y * Zoom,
+                                                       Zoom,
+                                                       Zoom);
                         g.FillRectangle(b, rect);
                         g.DrawRectangle(p, rect);
                     }
                 }
+
+            using (Pen s = new Pen(Color.Black, 2))
+            using (Pen p = new Pen(Color.FromArgb(0, 126, 249), 2))
+            {
+                Rectangle rect = new Rectangle(0 - (Viewport.X * Zoom),
+                                               0 - (Viewport.Y * Zoom),
+                                               APBox.Image.Width * Zoom,
+                                               APBox.Image.Height * Zoom);
+
+                s.Alignment = PenAlignment.Outset;
+                p.Alignment = PenAlignment.Inset;
+
+                g.DrawRectangle(s, rect);
+                //g.DrawRectangle(p, rect);
+            }
 
             PixelEditor_RenderSelectionPreview(e);
             PixelEditor_RenderLinePreview(e);
@@ -572,20 +589,20 @@ namespace Pixel_Editor_Test_2
                 using (Pen pen = new Pen(Color.DimGray, 1F))
                 {
                     e.Graphics.DrawRectangle(pen, new Rectangle(
-                        (int)Math.Round((double)SelectionStartPos.X * Zoom),
-                        (int)Math.Round((double)SelectionStartPos.Y * Zoom),
-                        (int)Math.Round((double)width),
-                        (int)Math.Round((double)height)
+                        (int)Math.Round((double)Math.Min(SelectionStartPos.X, SelectionEndPos.X) * Zoom - (Viewport.X * Zoom)),
+                        (int)Math.Round((double)Math.Min(SelectionStartPos.Y, SelectionEndPos.Y) * Zoom - (Viewport.Y * Zoom)),
+                        (int)Math.Round((double)width * Zoom),
+                        (int)Math.Round((double)height * Zoom)
                     ));
                 }
                 using (Pen pen = new Pen(Color.White, 1F))
                 {
                     pen.DashPattern = new float[] { 5, 5 };
                     e.Graphics.DrawRectangle(pen, new Rectangle(
-                        (int)Math.Round((double)SelectionStartPos.X * Zoom),
-                        (int)Math.Round((double)SelectionStartPos.Y * Zoom),
-                        (int)Math.Round((double)width),
-                        (int)Math.Round((double)height)
+                        (int)Math.Round((double)Math.Min(SelectionStartPos.X, SelectionEndPos.X) * Zoom - (Viewport.X * Zoom)),
+                        (int)Math.Round((double)Math.Min(SelectionStartPos.Y, SelectionEndPos.Y) * Zoom - (Viewport.Y * Zoom)),
+                        (int)Math.Round((double)width * Zoom),
+                        (int)Math.Round((double)height * Zoom)
                     ));
                 }
             }
@@ -602,7 +619,11 @@ namespace Pixel_Editor_Test_2
             {
                 using (Pen pen = new Pen(Color.White, 1F))
                 {
-                    e.Graphics.DrawRectangle(pen, new Rectangle(pixel.X * Zoom, pixel.Y * Zoom, Zoom, Zoom));
+                    e.Graphics.DrawRectangle(pen,
+                                             new Rectangle(pixel.X * Zoom - (Viewport.X * Zoom),
+                                                           pixel.Y * Zoom - (Viewport.Y * Zoom),
+                                                           Zoom,
+                                                           Zoom));
                 }
             }
         }

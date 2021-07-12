@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pixel_Editor_Test_2.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,7 +51,7 @@ namespace Pixel_Editor_Test_2
 
         private void zoomBar_ValueChanged(object sender, EventArgs e)
         {
-            switch(zoomCanvas.Value)
+            /*switch(zoomCanvas.Value)
             {
                 // 8 x 8
                 case 0:
@@ -66,7 +67,8 @@ namespace Pixel_Editor_Test_2
                 case 2:
                     canvasPanel.Zoom = 8;
                     break;
-            }
+            }*/
+            canvasPanel.Zoom = zoomCanvas.Value;
         }
 
         private void buttonPrimaryColor_Click(object sender, EventArgs e)
@@ -324,6 +326,30 @@ namespace Pixel_Editor_Test_2
                     SelectRectangleTool();
                     break;
             }
+        }
+
+        private void colorBox2D_MouseDown(object sender, MouseEventArgs e)
+        {
+            PickColor(colorBox2D.ColorHSL.RgbValue, e);
+        }
+
+        private void colorBox2D_MouseMove(object sender, MouseEventArgs e)
+        {
+            PickColor(colorBox2D.ColorHSL.RgbValue, e);
+        }
+
+        private void PickColor(Color color, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, color);
+            if (e.Button == MouseButtons.Right)
+                canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, color);
+        }
+
+        private void colorSlider_ColorChanged(object sender, ColorChangedEventArgs args)
+        {
+            HslColor colorHSL = colorSlider.ColorHSL;
+            colorBox2D.ColorHSL = colorHSL;
         }
 
         private void UpdatePalette()

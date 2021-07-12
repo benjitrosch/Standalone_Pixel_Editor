@@ -7,4 +7,3 @@ C:\Users\benji\source\repos\Pixel_Editor_Test_2\bin\Debug\e.pdb
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\e.exe
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\e.pdb
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.EditorWindow.resources
-C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.csprojAssemblyReference.cache
