@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Commands
 {
-    public class DrawLineCommand : Command
+    public class DrawCircleCommand : Command
     {
-        public DrawLineCommand(PictureBox destination)
-                    : base(destination)
+        public DrawCircleCommand(PictureBox destination)
+            : base(destination)
         {}
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {
-            List<Point> pixels = Bresenham.Line(startPos, endPos);
+            List<Point> pixels = Bresenham.Ellipse(startPos, endPos);
 
             foreach (Point pixel in pixels)
             {

@@ -1,9 +1,11 @@
 ﻿using Pixel_Editor_Test_2.Controls;
+using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -21,9 +23,11 @@ namespace Pixel_Editor_Test_2
         {
             InitializeComponent();
 
-            srcImage.Image = Image.FromFile(@"C:\Users\benji\Downloads\Monkey_jump.png");
-            srcImage.Width = srcImage.Image.Width * (248 / srcImage.Image.Height);
-            srcImage.Height = srcImage.Image.Height * (248 / srcImage.Image.Width);
+            //srcImage.Image = Image.FromFile(@"C:\Users\benji\Downloads\Monkey_jump.png");
+            srcImage.Image = Canvas.CreateNewCanvas(32, 32);
+            srcImage.Width = 32;
+            srcImage.Height = 32;
+            previewContainer.Width = srcImage.Width;
             previewContainer.Height = srcImage.Height + 32;
 
             canvasPanel.APBox = srcImage;
@@ -31,7 +35,8 @@ namespace Pixel_Editor_Test_2
             canvasPanel.Coordinates = coordinatesLabel;
             canvasPanel.Selection = selectionLabel;
 
-            canvasPanel.Zoom = 16;
+            canvasPanel.Zoom = 8;
+            canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
 
             canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
             canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
@@ -51,23 +56,6 @@ namespace Pixel_Editor_Test_2
 
         private void zoomBar_ValueChanged(object sender, EventArgs e)
         {
-            /*switch(zoomCanvas.Value)
-            {
-                // 8 x 8
-                case 0:
-                    canvasPanel.Zoom = 32;
-                    break;
-
-                // 16 x 16
-                case 1:
-                    canvasPanel.Zoom = 16;
-                    break;
-
-                // 32 x 32
-                case 2:
-                    canvasPanel.Zoom = 8;
-                    break;
-            }*/
             canvasPanel.Zoom = zoomCanvas.Value;
         }
 
@@ -212,7 +200,7 @@ namespace Pixel_Editor_Test_2
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.HAND);
         }
 
-        private void buttonEyedropper_Click(object sender, EventArgs e)
+        private void buttonEyedropperTool_Click(object sender, EventArgs e)
         {
             SelectEyedropperTool();
         }
@@ -222,9 +210,12 @@ namespace Pixel_Editor_Test_2
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.EYEDROPPER);
         }
 
-        private void SetEyedropperColor(Color color)
+        private void SetEyedropperColor(EyeDropperEventArgs e)
         {
-            buttonEyedropper.BackColor = color;
+            if (e.MouseButton == MouseButtons.Left)
+                canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, e.SelectedColor);
+            else if (e.MouseButton == MouseButtons.Right)
+                canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, e.SelectedColor);
         }
 
         private void buttonLineTool_Click(object sender, EventArgs e)
@@ -237,11 +228,6 @@ namespace Pixel_Editor_Test_2
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
         }
 
-        private void buttonEyedropperTool_Click(object sender, EventArgs e)
-        {
-            SelectEyedropperTool();
-        }
-
         private void buttonRectangleTool_Click(object sender, EventArgs e)
         {
             SelectRectangleTool();
@@ -250,6 +236,16 @@ namespace Pixel_Editor_Test_2
         private void SelectRectangleTool()
         {
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
+        }
+
+        private void buttonOvalTool_Click(object sender, EventArgs e)
+        {
+            SelectOvalTool();
+        }
+
+        private void SelectOvalTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
         }
 
         private bool mouseDown;
@@ -289,7 +285,21 @@ namespace Pixel_Editor_Test_2
             switch(e.KeyCode)
             {
                 case Keys.Escape:
-                    ExitApplication();
+                    //ExitApplication();
+                    break;
+
+                case Keys.S:
+                    if (e.Control)
+                    {
+                        SaveFileDialog sfd = new SaveFileDialog();
+                        sfd.Filter = "Sprite|*.png";
+
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            Bitmap bmp = (Bitmap)canvasPanel.APBox.Image;
+                            bmp.Save(sfd.FileName, ImageFormat.Png);
+                        }
+                    }
                     break;
 
                 case Keys.Q:
@@ -325,7 +335,16 @@ namespace Pixel_Editor_Test_2
                 case Keys.R:
                     SelectRectangleTool();
                     break;
+
+                case Keys.O:
+                    SelectOvalTool();
+                    break;
             }
+        }
+
+        private void EditorWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            canvasPanel.PixelEditor_KeyUp(e);
         }
 
         private void colorBox2D_MouseDown(object sender, MouseEventArgs e)
@@ -352,8 +371,24 @@ namespace Pixel_Editor_Test_2
             colorBox2D.ColorHSL = colorHSL;
         }
 
+        private void canvasPanel_MouseHover(object sender, EventArgs e)
+        {
+            canvasPanel.Focus();
+        }
+
+        private void paletteButton_Click(object sender, MouseEventArgs e)
+        {
+            Panel paletteBtn = sender as Panel;
+
+            if (e.Button == MouseButtons.Left)
+                canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, paletteBtn.BackColor);
+            else if (e.Button == MouseButtons.Right)
+                canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, paletteBtn.BackColor);
+        }
+
         private void UpdatePalette()
         {
+            // sorry :-)
             palette00.BackColor = _palette[0];
             palette01.BackColor = _palette[1];
             palette02.BackColor = _palette[2];

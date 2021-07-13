@@ -1,4 +1,5 @@
 ﻿using Pixel_Editor_Test_2.Commands;
+using Pixel_Editor_Test_2.Controls;
 using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Pixel_Editor_Test_2
             EYEDROPPER,
             LINE,
             RECTANGLE,
+            OVAL
         }
 
         public Tool ActiveTool { get; private set; }
@@ -34,7 +36,10 @@ namespace Pixel_Editor_Test_2
         public List<Command> UndoHistory = new List<Command>();
         public List<Command> RedoHistory = new List<Command>();
 
-        public event EventHandler<Color> OnEyedropperChange;
+        public event EventHandler<EyeDropperEventArgs> OnEyedropperChange;
+
+        private int _activeMouseButton = -1;
+        public bool KeyShiftDown { get; set; }
 
         public Color PrimaryColor { get; set; }
         public Color SecondaryColor { get; set; }
@@ -47,7 +52,7 @@ namespace Pixel_Editor_Test_2
             get { return _zoom; }
             set
             {
-                _zoom = value;
+                _zoom = Math.Max(Math.Min(value, 32), 2);
                 Invalidate();
             }
         }
@@ -65,14 +70,12 @@ namespace Pixel_Editor_Test_2
 
         public Bitmap TgtBitmap { get; set; }
         public Point TgtMousePos { get; set; }
-        public Point LineStartPos { get; set; }
-        public Point LineEndPos { get; set; }
         public Point HandStartPos { get; set; }
         public Point HandEndPos { get; set; }
         public Point SelectionStartPos { get; set; }
         public Point SelectionEndPos { get; set; }
-        public Point RectangleStartPos { get; set; }
-        public Point RectangleEndPos { get; set; }
+        public Point ShapeStartPos { get; set; }
+        public Point ShapeEndPos { get; set; }
 
         Point lastPoint = Point.Empty;
 
@@ -134,6 +137,7 @@ namespace Pixel_Editor_Test_2
             MouseDown += PixelEditor_MouseDown;
             MouseMove += PixelEditor_MouseMove;
             MouseUp += PixelEditor_MouseUp;
+            MouseWheel += PixelEditor_MouseWheel;
             Paint += PixelEditor_Paint;
         }
 
@@ -143,8 +147,8 @@ namespace Pixel_Editor_Test_2
 
             Graphics g = e.Graphics;
 
-            int cols = (int)Math.Floor((double)ClientSize.Width / Zoom);
-            int rows = (int)Math.Floor((double)ClientSize.Height / Zoom);
+            int cols = (int)Math.Round((double)ClientSize.Width / Zoom);
+            int rows = (int)Math.Round((double)ClientSize.Height / Zoom);
 
             if (TgtMousePos.X < 0 || TgtMousePos.Y < 0) return;
 
@@ -192,15 +196,33 @@ namespace Pixel_Editor_Test_2
                                                APBox.Image.Width * Zoom,
                                                APBox.Image.Height * Zoom);
 
+                Rectangle window = new Rectangle(0, 0, Width, Height);
+
                 s.Alignment = PenAlignment.Outset;
                 p.Alignment = PenAlignment.Inset;
 
                 g.DrawRectangle(s, rect);
+                //g.DrawRectangle(p, window);
                 //g.DrawRectangle(p, rect);
             }
 
+            ControlPaint.DrawBorder(g,
+                                    ClientRectangle,
+                                    Color.Black,
+                                    2,
+                                    ButtonBorderStyle.Solid,
+                                    Color.Black,
+                                    2,
+                                    ButtonBorderStyle.Solid,
+                                    Color.Black,
+                                    2,
+                                    ButtonBorderStyle.Solid,
+                                    Color.Black,
+                                    2,
+                                    ButtonBorderStyle.Solid);
+
             PixelEditor_RenderSelectionPreview(e);
-            PixelEditor_RenderLinePreview(e);
+            PixelEditor_RenderShapePreview(e);
         }
 
         private void PixelEditor_MouseDown(object sender, MouseEventArgs e)
@@ -210,6 +232,15 @@ namespace Pixel_Editor_Test_2
 
             Point p = new Point(x, y);
 
+            if (e.Button == MouseButtons.Middle)
+                HandStartPos = e.Location;
+
+            if (e.Button == MouseButtons.Left)
+                _activeMouseButton = 0;
+            else if (e.Button == MouseButtons.Right)
+                _activeMouseButton = 1;
+            else _activeMouseButton = -1;
+
             switch (ActiveTool)
             {
                 case Tool.PENCIL:
@@ -218,11 +249,12 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Tool.LINE:
-                    LineStartPos = p;
+                    ShapeStartPos = p;
                     break;
 
                 case Tool.RECTANGLE:
-                    RectangleStartPos = p;
+                case Tool.OVAL:
+                    ShapeStartPos = p;
                     break;
 
                 case Tool.HAND:
@@ -264,6 +296,17 @@ namespace Pixel_Editor_Test_2
                 Selection.Text = $"W: {width} H: {Math.Abs(height)}";
             }
 
+            if (e.Button == MouseButtons.Middle)
+            {
+                HandEndPos = e.Location;
+
+                int diffX = HandStartPos.X - HandEndPos.X;
+                int diffY = HandStartPos.Y - HandEndPos.Y;
+
+                Viewport = Point.Add(Viewport, new Size(diffX / 4, diffY / 4));
+                HandStartPos = HandEndPos;
+            }
+
             if (e.Button != MouseButtons.Left && e.Button != MouseButtons.Right) return;
 
             switch (ActiveTool)
@@ -276,11 +319,17 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Tool.LINE:
-                    LineEndPos = p;
-                    break;
-
                 case Tool.RECTANGLE:
-                    RectangleEndPos = p;
+                case Tool.OVAL:
+                    ShapeEndPos = p;
+                    if (KeyShiftDown)
+                    {
+                        float distance = (float)Calc.Distance(ShapeStartPos, p);
+                        float distanceX = ShapeStartPos.X > p.X ? -distance : distance;
+                        float distanceY = ShapeStartPos.Y > p.Y ? -distance : distance;
+                        ShapeEndPos = new Point((int)Math.Round(ShapeStartPos.X + distanceX),
+                                                    (int)Math.Round(ShapeStartPos.Y + distanceY));
+                    }
                     break;
 
                 case Tool.SELECT:
@@ -312,6 +361,11 @@ namespace Pixel_Editor_Test_2
 
             Point p = new Point(x, y);
 
+            _activeMouseButton = -1;
+
+            if (e.Button == MouseButtons.Middle)
+                return;
+
             switch (ActiveTool)
             {
                 case Tool.PENCIL:
@@ -319,40 +373,83 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Tool.LINE:
-                    LineEndPos = p;
+                    ShapeEndPos = p;
+                    if (KeyShiftDown)
+                    {
+                        float distance = (float)Calc.Distance(ShapeStartPos, p);
+                        float distanceX = ShapeStartPos.X > p.X ? -distance : distance;
+                        float distanceY = ShapeStartPos.Y > p.Y ? -distance : distance;
+                        ShapeEndPos = new Point((int)Math.Round(ShapeStartPos.X + distanceX),
+                                                    (int)Math.Round(ShapeStartPos.Y + distanceY));
+                    }
 
                     DrawLineCommand drawLine = new DrawLineCommand(APBox);
                     drawLine.Execute(
                         (Bitmap)APBox.Image,
-                        LineStartPos,
-                        LineEndPos,
+                        ShapeStartPos,
+                        ShapeEndPos,
                         e.Button == MouseButtons.Left ? PrimaryColor : SecondaryColor
                     );
                     UndoHistory.Add(drawLine);
                     RedoHistory.Clear();
 
-                    LineStartPos = Point.Empty;
-                    LineEndPos = Point.Empty;
+                    ShapeStartPos = Point.Empty;
+                    ShapeEndPos = Point.Empty;
 
                     Invalidate();
                     break;
 
                 case Tool.RECTANGLE:
-                    RectangleEndPos = p;
+                    ShapeEndPos = p;
+                    if (KeyShiftDown)
+                    {
+                        float distance = (float)Calc.Distance(ShapeStartPos, p);
+                        float distanceX = ShapeStartPos.X > p.X ? -distance : distance;
+                        float distanceY = ShapeStartPos.Y > p.Y ? -distance : distance;
+                        ShapeEndPos = new Point((int)Math.Round(ShapeStartPos.X + distanceX),
+                                                    (int)Math.Round(ShapeStartPos.Y + distanceY));
+                    }
 
                     DrawRectangleCommand drawRect = new DrawRectangleCommand(APBox);
                     drawRect.Execute(
                         (Bitmap)APBox.Image,
-                        RectangleStartPos,
-                        RectangleEndPos,
+                        ShapeStartPos,
+                        ShapeEndPos,
                         e.Button == MouseButtons.Left ? PrimaryColor : SecondaryColor,
                         false
                     );
                     UndoHistory.Add(drawRect);
                     RedoHistory.Clear();
 
-                    RectangleStartPos = Point.Empty;
-                    RectangleEndPos = Point.Empty;
+                    ShapeStartPos = Point.Empty;
+                    ShapeEndPos = Point.Empty;
+
+                    Invalidate();
+                    break;
+
+                case Tool.OVAL:
+                    ShapeEndPos = p;
+                    if (KeyShiftDown)
+                    {
+                        float distance = (float)Calc.Distance(ShapeStartPos, p);
+                        float distanceX = ShapeStartPos.X > p.X ? -distance : distance;
+                        float distanceY = ShapeStartPos.Y > p.Y ? -distance : distance;
+                        ShapeEndPos = new Point((int)Math.Round(ShapeStartPos.X + distanceX),
+                                                    (int)Math.Round(ShapeStartPos.Y + distanceY));
+                    }
+
+                    DrawCircleCommand drawCircle = new DrawCircleCommand(APBox);
+                    drawCircle.Execute(
+                        (Bitmap)APBox.Image,
+                        ShapeStartPos,
+                        ShapeEndPos,
+                        e.Button == MouseButtons.Left ? PrimaryColor : SecondaryColor
+                    );
+                    UndoHistory.Add(drawCircle);
+                    RedoHistory.Clear();
+
+                    ShapeStartPos = Point.Empty;
+                    ShapeEndPos = Point.Empty;
 
                     Invalidate();
                     break;
@@ -366,12 +463,29 @@ namespace Pixel_Editor_Test_2
             Cursor.Current = Cursors.Default;
         }
 
+        private void PixelEditor_MouseWheel(object sender, MouseEventArgs e)
+        {
+            /*if (e.Delta > 0)
+                PixelEditor_AddToViewport(new Size(0, -1));
+            else
+                PixelEditor_AddToViewport(new Size(0, 1));*/
+
+            if (e.Delta > 0)
+                Zoom++;
+            else
+                Zoom--;
+        }
+
         public void PixelEditor_KeyDown(KeyEventArgs e)
         {
             PixelEditor_ViewportControl(e);
-
+    
             switch (e.KeyCode)
             {
+                case Keys.ShiftKey:
+                    KeyShiftDown = true;
+                    break;
+
                 case Keys.Z:
                     if (e.Control && UndoHistory.Count > 0)
                     {
@@ -436,9 +550,22 @@ namespace Pixel_Editor_Test_2
             }
         }
 
+        public void PixelEditor_KeyUp(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.ShiftKey:
+                    KeyShiftDown = false;
+                    break;
+            }
+        }
+
         private void PixelEditor_Draw(int x, int y, MouseEventArgs e)
         {
             Color drawColor = Color.Magenta;
+
+            if (e.Button == MouseButtons.Middle)
+                return;
 
             switch(ActiveTool)
             {
@@ -544,9 +671,10 @@ namespace Pixel_Editor_Test_2
         protected virtual void GetColorAt(int x, int y)
         {
             Bitmap bmp = (Bitmap)APBox.Image;
+            MouseButtons mouseButton = _activeMouseButton == 0 ? MouseButtons.Left : MouseButtons.Right;
 
-            EventHandler<Color> handler = OnEyedropperChange;
-            handler?.Invoke(this, bmp.GetPixel(x,y));
+            EventHandler<EyeDropperEventArgs> handler = OnEyedropperChange;
+            handler?.Invoke(this, new EyeDropperEventArgs(bmp.GetPixel(x,y), mouseButton));
         }
 
         private void PixelEditor_ViewportControl(KeyEventArgs e)
@@ -562,13 +690,18 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Keys.Up:
-                    Viewport = Point.Add(Viewport, new Size(0, 1));
+                    Viewport = Point.Add(Viewport, new Size(0, -1));
                     break;
 
                 case Keys.Down:
-                    Viewport = Point.Add(Viewport, new Size(0, -1));
+                    Viewport = Point.Add(Viewport, new Size(0, 1));
                     break;
             }
+        }
+
+        public void PixelEditor_AddToViewport(Size direction)
+        {
+            Viewport = Point.Add(Viewport, direction);
         }
 
         public void PixelEditor_SetTool(Tool tool)
@@ -581,51 +714,78 @@ namespace Pixel_Editor_Test_2
 
         private void PixelEditor_RenderSelectionPreview(PaintEventArgs e)
         {
-            int width = Math.Abs(SelectionStartPos.X - SelectionEndPos.X);
-            int height = Math.Abs(SelectionStartPos.Y - SelectionEndPos.Y);
+            Point startPos = SelectionStartPos;
+            Point endPos = SelectionEndPos;
+
+            int width = Math.Abs(startPos.X - endPos.X);
+            int height = Math.Abs(startPos.Y - endPos.Y);
 
             if (width > 0 && height > 0)
             {
+                Rectangle rect = new Rectangle((int)Math.Round((double)Math.Min(startPos.X, endPos.X) * Zoom - (Viewport.X * Zoom)),
+                                               (int)Math.Round((double)Math.Min(startPos.Y, endPos.Y) * Zoom - (Viewport.Y * Zoom)),
+                                               (int)Math.Round((double)width * Zoom),
+                                               (int)Math.Round((double)height * Zoom));
+
                 using (Pen pen = new Pen(Color.DimGray, 1F))
                 {
-                    e.Graphics.DrawRectangle(pen, new Rectangle(
-                        (int)Math.Round((double)Math.Min(SelectionStartPos.X, SelectionEndPos.X) * Zoom - (Viewport.X * Zoom)),
-                        (int)Math.Round((double)Math.Min(SelectionStartPos.Y, SelectionEndPos.Y) * Zoom - (Viewport.Y * Zoom)),
-                        (int)Math.Round((double)width * Zoom),
-                        (int)Math.Round((double)height * Zoom)
-                    ));
+                    e.Graphics.DrawRectangle(pen, rect);
                 }
                 using (Pen pen = new Pen(Color.White, 1F))
                 {
                     pen.DashPattern = new float[] { 5, 5 };
-                    e.Graphics.DrawRectangle(pen, new Rectangle(
-                        (int)Math.Round((double)Math.Min(SelectionStartPos.X, SelectionEndPos.X) * Zoom - (Viewport.X * Zoom)),
-                        (int)Math.Round((double)Math.Min(SelectionStartPos.Y, SelectionEndPos.Y) * Zoom - (Viewport.Y * Zoom)),
-                        (int)Math.Round((double)width * Zoom),
-                        (int)Math.Round((double)height * Zoom)
-                    ));
+                    e.Graphics.DrawRectangle(pen, rect);
                 }
             }
         }
 
-        private void PixelEditor_RenderLinePreview(PaintEventArgs e)
+        private void PixelEditor_RenderShapePreview(PaintEventArgs e)
         {
-            if (LineStartPos == Point.Empty || LineEndPos == Point.Empty)
-                return;
+            List<Point> pixels = new List<Point>();
 
-            List<Point> pixels = BresenhamLine.Line(LineStartPos, LineEndPos);
+            switch (ActiveTool)
+            {
+                case Tool.LINE:
+                    pixels.AddRange(Bresenham.Line(ShapeStartPos, ShapeEndPos));
+                    break;
+
+                case Tool.RECTANGLE:
+                    pixels.AddRange(Bresenham.Rectangle(ShapeStartPos, ShapeEndPos));
+                    break;
+
+                case Tool.OVAL:
+                    pixels.AddRange(Bresenham.Ellipse(ShapeStartPos, ShapeEndPos));
+                    break;
+
+                default:
+                    break;
+            }
+
+            Color drawColor = Color.Transparent;
+
+            if (_activeMouseButton == 0)
+                drawColor = PrimaryColor;
+            else if (_activeMouseButton == 1)
+                drawColor = SecondaryColor;
 
             foreach (Point pixel in pixels)
             {
-                using (Pen pen = new Pen(Color.White, 1F))
+                using (SolidBrush b = new SolidBrush(drawColor))
                 {
-                    e.Graphics.DrawRectangle(pen,
-                                             new Rectangle(pixel.X * Zoom - (Viewport.X * Zoom),
-                                                           pixel.Y * Zoom - (Viewport.Y * Zoom),
-                                                           Zoom,
-                                                           Zoom));
+                    Rectangle rect = new Rectangle(pixel.X * Zoom - (Viewport.X * Zoom),
+                                                   pixel.Y * Zoom - (Viewport.Y * Zoom),
+                                                   Zoom,
+                                                   Zoom);
+                    e.Graphics.FillRectangle(b, rect);
                 }
             }
+        }
+
+        private void ResetAllPoints()
+        {
+            ShapeStartPos = ShapeEndPos = Point.Empty;
+            ShapeStartPos = ShapeEndPos = Point.Empty;
+            SelectionStartPos = SelectionEndPos = Point.Empty;
         }
     }
 }

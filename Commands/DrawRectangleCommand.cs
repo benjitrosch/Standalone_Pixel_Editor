@@ -34,21 +34,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             } else if (!filled)
             {
-                List<Point> line1 = BresenhamLine.Line(startPos, new Point(endPos.X, startPos.Y));
-                List<Point> line2 = BresenhamLine.Line(new Point(endPos.X, startPos.Y), endPos);
-                List<Point> line3 = BresenhamLine.Line(endPos, new Point(startPos.X, endPos.Y));
-                List<Point> line4 = BresenhamLine.Line(new Point(startPos.X, endPos.Y), startPos);
-
-                List<Point> pixels = new List<Point>(line1.Count + line2.Count + line3.Count + line4.Count);
-                pixels.AddRange(line1);
-                pixels.AddRange(line2);
-                pixels.AddRange(line3);
-                pixels.AddRange(line4);
-
-                pixels = pixels.Distinct().ToList();
-
-                if (pixels.Count < 1)
-                    return;
+                List<Point> pixels = Bresenham.Rectangle(startPos, endPos);
 
                 foreach (Point pixel in pixels)
                 {

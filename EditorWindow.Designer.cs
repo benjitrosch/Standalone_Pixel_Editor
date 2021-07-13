@@ -30,12 +30,9 @@ namespace Pixel_Editor_Test_2
         private void InitializeComponent()
         {
             this.zoomCanvas = new System.Windows.Forms.TrackBar();
-            this.buttonPencilTool = new System.Windows.Forms.Button();
-            this.buttonEraserTool = new System.Windows.Forms.Button();
-            this.buttonSelectTool = new System.Windows.Forms.Button();
-            this.buttonFillTool = new System.Windows.Forms.Button();
-            this.buttonHandTool = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.buttonOvalTool = new System.Windows.Forms.Button();
             this.panel35 = new System.Windows.Forms.Panel();
             this.buttonRectangleTool = new System.Windows.Forms.Button();
             this.panel34 = new System.Windows.Forms.Panel();
@@ -43,13 +40,17 @@ namespace Pixel_Editor_Test_2
             this.panel33 = new System.Windows.Forms.Panel();
             this.buttonLineTool = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
+            this.buttonHandTool = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.buttonFillTool = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.buttonPencilTool = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.buttonEraserTool = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.buttonSelectTool = new System.Windows.Forms.Button();
             this.buttonSwitchColors = new System.Windows.Forms.Button();
             this.checkboxToggleGrid = new System.Windows.Forms.CheckBox();
-            this.buttonEyedropper = new System.Windows.Forms.Button();
             this.primaryColorContainer = new System.Windows.Forms.Panel();
             this.buttonPrimaryColor = new System.Windows.Forms.Button();
             this.buttonSavePrimaryColor = new System.Windows.Forms.Button();
@@ -57,6 +58,10 @@ namespace Pixel_Editor_Test_2
             this.buttonSecondaryColor = new System.Windows.Forms.Button();
             this.buttonSaveSeconaryColor = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.colorSlider = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
+            this.colorBox2D = new Pixel_Editor_Test_2.ColorBox2D();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel95 = new System.Windows.Forms.Panel();
             this.palette63 = new System.Windows.Forms.Panel();
@@ -133,7 +138,6 @@ namespace Pixel_Editor_Test_2
             this.palette02 = new System.Windows.Forms.Panel();
             this.palette01 = new System.Windows.Forms.Panel();
             this.palette00 = new System.Windows.Forms.Panel();
-            this.panel28 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -163,6 +167,11 @@ namespace Pixel_Editor_Test_2
             this.panel19 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.canvasPanel = new Pixel_Editor_Test_2.PixelEditor();
+            this.srcImage = new System.Windows.Forms.PictureBox();
+            this.previewContainer = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.selectionLabel = new System.Windows.Forms.Label();
@@ -178,19 +187,12 @@ namespace Pixel_Editor_Test_2
             this.buttonExit = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.canvasPanel = new Pixel_Editor_Test_2.PixelEditor();
-            this.srcImage = new System.Windows.Forms.PictureBox();
-            this.previewContainer = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.colorSlider = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
-            this.colorBox2D = new Pixel_Editor_Test_2.ColorBox2D();
-            this.panel36 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.zoomCanvas)).BeginInit();
             this.panel10.SuspendLayout();
             this.primaryColorContainer.SuspendLayout();
             this.secondaryColorContainer.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel36.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel95.SuspendLayout();
             this.panel88.SuspendLayout();
@@ -204,20 +206,18 @@ namespace Pixel_Editor_Test_2
             this.panel32.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.canvasPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.srcImage)).BeginInit();
+            this.previewContainer.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.canvasPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.srcImage)).BeginInit();
-            this.previewContainer.SuspendLayout();
-            this.panel36.SuspendLayout();
             this.SuspendLayout();
             // 
             // zoomCanvas
@@ -236,84 +236,11 @@ namespace Pixel_Editor_Test_2
             this.zoomCanvas.Value = 4;
             this.zoomCanvas.ValueChanged += new System.EventHandler(this.zoomBar_ValueChanged);
             // 
-            // buttonPencilTool
-            // 
-            this.buttonPencilTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.buttonPencilTool.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonPencilTool.FlatAppearance.BorderSize = 0;
-            this.buttonPencilTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPencilTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonPencilTool.Location = new System.Drawing.Point(8, 96);
-            this.buttonPencilTool.Name = "buttonPencilTool";
-            this.buttonPencilTool.Size = new System.Drawing.Size(32, 32);
-            this.buttonPencilTool.TabIndex = 9;
-            this.buttonPencilTool.Text = "P";
-            this.buttonPencilTool.UseVisualStyleBackColor = false;
-            this.buttonPencilTool.Click += new System.EventHandler(this.buttonPencilTool_Click);
-            // 
-            // buttonEraserTool
-            // 
-            this.buttonEraserTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.buttonEraserTool.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEraserTool.FlatAppearance.BorderSize = 0;
-            this.buttonEraserTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEraserTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonEraserTool.Location = new System.Drawing.Point(8, 56);
-            this.buttonEraserTool.Name = "buttonEraserTool";
-            this.buttonEraserTool.Size = new System.Drawing.Size(32, 32);
-            this.buttonEraserTool.TabIndex = 10;
-            this.buttonEraserTool.Text = "E";
-            this.buttonEraserTool.UseVisualStyleBackColor = false;
-            this.buttonEraserTool.Click += new System.EventHandler(this.buttonEraserTool_Click);
-            // 
-            // buttonSelectTool
-            // 
-            this.buttonSelectTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.buttonSelectTool.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSelectTool.FlatAppearance.BorderSize = 0;
-            this.buttonSelectTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonSelectTool.Location = new System.Drawing.Point(8, 16);
-            this.buttonSelectTool.Name = "buttonSelectTool";
-            this.buttonSelectTool.Size = new System.Drawing.Size(32, 32);
-            this.buttonSelectTool.TabIndex = 11;
-            this.buttonSelectTool.Text = "S";
-            this.buttonSelectTool.UseVisualStyleBackColor = false;
-            this.buttonSelectTool.Click += new System.EventHandler(this.buttonSelectTool_Click);
-            // 
-            // buttonFillTool
-            // 
-            this.buttonFillTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.buttonFillTool.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFillTool.FlatAppearance.BorderSize = 0;
-            this.buttonFillTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFillTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonFillTool.Location = new System.Drawing.Point(8, 136);
-            this.buttonFillTool.Name = "buttonFillTool";
-            this.buttonFillTool.Size = new System.Drawing.Size(32, 32);
-            this.buttonFillTool.TabIndex = 12;
-            this.buttonFillTool.Text = "F";
-            this.buttonFillTool.UseVisualStyleBackColor = false;
-            this.buttonFillTool.Click += new System.EventHandler(this.buttonFillTool_Click);
-            // 
-            // buttonHandTool
-            // 
-            this.buttonHandTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.buttonHandTool.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonHandTool.FlatAppearance.BorderSize = 0;
-            this.buttonHandTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHandTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonHandTool.Location = new System.Drawing.Point(8, 176);
-            this.buttonHandTool.Name = "buttonHandTool";
-            this.buttonHandTool.Size = new System.Drawing.Size(32, 32);
-            this.buttonHandTool.TabIndex = 13;
-            this.buttonHandTool.Text = "H";
-            this.buttonHandTool.UseVisualStyleBackColor = false;
-            this.buttonHandTool.Click += new System.EventHandler(this.buttonHandTool_Click);
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel10.Controls.Add(this.panel7);
+            this.panel10.Controls.Add(this.buttonOvalTool);
             this.panel10.Controls.Add(this.panel35);
             this.panel10.Controls.Add(this.buttonRectangleTool);
             this.panel10.Controls.Add(this.panel34);
@@ -331,14 +258,38 @@ namespace Pixel_Editor_Test_2
             this.panel10.Controls.Add(this.panel25);
             this.panel10.Controls.Add(this.buttonSelectTool);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(1232, 34);
+            this.panel10.Location = new System.Drawing.Point(1232, 32);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(8, 16, 8, 8);
-            this.panel10.Size = new System.Drawing.Size(48, 682);
+            this.panel10.Size = new System.Drawing.Size(48, 684);
             this.panel10.TabIndex = 21;
             this.panel10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
             this.panel10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
             this.panel10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(8, 368);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(32, 8);
+            this.panel7.TabIndex = 26;
+            // 
+            // buttonOvalTool
+            // 
+            this.buttonOvalTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonOvalTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonOvalTool.FlatAppearance.BorderSize = 0;
+            this.buttonOvalTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOvalTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonOvalTool.Location = new System.Drawing.Point(8, 336);
+            this.buttonOvalTool.Name = "buttonOvalTool";
+            this.buttonOvalTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonOvalTool.TabIndex = 25;
+            this.buttonOvalTool.Text = "O";
+            this.buttonOvalTool.UseVisualStyleBackColor = false;
+            this.buttonOvalTool.Click += new System.EventHandler(this.buttonOvalTool_Click);
             // 
             // panel35
             // 
@@ -421,6 +372,21 @@ namespace Pixel_Editor_Test_2
             this.panel26.Size = new System.Drawing.Size(32, 8);
             this.panel26.TabIndex = 18;
             // 
+            // buttonHandTool
+            // 
+            this.buttonHandTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonHandTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonHandTool.FlatAppearance.BorderSize = 0;
+            this.buttonHandTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHandTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonHandTool.Location = new System.Drawing.Point(8, 176);
+            this.buttonHandTool.Name = "buttonHandTool";
+            this.buttonHandTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonHandTool.TabIndex = 13;
+            this.buttonHandTool.Text = "H";
+            this.buttonHandTool.UseVisualStyleBackColor = false;
+            this.buttonHandTool.Click += new System.EventHandler(this.buttonHandTool_Click);
+            // 
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
@@ -429,6 +395,21 @@ namespace Pixel_Editor_Test_2
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(32, 8);
             this.panel22.TabIndex = 14;
+            // 
+            // buttonFillTool
+            // 
+            this.buttonFillTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonFillTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonFillTool.FlatAppearance.BorderSize = 0;
+            this.buttonFillTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFillTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonFillTool.Location = new System.Drawing.Point(8, 136);
+            this.buttonFillTool.Name = "buttonFillTool";
+            this.buttonFillTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonFillTool.TabIndex = 12;
+            this.buttonFillTool.Text = "F";
+            this.buttonFillTool.UseVisualStyleBackColor = false;
+            this.buttonFillTool.Click += new System.EventHandler(this.buttonFillTool_Click);
             // 
             // panel23
             // 
@@ -439,6 +420,21 @@ namespace Pixel_Editor_Test_2
             this.panel23.Size = new System.Drawing.Size(32, 8);
             this.panel23.TabIndex = 15;
             // 
+            // buttonPencilTool
+            // 
+            this.buttonPencilTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonPencilTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonPencilTool.FlatAppearance.BorderSize = 0;
+            this.buttonPencilTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPencilTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonPencilTool.Location = new System.Drawing.Point(8, 96);
+            this.buttonPencilTool.Name = "buttonPencilTool";
+            this.buttonPencilTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonPencilTool.TabIndex = 9;
+            this.buttonPencilTool.Text = "P";
+            this.buttonPencilTool.UseVisualStyleBackColor = false;
+            this.buttonPencilTool.Click += new System.EventHandler(this.buttonPencilTool_Click);
+            // 
             // panel24
             // 
             this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
@@ -448,6 +444,21 @@ namespace Pixel_Editor_Test_2
             this.panel24.Size = new System.Drawing.Size(32, 8);
             this.panel24.TabIndex = 16;
             // 
+            // buttonEraserTool
+            // 
+            this.buttonEraserTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonEraserTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEraserTool.FlatAppearance.BorderSize = 0;
+            this.buttonEraserTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEraserTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonEraserTool.Location = new System.Drawing.Point(8, 56);
+            this.buttonEraserTool.Name = "buttonEraserTool";
+            this.buttonEraserTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonEraserTool.TabIndex = 10;
+            this.buttonEraserTool.Text = "E";
+            this.buttonEraserTool.UseVisualStyleBackColor = false;
+            this.buttonEraserTool.Click += new System.EventHandler(this.buttonEraserTool_Click);
+            // 
             // panel25
             // 
             this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
@@ -456,6 +467,21 @@ namespace Pixel_Editor_Test_2
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(32, 8);
             this.panel25.TabIndex = 17;
+            // 
+            // buttonSelectTool
+            // 
+            this.buttonSelectTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonSelectTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSelectTool.FlatAppearance.BorderSize = 0;
+            this.buttonSelectTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSelectTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonSelectTool.Location = new System.Drawing.Point(8, 16);
+            this.buttonSelectTool.Name = "buttonSelectTool";
+            this.buttonSelectTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonSelectTool.TabIndex = 11;
+            this.buttonSelectTool.Text = "S";
+            this.buttonSelectTool.UseVisualStyleBackColor = false;
+            this.buttonSelectTool.Click += new System.EventHandler(this.buttonSelectTool_Click);
             // 
             // buttonSwitchColors
             // 
@@ -484,19 +510,6 @@ namespace Pixel_Editor_Test_2
             this.checkboxToggleGrid.Text = "Grid";
             this.checkboxToggleGrid.UseVisualStyleBackColor = true;
             this.checkboxToggleGrid.CheckStateChanged += new System.EventHandler(this.checkboxToggleGrid_CheckStateChanged);
-            // 
-            // buttonEyedropper
-            // 
-            this.buttonEyedropper.BackColor = System.Drawing.Color.Yellow;
-            this.buttonEyedropper.FlatAppearance.BorderSize = 0;
-            this.buttonEyedropper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEyedropper.ForeColor = System.Drawing.Color.White;
-            this.buttonEyedropper.Location = new System.Drawing.Point(48, 24);
-            this.buttonEyedropper.Name = "buttonEyedropper";
-            this.buttonEyedropper.Size = new System.Drawing.Size(216, 96);
-            this.buttonEyedropper.TabIndex = 18;
-            this.buttonEyedropper.UseVisualStyleBackColor = false;
-            this.buttonEyedropper.Click += new System.EventHandler(this.buttonEyedropper_Click);
             // 
             // primaryColorContainer
             // 
@@ -587,14 +600,58 @@ namespace Pixel_Editor_Test_2
             this.panel4.Controls.Add(this.panel13);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 34);
+            this.panel4.Location = new System.Drawing.Point(0, 32);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(16);
-            this.panel4.Size = new System.Drawing.Size(248, 682);
+            this.panel4.Size = new System.Drawing.Size(248, 684);
             this.panel4.TabIndex = 0;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
             this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
+            // 
+            // panel28
+            // 
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel28.Location = new System.Drawing.Point(16, 403);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(216, 16);
+            this.panel28.TabIndex = 24;
+            // 
+            // panel36
+            // 
+            this.panel36.Controls.Add(this.colorSlider);
+            this.panel36.Controls.Add(this.colorBox2D);
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel36.Location = new System.Drawing.Point(16, 419);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(216, 121);
+            this.panel36.TabIndex = 2;
+            // 
+            // colorSlider
+            // 
+            this.colorSlider.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
+            this.colorSlider.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorSlider.Dock = System.Windows.Forms.DockStyle.Left;
+            this.colorSlider.Location = new System.Drawing.Point(180, 0);
+            this.colorSlider.Margin = new System.Windows.Forms.Padding(0);
+            this.colorSlider.Name = "colorSlider";
+            this.colorSlider.NubColor = System.Drawing.Color.Empty;
+            this.colorSlider.Position = 0;
+            this.colorSlider.Size = new System.Drawing.Size(48, 121);
+            this.colorSlider.TabIndex = 1;
+            this.colorSlider.ColorChanged += new Pixel_Editor_Test_2.Controls.ColorSliderVertical.ColorChangedEventHandler(this.colorSlider_ColorChanged);
+            // 
+            // colorBox2D
+            // 
+            this.colorBox2D.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
+            this.colorBox2D.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorBox2D.Dock = System.Windows.Forms.DockStyle.Left;
+            this.colorBox2D.Location = new System.Drawing.Point(0, 0);
+            this.colorBox2D.Name = "colorBox2D";
+            this.colorBox2D.Size = new System.Drawing.Size(180, 121);
+            this.colorBox2D.TabIndex = 0;
+            this.colorBox2D.MouseDown += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseDown);
+            this.colorBox2D.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseMove);
             // 
             // panel29
             // 
@@ -615,6 +672,9 @@ namespace Pixel_Editor_Test_2
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(216, 398);
             this.panel29.TabIndex = 0;
+            this.panel29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
+            this.panel29.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
+            this.panel29.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
             // 
             // panel95
             // 
@@ -635,6 +695,7 @@ namespace Pixel_Editor_Test_2
             this.palette63.Name = "palette63";
             this.palette63.Size = new System.Drawing.Size(36, 36);
             this.palette63.TabIndex = 3;
+            this.palette63.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette62
             // 
@@ -643,6 +704,7 @@ namespace Pixel_Editor_Test_2
             this.palette62.Name = "palette62";
             this.palette62.Size = new System.Drawing.Size(36, 36);
             this.palette62.TabIndex = 2;
+            this.palette62.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette61
             // 
@@ -651,6 +713,7 @@ namespace Pixel_Editor_Test_2
             this.palette61.Name = "palette61";
             this.palette61.Size = new System.Drawing.Size(36, 36);
             this.palette61.TabIndex = 1;
+            this.palette61.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette60
             // 
@@ -659,6 +722,7 @@ namespace Pixel_Editor_Test_2
             this.palette60.Name = "palette60";
             this.palette60.Size = new System.Drawing.Size(36, 36);
             this.palette60.TabIndex = 0;
+            this.palette60.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel88
             // 
@@ -681,6 +745,7 @@ namespace Pixel_Editor_Test_2
             this.palette59.Name = "palette59";
             this.palette59.Size = new System.Drawing.Size(36, 36);
             this.palette59.TabIndex = 5;
+            this.palette59.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette58
             // 
@@ -689,6 +754,7 @@ namespace Pixel_Editor_Test_2
             this.palette58.Name = "palette58";
             this.palette58.Size = new System.Drawing.Size(36, 36);
             this.palette58.TabIndex = 4;
+            this.palette58.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette57
             // 
@@ -697,6 +763,7 @@ namespace Pixel_Editor_Test_2
             this.palette57.Name = "palette57";
             this.palette57.Size = new System.Drawing.Size(36, 36);
             this.palette57.TabIndex = 3;
+            this.palette57.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette56
             // 
@@ -705,6 +772,7 @@ namespace Pixel_Editor_Test_2
             this.palette56.Name = "palette56";
             this.palette56.Size = new System.Drawing.Size(36, 36);
             this.palette56.TabIndex = 2;
+            this.palette56.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette55
             // 
@@ -713,6 +781,7 @@ namespace Pixel_Editor_Test_2
             this.palette55.Name = "palette55";
             this.palette55.Size = new System.Drawing.Size(36, 36);
             this.palette55.TabIndex = 1;
+            this.palette55.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette54
             // 
@@ -721,6 +790,7 @@ namespace Pixel_Editor_Test_2
             this.palette54.Name = "palette54";
             this.palette54.Size = new System.Drawing.Size(36, 36);
             this.palette54.TabIndex = 0;
+            this.palette54.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel81
             // 
@@ -743,6 +813,7 @@ namespace Pixel_Editor_Test_2
             this.palette53.Name = "palette53";
             this.palette53.Size = new System.Drawing.Size(36, 36);
             this.palette53.TabIndex = 5;
+            this.palette53.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette52
             // 
@@ -751,6 +822,7 @@ namespace Pixel_Editor_Test_2
             this.palette52.Name = "palette52";
             this.palette52.Size = new System.Drawing.Size(36, 36);
             this.palette52.TabIndex = 4;
+            this.palette52.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette51
             // 
@@ -759,6 +831,7 @@ namespace Pixel_Editor_Test_2
             this.palette51.Name = "palette51";
             this.palette51.Size = new System.Drawing.Size(36, 36);
             this.palette51.TabIndex = 3;
+            this.palette51.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette50
             // 
@@ -767,6 +840,7 @@ namespace Pixel_Editor_Test_2
             this.palette50.Name = "palette50";
             this.palette50.Size = new System.Drawing.Size(36, 36);
             this.palette50.TabIndex = 2;
+            this.palette50.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette49
             // 
@@ -775,6 +849,7 @@ namespace Pixel_Editor_Test_2
             this.palette49.Name = "palette49";
             this.palette49.Size = new System.Drawing.Size(36, 36);
             this.palette49.TabIndex = 1;
+            this.palette49.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette48
             // 
@@ -783,6 +858,7 @@ namespace Pixel_Editor_Test_2
             this.palette48.Name = "palette48";
             this.palette48.Size = new System.Drawing.Size(36, 36);
             this.palette48.TabIndex = 0;
+            this.palette48.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel74
             // 
@@ -805,6 +881,7 @@ namespace Pixel_Editor_Test_2
             this.palette47.Name = "palette47";
             this.palette47.Size = new System.Drawing.Size(36, 36);
             this.palette47.TabIndex = 5;
+            this.palette47.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette46
             // 
@@ -813,6 +890,7 @@ namespace Pixel_Editor_Test_2
             this.palette46.Name = "palette46";
             this.palette46.Size = new System.Drawing.Size(36, 36);
             this.palette46.TabIndex = 4;
+            this.palette46.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette45
             // 
@@ -821,6 +899,7 @@ namespace Pixel_Editor_Test_2
             this.palette45.Name = "palette45";
             this.palette45.Size = new System.Drawing.Size(36, 36);
             this.palette45.TabIndex = 3;
+            this.palette45.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette44
             // 
@@ -829,6 +908,7 @@ namespace Pixel_Editor_Test_2
             this.palette44.Name = "palette44";
             this.palette44.Size = new System.Drawing.Size(36, 36);
             this.palette44.TabIndex = 2;
+            this.palette44.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette43
             // 
@@ -837,6 +917,7 @@ namespace Pixel_Editor_Test_2
             this.palette43.Name = "palette43";
             this.palette43.Size = new System.Drawing.Size(36, 36);
             this.palette43.TabIndex = 1;
+            this.palette43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette42
             // 
@@ -845,6 +926,7 @@ namespace Pixel_Editor_Test_2
             this.palette42.Name = "palette42";
             this.palette42.Size = new System.Drawing.Size(36, 36);
             this.palette42.TabIndex = 0;
+            this.palette42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel67
             // 
@@ -867,6 +949,7 @@ namespace Pixel_Editor_Test_2
             this.palette41.Name = "palette41";
             this.palette41.Size = new System.Drawing.Size(36, 36);
             this.palette41.TabIndex = 5;
+            this.palette41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette40
             // 
@@ -875,6 +958,7 @@ namespace Pixel_Editor_Test_2
             this.palette40.Name = "palette40";
             this.palette40.Size = new System.Drawing.Size(36, 36);
             this.palette40.TabIndex = 4;
+            this.palette40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette39
             // 
@@ -883,6 +967,7 @@ namespace Pixel_Editor_Test_2
             this.palette39.Name = "palette39";
             this.palette39.Size = new System.Drawing.Size(36, 36);
             this.palette39.TabIndex = 3;
+            this.palette39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette38
             // 
@@ -891,6 +976,7 @@ namespace Pixel_Editor_Test_2
             this.palette38.Name = "palette38";
             this.palette38.Size = new System.Drawing.Size(36, 36);
             this.palette38.TabIndex = 2;
+            this.palette38.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette37
             // 
@@ -899,6 +985,7 @@ namespace Pixel_Editor_Test_2
             this.palette37.Name = "palette37";
             this.palette37.Size = new System.Drawing.Size(36, 36);
             this.palette37.TabIndex = 1;
+            this.palette37.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette36
             // 
@@ -907,6 +994,7 @@ namespace Pixel_Editor_Test_2
             this.palette36.Name = "palette36";
             this.palette36.Size = new System.Drawing.Size(36, 36);
             this.palette36.TabIndex = 0;
+            this.palette36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel60
             // 
@@ -929,6 +1017,7 @@ namespace Pixel_Editor_Test_2
             this.palette35.Name = "palette35";
             this.palette35.Size = new System.Drawing.Size(36, 36);
             this.palette35.TabIndex = 5;
+            this.palette35.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette34
             // 
@@ -937,6 +1026,7 @@ namespace Pixel_Editor_Test_2
             this.palette34.Name = "palette34";
             this.palette34.Size = new System.Drawing.Size(36, 36);
             this.palette34.TabIndex = 4;
+            this.palette34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette33
             // 
@@ -945,6 +1035,7 @@ namespace Pixel_Editor_Test_2
             this.palette33.Name = "palette33";
             this.palette33.Size = new System.Drawing.Size(36, 36);
             this.palette33.TabIndex = 3;
+            this.palette33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette32
             // 
@@ -953,6 +1044,7 @@ namespace Pixel_Editor_Test_2
             this.palette32.Name = "palette32";
             this.palette32.Size = new System.Drawing.Size(36, 36);
             this.palette32.TabIndex = 2;
+            this.palette32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette31
             // 
@@ -961,6 +1053,7 @@ namespace Pixel_Editor_Test_2
             this.palette31.Name = "palette31";
             this.palette31.Size = new System.Drawing.Size(36, 36);
             this.palette31.TabIndex = 1;
+            this.palette31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette30
             // 
@@ -969,6 +1062,7 @@ namespace Pixel_Editor_Test_2
             this.palette30.Name = "palette30";
             this.palette30.Size = new System.Drawing.Size(36, 36);
             this.palette30.TabIndex = 0;
+            this.palette30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel53
             // 
@@ -991,6 +1085,7 @@ namespace Pixel_Editor_Test_2
             this.palette29.Name = "palette29";
             this.palette29.Size = new System.Drawing.Size(36, 36);
             this.palette29.TabIndex = 5;
+            this.palette29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette28
             // 
@@ -999,6 +1094,7 @@ namespace Pixel_Editor_Test_2
             this.palette28.Name = "palette28";
             this.palette28.Size = new System.Drawing.Size(36, 36);
             this.palette28.TabIndex = 4;
+            this.palette28.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette27
             // 
@@ -1007,6 +1103,7 @@ namespace Pixel_Editor_Test_2
             this.palette27.Name = "palette27";
             this.palette27.Size = new System.Drawing.Size(36, 36);
             this.palette27.TabIndex = 3;
+            this.palette27.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette26
             // 
@@ -1015,6 +1112,7 @@ namespace Pixel_Editor_Test_2
             this.palette26.Name = "palette26";
             this.palette26.Size = new System.Drawing.Size(36, 36);
             this.palette26.TabIndex = 2;
+            this.palette26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette25
             // 
@@ -1023,6 +1121,7 @@ namespace Pixel_Editor_Test_2
             this.palette25.Name = "palette25";
             this.palette25.Size = new System.Drawing.Size(36, 36);
             this.palette25.TabIndex = 1;
+            this.palette25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette24
             // 
@@ -1031,6 +1130,7 @@ namespace Pixel_Editor_Test_2
             this.palette24.Name = "palette24";
             this.palette24.Size = new System.Drawing.Size(36, 36);
             this.palette24.TabIndex = 0;
+            this.palette24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel46
             // 
@@ -1053,6 +1153,7 @@ namespace Pixel_Editor_Test_2
             this.palette23.Name = "palette23";
             this.palette23.Size = new System.Drawing.Size(36, 36);
             this.palette23.TabIndex = 5;
+            this.palette23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette22
             // 
@@ -1061,6 +1162,7 @@ namespace Pixel_Editor_Test_2
             this.palette22.Name = "palette22";
             this.palette22.Size = new System.Drawing.Size(36, 36);
             this.palette22.TabIndex = 4;
+            this.palette22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette21
             // 
@@ -1069,6 +1171,7 @@ namespace Pixel_Editor_Test_2
             this.palette21.Name = "palette21";
             this.palette21.Size = new System.Drawing.Size(36, 36);
             this.palette21.TabIndex = 3;
+            this.palette21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette20
             // 
@@ -1077,6 +1180,7 @@ namespace Pixel_Editor_Test_2
             this.palette20.Name = "palette20";
             this.palette20.Size = new System.Drawing.Size(36, 36);
             this.palette20.TabIndex = 2;
+            this.palette20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette19
             // 
@@ -1085,6 +1189,7 @@ namespace Pixel_Editor_Test_2
             this.palette19.Name = "palette19";
             this.palette19.Size = new System.Drawing.Size(36, 36);
             this.palette19.TabIndex = 1;
+            this.palette19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette18
             // 
@@ -1093,6 +1198,7 @@ namespace Pixel_Editor_Test_2
             this.palette18.Name = "palette18";
             this.palette18.Size = new System.Drawing.Size(36, 36);
             this.palette18.TabIndex = 0;
+            this.palette18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel39
             // 
@@ -1115,6 +1221,7 @@ namespace Pixel_Editor_Test_2
             this.palette17.Name = "palette17";
             this.palette17.Size = new System.Drawing.Size(36, 36);
             this.palette17.TabIndex = 5;
+            this.palette17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette16
             // 
@@ -1123,6 +1230,7 @@ namespace Pixel_Editor_Test_2
             this.palette16.Name = "palette16";
             this.palette16.Size = new System.Drawing.Size(36, 36);
             this.palette16.TabIndex = 4;
+            this.palette16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette15
             // 
@@ -1131,6 +1239,7 @@ namespace Pixel_Editor_Test_2
             this.palette15.Name = "palette15";
             this.palette15.Size = new System.Drawing.Size(36, 36);
             this.palette15.TabIndex = 3;
+            this.palette15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette14
             // 
@@ -1139,6 +1248,7 @@ namespace Pixel_Editor_Test_2
             this.palette14.Name = "palette14";
             this.palette14.Size = new System.Drawing.Size(36, 36);
             this.palette14.TabIndex = 2;
+            this.palette14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette13
             // 
@@ -1147,6 +1257,7 @@ namespace Pixel_Editor_Test_2
             this.palette13.Name = "palette13";
             this.palette13.Size = new System.Drawing.Size(36, 36);
             this.palette13.TabIndex = 1;
+            this.palette13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette12
             // 
@@ -1155,6 +1266,7 @@ namespace Pixel_Editor_Test_2
             this.palette12.Name = "palette12";
             this.palette12.Size = new System.Drawing.Size(36, 36);
             this.palette12.TabIndex = 0;
+            this.palette12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel32
             // 
@@ -1177,6 +1289,7 @@ namespace Pixel_Editor_Test_2
             this.palette11.Name = "palette11";
             this.palette11.Size = new System.Drawing.Size(36, 36);
             this.palette11.TabIndex = 5;
+            this.palette11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette10
             // 
@@ -1185,6 +1298,7 @@ namespace Pixel_Editor_Test_2
             this.palette10.Name = "palette10";
             this.palette10.Size = new System.Drawing.Size(36, 36);
             this.palette10.TabIndex = 4;
+            this.palette10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette09
             // 
@@ -1193,6 +1307,7 @@ namespace Pixel_Editor_Test_2
             this.palette09.Name = "palette09";
             this.palette09.Size = new System.Drawing.Size(36, 36);
             this.palette09.TabIndex = 3;
+            this.palette09.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette08
             // 
@@ -1201,6 +1316,7 @@ namespace Pixel_Editor_Test_2
             this.palette08.Name = "palette08";
             this.palette08.Size = new System.Drawing.Size(36, 36);
             this.palette08.TabIndex = 2;
+            this.palette08.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette07
             // 
@@ -1209,6 +1325,7 @@ namespace Pixel_Editor_Test_2
             this.palette07.Name = "palette07";
             this.palette07.Size = new System.Drawing.Size(36, 36);
             this.palette07.TabIndex = 1;
+            this.palette07.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette06
             // 
@@ -1217,6 +1334,7 @@ namespace Pixel_Editor_Test_2
             this.palette06.Name = "palette06";
             this.palette06.Size = new System.Drawing.Size(36, 36);
             this.palette06.TabIndex = 0;
+            this.palette06.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel31
             // 
@@ -1239,6 +1357,7 @@ namespace Pixel_Editor_Test_2
             this.palette05.Name = "palette05";
             this.palette05.Size = new System.Drawing.Size(36, 36);
             this.palette05.TabIndex = 5;
+            this.palette05.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette04
             // 
@@ -1247,6 +1366,7 @@ namespace Pixel_Editor_Test_2
             this.palette04.Name = "palette04";
             this.palette04.Size = new System.Drawing.Size(36, 36);
             this.palette04.TabIndex = 4;
+            this.palette04.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette03
             // 
@@ -1255,6 +1375,7 @@ namespace Pixel_Editor_Test_2
             this.palette03.Name = "palette03";
             this.palette03.Size = new System.Drawing.Size(36, 36);
             this.palette03.TabIndex = 3;
+            this.palette03.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette02
             // 
@@ -1263,6 +1384,7 @@ namespace Pixel_Editor_Test_2
             this.palette02.Name = "palette02";
             this.palette02.Size = new System.Drawing.Size(36, 36);
             this.palette02.TabIndex = 2;
+            this.palette02.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette01
             // 
@@ -1271,6 +1393,7 @@ namespace Pixel_Editor_Test_2
             this.palette01.Name = "palette01";
             this.palette01.Size = new System.Drawing.Size(36, 36);
             this.palette01.TabIndex = 1;
+            this.palette01.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // palette00
             // 
@@ -1279,19 +1402,12 @@ namespace Pixel_Editor_Test_2
             this.palette00.Name = "palette00";
             this.palette00.Size = new System.Drawing.Size(36, 36);
             this.palette00.TabIndex = 0;
-            // 
-            // panel28
-            // 
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel28.Location = new System.Drawing.Point(16, 401);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(216, 16);
-            this.panel28.TabIndex = 24;
+            this.palette00.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteButton_Click);
             // 
             // panel13
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(16, 538);
+            this.panel13.Location = new System.Drawing.Point(16, 540);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(216, 16);
             this.panel13.TabIndex = 23;
@@ -1305,7 +1421,7 @@ namespace Pixel_Editor_Test_2
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.buttonSwitchColors);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(16, 554);
+            this.panel2.Location = new System.Drawing.Point(16, 556);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(16);
             this.panel2.Size = new System.Drawing.Size(216, 112);
@@ -1346,9 +1462,8 @@ namespace Pixel_Editor_Test_2
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel6.Controls.Add(this.buttonEyedropper);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(16, 506);
+            this.panel6.Location = new System.Drawing.Point(16, 508);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(952, 160);
             this.panel6.TabIndex = 26;
@@ -1365,7 +1480,7 @@ namespace Pixel_Editor_Test_2
             this.editToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1280, 30);
+            this.menuStrip.Size = new System.Drawing.Size(1280, 28);
             this.menuStrip.TabIndex = 27;
             this.menuStrip.Text = "menuStrip";
             this.menuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
@@ -1503,10 +1618,10 @@ namespace Pixel_Editor_Test_2
             this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(248, 34);
+            this.panel1.Location = new System.Drawing.Point(248, 32);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(16);
-            this.panel1.Size = new System.Drawing.Size(984, 682);
+            this.panel1.Size = new System.Drawing.Size(984, 684);
             this.panel1.TabIndex = 28;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
@@ -1514,6 +1629,7 @@ namespace Pixel_Editor_Test_2
             // 
             // panel19
             // 
+            this.panel19.BackColor = System.Drawing.Color.Transparent;
             this.panel19.Controls.Add(this.button2);
             this.panel19.Controls.Add(this.panel27);
             this.panel19.Controls.Add(this.inputFileName);
@@ -1523,6 +1639,9 @@ namespace Pixel_Editor_Test_2
             this.panel19.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.panel19.Size = new System.Drawing.Size(952, 48);
             this.panel19.TabIndex = 28;
+            this.panel19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
+            this.panel19.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
+            this.panel19.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
             // 
             // button2
             // 
@@ -1547,8 +1666,83 @@ namespace Pixel_Editor_Test_2
             this.panel27.Size = new System.Drawing.Size(16, 32);
             this.panel27.TabIndex = 24;
             // 
+            // canvasPanel
+            // 
+            this.canvasPanel.APBox = this.srcImage;
+            this.canvasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.canvasPanel.Controls.Add(this.previewContainer);
+            this.canvasPanel.Coordinates = null;
+            this.canvasPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.canvasPanel.GridColor = System.Drawing.Color.Transparent;
+            this.canvasPanel.HandEndPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.HandStartPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.KeyShiftDown = false;
+            this.canvasPanel.Location = new System.Drawing.Point(16, 67);
+            this.canvasPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.canvasPanel.Name = "canvasPanel";
+            this.canvasPanel.PrimaryColor = System.Drawing.Color.Black;
+            this.canvasPanel.SecondaryColor = System.Drawing.Color.White;
+            this.canvasPanel.Selection = null;
+            this.canvasPanel.SelectionEndPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.SelectionStartPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.ShapeEndPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.ShapeStartPos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.Size = new System.Drawing.Size(952, 393);
+            this.canvasPanel.TabIndex = 0;
+            this.canvasPanel.TgtBitmap = null;
+            this.canvasPanel.TgtMousePos = new System.Drawing.Point(0, 0);
+            this.canvasPanel.Viewport = new System.Drawing.Point(0, 0);
+            this.canvasPanel.Zoom = 8;
+            this.canvasPanel.MouseHover += new System.EventHandler(this.canvasPanel_MouseHover);
+            // 
+            // srcImage
+            // 
+            this.srcImage.BackColor = System.Drawing.Color.Magenta;
+            this.srcImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.srcImage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.srcImage.Location = new System.Drawing.Point(8, 30);
+            this.srcImage.Name = "srcImage";
+            this.srcImage.Size = new System.Drawing.Size(248, 128);
+            this.srcImage.TabIndex = 1;
+            this.srcImage.TabStop = false;
+            // 
+            // previewContainer
+            // 
+            this.previewContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.previewContainer.Controls.Add(this.label1);
+            this.previewContainer.Controls.Add(this.panel11);
+            this.previewContainer.Controls.Add(this.srcImage);
+            this.previewContainer.Location = new System.Drawing.Point(680, 10);
+            this.previewContainer.Name = "previewContainer";
+            this.previewContainer.Padding = new System.Windows.Forms.Padding(8);
+            this.previewContainer.Size = new System.Drawing.Size(264, 166);
+            this.previewContainer.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 23);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Preview";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(8, 26);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(248, 4);
+            this.panel11.TabIndex = 18;
+            // 
             // panel12
             // 
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
             this.panel12.Controls.Add(this.panel21);
             this.panel12.Controls.Add(this.panel20);
             this.panel12.Controls.Add(this.panel14);
@@ -1558,7 +1752,7 @@ namespace Pixel_Editor_Test_2
             this.panel12.Controls.Add(this.panel18);
             this.panel12.Controls.Add(this.panel3);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(16, 458);
+            this.panel12.Location = new System.Drawing.Point(16, 460);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.panel12.Size = new System.Drawing.Size(952, 48);
@@ -1706,7 +1900,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 30);
+            this.panel8.Location = new System.Drawing.Point(0, 28);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1280, 4);
             this.panel8.TabIndex = 18;
@@ -1719,116 +1913,6 @@ namespace Pixel_Editor_Test_2
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(1280, 4);
             this.panel30.TabIndex = 29;
-            // 
-            // canvasPanel
-            // 
-            this.canvasPanel.APBox = this.srcImage;
-            this.canvasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.canvasPanel.Controls.Add(this.previewContainer);
-            this.canvasPanel.Coordinates = null;
-            this.canvasPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.canvasPanel.GridColor = System.Drawing.Color.Transparent;
-            this.canvasPanel.HandEndPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.HandStartPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.LineEndPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.LineStartPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.Location = new System.Drawing.Point(16, 56);
-            this.canvasPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.canvasPanel.Name = "canvasPanel";
-            this.canvasPanel.PrimaryColor = System.Drawing.Color.Black;
-            this.canvasPanel.RectangleEndPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.RectangleStartPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.SecondaryColor = System.Drawing.Color.White;
-            this.canvasPanel.Selection = null;
-            this.canvasPanel.SelectionEndPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.SelectionStartPos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.Size = new System.Drawing.Size(952, 402);
-            this.canvasPanel.TabIndex = 0;
-            this.canvasPanel.TgtBitmap = null;
-            this.canvasPanel.TgtMousePos = new System.Drawing.Point(0, 0);
-            this.canvasPanel.Viewport = new System.Drawing.Point(0, 0);
-            this.canvasPanel.Zoom = 8;
-            // 
-            // srcImage
-            // 
-            this.srcImage.BackColor = System.Drawing.Color.Magenta;
-            this.srcImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.srcImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.srcImage.Location = new System.Drawing.Point(8, 30);
-            this.srcImage.Name = "srcImage";
-            this.srcImage.Size = new System.Drawing.Size(248, 128);
-            this.srcImage.TabIndex = 1;
-            this.srcImage.TabStop = false;
-            // 
-            // previewContainer
-            // 
-            this.previewContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.previewContainer.Controls.Add(this.label1);
-            this.previewContainer.Controls.Add(this.panel11);
-            this.previewContainer.Controls.Add(this.srcImage);
-            this.previewContainer.Location = new System.Drawing.Point(680, 10);
-            this.previewContainer.Name = "previewContainer";
-            this.previewContainer.Padding = new System.Windows.Forms.Padding(8);
-            this.previewContainer.Size = new System.Drawing.Size(264, 166);
-            this.previewContainer.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 23);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Preview";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(8, 26);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(248, 4);
-            this.panel11.TabIndex = 18;
-            // 
-            // colorSlider
-            // 
-            this.colorSlider.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
-            this.colorSlider.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorSlider.Dock = System.Windows.Forms.DockStyle.Left;
-            this.colorSlider.Location = new System.Drawing.Point(180, 0);
-            this.colorSlider.Margin = new System.Windows.Forms.Padding(0);
-            this.colorSlider.Name = "colorSlider";
-            this.colorSlider.NubColor = System.Drawing.Color.Empty;
-            this.colorSlider.Position = 0;
-            this.colorSlider.Size = new System.Drawing.Size(48, 121);
-            this.colorSlider.TabIndex = 1;
-            this.colorSlider.ColorChanged += new Pixel_Editor_Test_2.Controls.ColorSliderVertical.ColorChangedEventHandler(this.colorSlider_ColorChanged);
-            // 
-            // colorBox2D
-            // 
-            this.colorBox2D.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
-            this.colorBox2D.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorBox2D.Dock = System.Windows.Forms.DockStyle.Left;
-            this.colorBox2D.Location = new System.Drawing.Point(0, 0);
-            this.colorBox2D.Name = "colorBox2D";
-            this.colorBox2D.Size = new System.Drawing.Size(180, 121);
-            this.colorBox2D.TabIndex = 0;
-            this.colorBox2D.MouseDown += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseDown);
-            this.colorBox2D.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseMove);
-            // 
-            // panel36
-            // 
-            this.panel36.Controls.Add(this.colorSlider);
-            this.panel36.Controls.Add(this.colorBox2D);
-            this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel36.Location = new System.Drawing.Point(16, 417);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(216, 121);
-            this.panel36.TabIndex = 2;
             // 
             // EditorWindow
             // 
@@ -1854,11 +1938,13 @@ namespace Pixel_Editor_Test_2
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Untitled Sprite";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditorWindow_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EditorWindow_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.zoomCanvas)).EndInit();
             this.panel10.ResumeLayout(false);
             this.primaryColorContainer.ResumeLayout(false);
             this.secondaryColorContainer.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel36.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel95.ResumeLayout(false);
             this.panel88.ResumeLayout(false);
@@ -1872,12 +1958,15 @@ namespace Pixel_Editor_Test_2
             this.panel32.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
+            this.canvasPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.srcImage)).EndInit();
+            this.previewContainer.ResumeLayout(false);
+            this.previewContainer.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
@@ -1888,11 +1977,6 @@ namespace Pixel_Editor_Test_2
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.canvasPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.srcImage)).EndInit();
-            this.previewContainer.ResumeLayout(false);
-            this.previewContainer.PerformLayout();
-            this.panel36.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1924,7 +2008,6 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.TextBox inputFileName;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.Button buttonEyedropper;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -1980,11 +2063,6 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.Panel palette02;
         private System.Windows.Forms.Panel palette01;
         private System.Windows.Forms.Panel palette00;
-        private System.Windows.Forms.Panel panel95;
-        private System.Windows.Forms.Panel palette63;
-        private System.Windows.Forms.Panel palette62;
-        private System.Windows.Forms.Panel palette61;
-        private System.Windows.Forms.Panel palette60;
         private System.Windows.Forms.Panel panel88;
         private System.Windows.Forms.Panel palette59;
         private System.Windows.Forms.Panel palette58;
@@ -2057,6 +2135,13 @@ namespace Pixel_Editor_Test_2
         private ColorBox2D colorBox2D;
         private Controls.ColorSliderVertical colorSlider;
         private System.Windows.Forms.Panel panel36;
+        private System.Windows.Forms.Panel panel95;
+        private System.Windows.Forms.Panel palette63;
+        private System.Windows.Forms.Panel palette62;
+        private System.Windows.Forms.Panel palette61;
+        private System.Windows.Forms.Panel palette60;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button buttonOvalTool;
     }
 }
 

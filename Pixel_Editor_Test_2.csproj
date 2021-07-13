@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\DrawCircleCommand.cs" />
     <Compile Include="Commands\DrawLineCommand.cs" />
     <Compile Include="Commands\DrawPixelCommand.cs" />
     <Compile Include="Commands\Command.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Controls\ColorSlider.Designer.cs">
       <DependentUpon>ColorSlider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EyeDropperEventArgs.cs" />
     <Compile Include="Controls\HslColor.cs" />
     <Compile Include="Controls\MathExtensions.cs" />
     <Compile Include="EditorWindow.cs">
@@ -85,7 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\BresenhamLine.cs" />
+    <Compile Include="Util\Bresenham.cs" />
+    <Compile Include="Util\Canvas.cs" />
+    <Compile Include="Util\Calc.cs" />
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,10 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\canvas_bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\fileicon.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
