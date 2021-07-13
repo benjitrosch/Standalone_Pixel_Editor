@@ -1,4 +1,5 @@
-﻿using Pixel_Editor_Test_2.Controls;
+﻿using Pixel_Editor_Test_2.Animation;
+using Pixel_Editor_Test_2.Controls;
 using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,19 @@ namespace Pixel_Editor_Test_2
         private Color _primaryColor, _secondaryColor;
         private Color[] _palette = new Color[64];
 
+        private AnimatedBitmap _animation;
+
         public EditorWindow()
         {
             InitializeComponent();
 
-            //srcImage.Image = Image.FromFile(@"C:\Users\benji\Downloads\Monkey_jump.png");
+            Frame frame1 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Red), 83);
+            Frame frame2 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Blue), 83);
+            Frame frame3 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Green), 83);
+
+            _animation = new AnimatedBitmap(new List<Frame>() { frame1, frame2, frame3 });
+            _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
+
             srcImage.Image = Canvas.CreateNewCanvas(32, 32);
             srcImage.Width = 32;
             srcImage.Height = 32;
@@ -47,6 +56,15 @@ namespace Pixel_Editor_Test_2
 
             ToggleGrid(checkboxToggleGrid.Checked);
             TogglePreview(checkboxTogglePreview.Checked);
+        }
+
+        private void UpdateFrame(Bitmap bmp)
+        {
+            Console.WriteLine(bmp);
+            srcImage.Image = bmp;
+            canvasPanel.APBox = srcImage;
+            canvasPanel.TgtBitmap = (Bitmap)canvasPanel.APBox.Image;
+            canvasPanel.Invalidate();
         }
 
         private void ExitApplication()
@@ -384,6 +402,16 @@ namespace Pixel_Editor_Test_2
                 canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, paletteBtn.BackColor);
             else if (e.Button == MouseButtons.Right)
                 canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, paletteBtn.BackColor);
+        }
+
+        private void buttonPlayAnimation_Click(object sender, EventArgs e)
+        {
+            _animation.PlayAnimation();
+        }
+
+        private void buttonPauseAnimation_Click(object sender, EventArgs e)
+        {
+            _animation.PauseAnimation();
         }
 
         private void UpdatePalette()
