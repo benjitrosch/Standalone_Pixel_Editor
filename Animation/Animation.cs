@@ -31,9 +31,9 @@ namespace Pixel_Editor_Test_2.Animation
         private List<Frame> _removeQueue;
         private List<Frame> _frames;
 
-        private CancellationTokenSource _cancelToken;
+        private bool _isPlaying;
 
-        public Frame CurrentFrame { get; set; }
+        private CancellationTokenSource _cancelToken;
 
         protected void OnFrameUpdated(Bitmap bmp)
         {
@@ -51,12 +51,31 @@ namespace Pixel_Editor_Test_2.Animation
 
         public void AddFrame(Frame frame)
         {
-            _addQueue.Add(frame);
+            if (_isPlaying)
+                _addQueue.Add(frame);
+            else
+                _frames.Add(frame);
         }
 
         public void RemoveFrame(Frame frame)
         {
-            _removeQueue.Add(frame);
+            if (_isPlaying)
+                _removeQueue.Add(frame);
+            else
+                _frames.Remove(frame);
+        }
+
+        public Frame GetFrameByIndex(int i)
+        {
+            if (i < 0 || i > _frames.Count)
+                throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
+
+            return _frames[i];
+        }
+
+        public Frame GetLastFrame()
+        {
+            return _frames[_frames.Count - 1];
         }
 
         private void Animate(object obj)
@@ -84,17 +103,16 @@ namespace Pixel_Editor_Test_2.Animation
 
         public void PlayAnimation()
         {
-            if (_cancelToken.IsCancellationRequested)
-            {
-                _cancelToken = new CancellationTokenSource();
-                Task.Factory.StartNew(Animate,
-                                      TaskCreationOptions.LongRunning,
-                                      _cancelToken.Token);
-            }
+            _isPlaying = true;
+            _cancelToken = new CancellationTokenSource();
+            Task.Factory.StartNew(Animate,
+                                    TaskCreationOptions.LongRunning,
+                                    _cancelToken.Token);
         }
 
         public void PauseAnimation()
         {
+            _isPlaying = false;
             _cancelToken.Cancel();
         }
 

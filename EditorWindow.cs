@@ -26,21 +26,13 @@ namespace Pixel_Editor_Test_2
         {
             InitializeComponent();
 
-            Frame frame1 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Red), 83);
-            Frame frame2 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Blue), 83);
-            Frame frame3 = new Frame(Canvas.CreateNewCanvas(32, 32, Brushes.Green), 83);
+            Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), 83);
 
-            _animation = new AnimatedBitmap(new List<Frame>() { frame1, frame2, frame3 });
+            _animation = new AnimatedBitmap(new List<Frame>() { emptyFrame });
             _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
 
-            srcImage.Image = Canvas.CreateNewCanvas(32, 32);
-            srcImage.Width = 32;
-            srcImage.Height = 32;
-            previewContainer.Width = srcImage.Width;
-            previewContainer.Height = srcImage.Height + 32;
+            UpdateFrame(_animation.GetFrameByIndex(0).Image);
 
-            canvasPanel.APBox = srcImage;
-            canvasPanel.TgtBitmap = (Bitmap)canvasPanel.APBox.Image;
             canvasPanel.Coordinates = coordinatesLabel;
             canvasPanel.Selection = selectionLabel;
 
@@ -60,7 +52,6 @@ namespace Pixel_Editor_Test_2
 
         private void UpdateFrame(Bitmap bmp)
         {
-            Console.WriteLine(bmp);
             srcImage.Image = bmp;
             canvasPanel.APBox = srcImage;
             canvasPanel.TgtBitmap = (Bitmap)canvasPanel.APBox.Image;
@@ -412,6 +403,18 @@ namespace Pixel_Editor_Test_2
         private void buttonPauseAnimation_Click(object sender, EventArgs e)
         {
             _animation.PauseAnimation();
+        }
+
+        private void buttonAddEmptyFrame_Click(object sender, EventArgs e)
+        {
+            _animation.AddFrame(new Frame(Canvas.CreateNewCanvas(32, 32), 83));
+            UpdateFrame(_animation.GetLastFrame().Image);
+        }
+
+        private void buttonAddCopyFrame_Click(object sender, EventArgs e)
+        {
+            _animation.AddFrame(new Frame(new Bitmap(_animation.GetLastFrame().Image), 83));
+            UpdateFrame(_animation.GetLastFrame().Image);
         }
 
         private void UpdatePalette()
