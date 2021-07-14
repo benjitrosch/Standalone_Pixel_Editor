@@ -1,4 +1,5 @@
 ﻿using Pixel_Editor_Test_2.Controls;
+using Pixel_Editor_Test_2.Controls.PixelEditor;
 using Pixel_Editor_Test_2.Systems;
 using Pixel_Editor_Test_2.Util;
 using System;

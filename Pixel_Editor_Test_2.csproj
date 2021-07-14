@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PixelEditor\PixelEditorInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EditorWindowAnimator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="EditorWindowInput.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PixelEditor.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\Animation.cs" />
     <Compile Include="Commands\DrawCircleCommand.cs" />
@@ -75,8 +84,8 @@
     <Compile Include="Controls\ColorBox.Designer.cs">
       <DependentUpon>ColorBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ColorChangedEventArgs.cs" />
-    <Compile Include="Controls\ColorModes.cs" />
+    <Compile Include="Controls\Events\ColorChangedEventArgs.cs" />
+    <Compile Include="Util\Color\ColorModes.cs" />
     <Compile Include="Controls\ColorSlider.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,19 +93,19 @@
       <DependentUpon>ColorSlider.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
-    <Compile Include="Controls\EyeDropperEventArgs.cs" />
-    <Compile Include="Controls\HslColor.cs" />
-    <Compile Include="Controls\MathExtensions.cs" />
+    <Compile Include="Controls\Events\EyeDropperEventArgs.cs" />
+    <Compile Include="Util\Color\HslColor.cs" />
+    <Compile Include="Util\Color\MathExtensions.cs" />
     <Compile Include="EditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditorWindow.Designer.cs">
       <DependentUpon>EditorWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PixelEditor.cs">
+    <Compile Include="Controls\PixelEditor\PixelEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\PixelEditor.Designer.cs">
+    <Compile Include="Controls\PixelEditor\PixelEditor.Designer.cs">
       <DependentUpon>PixelEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

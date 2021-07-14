@@ -1,4 +1,6 @@
 ﻿
+using Pixel_Editor_Test_2.Controls.PixelEditor;
+
 namespace Pixel_Editor_Test_2
 {
     partial class EditorWindow

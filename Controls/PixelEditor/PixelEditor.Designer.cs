@@ -1,5 +1,5 @@
 ﻿
-namespace Pixel_Editor_Test_2
+namespace Pixel_Editor_Test_2.Controls.PixelEditor
 {
     partial class PixelEditor
     {
