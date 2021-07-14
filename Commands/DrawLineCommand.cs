@@ -21,9 +21,12 @@ namespace Pixel_Editor_Test_2.Commands
 
             foreach (Point pixel in pixels)
             {
-                _previousColors.Add(pixel, bmp.GetPixel(pixel.X, pixel.Y));
-                _finalColors.Add(pixel, color);
-                bmp.SetPixel(pixel.X, pixel.Y, color);
+                if (pixel.X >= 0 && pixel.X < bmp.Width && pixel.Y >= 0 && pixel.Y < bmp.Height)
+                {
+                    _previousColors.Add(pixel, bmp.GetPixel(pixel.X, pixel.Y));
+                    _finalColors.Add(pixel, color);
+                    bmp.SetPixel(pixel.X, pixel.Y, color);
+                }
             }
 
             _destinationRef.Image = bmp;

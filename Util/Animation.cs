@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pixel_Editor_Test_2.Animation
+namespace Pixel_Editor_Test_2.Util
 {
     public class Frame
     {
@@ -31,9 +31,25 @@ namespace Pixel_Editor_Test_2.Animation
         private List<Frame> _removeQueue;
         private List<Frame> _frames;
 
+        public List<Bitmap> Frames
+        {
+            get
+            {
+                return _frames.Select(frame => frame.Image).ToList();
+            }
+        }
+
         private bool _isPlaying;
 
         private CancellationTokenSource _cancelToken;
+
+        public int TotalFrames {
+            get
+            {
+                return _frames.Count;
+            }
+        }
+        public int CurrentFrame { get; set; }
 
         protected void OnFrameUpdated(Bitmap bmp)
         {
@@ -65,9 +81,18 @@ namespace Pixel_Editor_Test_2.Animation
                 _frames.Remove(frame);
         }
 
+        public void GotoFrame(int i)
+        {
+            if (i < 0 || i >= _frames.Count)
+                throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
+
+            CurrentFrame = i;
+            OnFrameUpdated(_frames[i].Image);
+        }
+
         public Frame GetFrameByIndex(int i)
         {
-            if (i < 0 || i > _frames.Count)
+            if (i < 0 || i >= _frames.Count)
                 throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
 
             return _frames[i];
@@ -82,10 +107,14 @@ namespace Pixel_Editor_Test_2.Animation
         {
             while (!_cancelToken.IsCancellationRequested)
             {
+                int i = 0;
                 foreach (Frame frame in _frames)
                 {
                     if (_cancelToken.IsCancellationRequested)
                         break;
+
+                    CurrentFrame = i;
+                    i++;
 
                     OnFrameUpdated(frame.Image);
                     Thread.Sleep(frame.Delay);
@@ -103,7 +132,11 @@ namespace Pixel_Editor_Test_2.Animation
 
         public void PlayAnimation()
         {
+            if (_isPlaying)
+                return;
+
             _isPlaying = true;
+
             _cancelToken = new CancellationTokenSource();
             Task.Factory.StartNew(Animate,
                                     TaskCreationOptions.LongRunning,
@@ -113,6 +146,7 @@ namespace Pixel_Editor_Test_2.Animation
         public void PauseAnimation()
         {
             _isPlaying = false;
+
             _cancelToken.Cancel();
         }
 

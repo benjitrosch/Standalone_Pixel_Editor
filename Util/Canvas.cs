@@ -19,5 +19,19 @@ namespace Pixel_Editor_Test_2.Util
             }
             return bmp;
         }
+        public static Bitmap CreateNewCanvas(Rectangle size, Brush color = null)
+        {
+            return CreateNewCanvas(size.X, size.Y, color);
+        }
+
+        public static Bitmap CropCanvas(Bitmap src, Rectangle section)
+        {
+            Bitmap bmp = new Bitmap(section.Width, section.Height);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.DrawImage(src, 0, 0, section, GraphicsUnit.Pixel);
+                return bmp;
+            }
+        }
     }
 }

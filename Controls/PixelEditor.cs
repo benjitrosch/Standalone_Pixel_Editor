@@ -68,7 +68,6 @@ namespace Pixel_Editor_Test_2
             }
         }
 
-        public Bitmap TgtBitmap { get; set; }
         public Point TgtMousePos { get; set; }
         public Point HandStartPos { get; set; }
         public Point HandEndPos { get; set; }
@@ -91,6 +90,8 @@ namespace Pixel_Editor_Test_2
                 aPBox.MouseClick += APBox_MouseClick;
             }
         }
+
+        public Bitmap OnionSkin { get; set; } = null;
 
         private Point _coordinates;
 
@@ -131,9 +132,6 @@ namespace Pixel_Editor_Test_2
             Zoom = 8;
             TgtMousePos = Point.Empty;
 
-            if (APBox != null && APBox.Image != null)
-                TgtBitmap = (Bitmap)APBox.Image;
-
             MouseDown += PixelEditor_MouseDown;
             MouseMove += PixelEditor_MouseMove;
             MouseUp += PixelEditor_MouseUp;
@@ -146,6 +144,7 @@ namespace Pixel_Editor_Test_2
             if (DesignMode) return;
 
             Graphics g = e.Graphics;
+            Bitmap bmp = (Bitmap)APBox.Image;
 
             int cols = (int)Math.Round((double)ClientSize.Width / Zoom);
             int rows = (int)Math.Round((double)ClientSize.Height / Zoom);
@@ -158,11 +157,15 @@ namespace Pixel_Editor_Test_2
                     int sx = TgtMousePos.X + Viewport.X + x;
                     int sy = TgtMousePos.Y + Viewport.Y + y;
 
-                    if (sx < 0 || sx > TgtBitmap.Width - 1 ||
-                        sy < 0 || sy > TgtBitmap.Height - 1) continue;
+                    if (sx < 0 || sx > bmp.Width - 1 ||
+                        sy < 0 || sy > bmp.Height - 1) continue;
 
                     Point pC = new Point(sx, sy);
-                    Color col = TgtBitmap.GetPixel(sx, sy);
+
+                    Color onion = OnionSkin != null ? OnionSkin.GetPixel(sx, sy) : Color.Transparent;
+                    onion = onion.A != 0 ? Color.FromArgb(100, onion.R, onion.G, onion.B) : onion;
+                    Color col = bmp.GetPixel(sx, sy);
+
                     Color drawColor = GridColor;
 
                     if (col.ToArgb() == 0 || col.ToArgb() == 16777215)
@@ -177,6 +180,7 @@ namespace Pixel_Editor_Test_2
                         drawColor = Color.White;
 
                     using (SolidBrush b = new SolidBrush(col))
+                    using (SolidBrush o = new SolidBrush(onion))
                     using (Pen p = new Pen(drawColor))
                     {
                         Rectangle rect = new Rectangle(x * Zoom,
@@ -184,6 +188,7 @@ namespace Pixel_Editor_Test_2
                                                        Zoom,
                                                        Zoom);
                         g.FillRectangle(b, rect);
+                        g.FillRectangle(o, rect);
                         g.DrawRectangle(p, rect);
                     }
                 }
@@ -547,6 +552,14 @@ namespace Pixel_Editor_Test_2
 
                     Invalidate();
                     break;
+
+                case Keys.OemMinus:
+                    Zoom--;
+                    break;
+
+                case Keys.Oemplus:
+                    Zoom++;
+                    break;
             }
         }
 
@@ -585,7 +598,7 @@ namespace Pixel_Editor_Test_2
                     throw new InvalidEnumArgumentException("No tool selected... what are you drawing with???");
             }
 
-            DrawPixelCommand drawPixel = new DrawPixelCommand(APBox);
+            /*DrawPixelCommand drawPixel = new DrawPixelCommand(APBox);
             drawPixel.Execute(
                 (Bitmap)APBox.Image,
                 new Point(x, y),
@@ -593,7 +606,17 @@ namespace Pixel_Editor_Test_2
                 drawColor
             );
             UndoHistory.Add(drawPixel);
-            RedoHistory.Clear();
+            RedoHistory.Clear();*/
+
+            int _brushSize = 2;
+
+            DrawCircleCommand drawPixel = new DrawCircleCommand(APBox);
+            drawPixel.Execute(
+                (Bitmap)APBox.Image,
+                new Point(x - _brushSize, y - _brushSize),
+                new Point(x, y),
+                drawColor
+            );
 
             Invalidate();
         }
