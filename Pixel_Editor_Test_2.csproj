@@ -67,9 +67,6 @@
     <Compile Include="EditorWindowInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PixelEditor.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Util\Animation.cs" />
     <Compile Include="Commands\DrawCircleCommand.cs" />
     <Compile Include="Commands\DrawLineCommand.cs" />

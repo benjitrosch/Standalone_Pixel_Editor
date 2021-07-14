@@ -165,7 +165,7 @@ namespace Pixel_Editor_Test_2
             this.replaceColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.canvasPanel = new Pixel_Editor_Test_2.PixelEditor();
+            this.canvasPanel = new Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor();
             this.srcImage = new System.Windows.Forms.PictureBox();
             this.previewContainer = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
