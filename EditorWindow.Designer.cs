@@ -49,6 +49,8 @@ namespace Pixel_Editor_Test_2
             this.buttonPencilTool = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.buttonEraserTool = new System.Windows.Forms.Button();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.buttonMagicTool = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.buttonSelectTool = new System.Windows.Forms.Button();
             this.buttonSwitchColors = new System.Windows.Forms.Button();
@@ -277,6 +279,8 @@ namespace Pixel_Editor_Test_2
             this.panel10.Controls.Add(this.buttonPencilTool);
             this.panel10.Controls.Add(this.panel24);
             this.panel10.Controls.Add(this.buttonEraserTool);
+            this.panel10.Controls.Add(this.panel49);
+            this.panel10.Controls.Add(this.buttonMagicTool);
             this.panel10.Controls.Add(this.panel25);
             this.panel10.Controls.Add(this.buttonSelectTool);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
@@ -293,7 +297,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(8, 368);
+            this.panel7.Location = new System.Drawing.Point(8, 408);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(32, 8);
             this.panel7.TabIndex = 26;
@@ -305,7 +309,7 @@ namespace Pixel_Editor_Test_2
             this.buttonOvalTool.FlatAppearance.BorderSize = 0;
             this.buttonOvalTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOvalTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonOvalTool.Location = new System.Drawing.Point(8, 336);
+            this.buttonOvalTool.Location = new System.Drawing.Point(8, 376);
             this.buttonOvalTool.Name = "buttonOvalTool";
             this.buttonOvalTool.Size = new System.Drawing.Size(32, 32);
             this.buttonOvalTool.TabIndex = 25;
@@ -317,7 +321,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel35.Location = new System.Drawing.Point(8, 328);
+            this.panel35.Location = new System.Drawing.Point(8, 368);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(32, 8);
             this.panel35.TabIndex = 24;
@@ -329,7 +333,7 @@ namespace Pixel_Editor_Test_2
             this.buttonRectangleTool.FlatAppearance.BorderSize = 0;
             this.buttonRectangleTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRectangleTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonRectangleTool.Location = new System.Drawing.Point(8, 296);
+            this.buttonRectangleTool.Location = new System.Drawing.Point(8, 336);
             this.buttonRectangleTool.Name = "buttonRectangleTool";
             this.buttonRectangleTool.Size = new System.Drawing.Size(32, 32);
             this.buttonRectangleTool.TabIndex = 23;
@@ -341,7 +345,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel34.Location = new System.Drawing.Point(8, 288);
+            this.panel34.Location = new System.Drawing.Point(8, 328);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(32, 8);
             this.panel34.TabIndex = 22;
@@ -353,7 +357,7 @@ namespace Pixel_Editor_Test_2
             this.buttonEyedropperTool.FlatAppearance.BorderSize = 0;
             this.buttonEyedropperTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEyedropperTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonEyedropperTool.Location = new System.Drawing.Point(8, 256);
+            this.buttonEyedropperTool.Location = new System.Drawing.Point(8, 296);
             this.buttonEyedropperTool.Name = "buttonEyedropperTool";
             this.buttonEyedropperTool.Size = new System.Drawing.Size(32, 32);
             this.buttonEyedropperTool.TabIndex = 21;
@@ -365,7 +369,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel33.Location = new System.Drawing.Point(8, 248);
+            this.panel33.Location = new System.Drawing.Point(8, 288);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(32, 8);
             this.panel33.TabIndex = 20;
@@ -377,7 +381,7 @@ namespace Pixel_Editor_Test_2
             this.buttonLineTool.FlatAppearance.BorderSize = 0;
             this.buttonLineTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLineTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonLineTool.Location = new System.Drawing.Point(8, 216);
+            this.buttonLineTool.Location = new System.Drawing.Point(8, 256);
             this.buttonLineTool.Name = "buttonLineTool";
             this.buttonLineTool.Size = new System.Drawing.Size(32, 32);
             this.buttonLineTool.TabIndex = 19;
@@ -389,7 +393,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel26.Location = new System.Drawing.Point(8, 208);
+            this.panel26.Location = new System.Drawing.Point(8, 248);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(32, 8);
             this.panel26.TabIndex = 18;
@@ -401,7 +405,7 @@ namespace Pixel_Editor_Test_2
             this.buttonHandTool.FlatAppearance.BorderSize = 0;
             this.buttonHandTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHandTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonHandTool.Location = new System.Drawing.Point(8, 176);
+            this.buttonHandTool.Location = new System.Drawing.Point(8, 216);
             this.buttonHandTool.Name = "buttonHandTool";
             this.buttonHandTool.Size = new System.Drawing.Size(32, 32);
             this.buttonHandTool.TabIndex = 13;
@@ -413,7 +417,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(8, 168);
+            this.panel22.Location = new System.Drawing.Point(8, 208);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(32, 8);
             this.panel22.TabIndex = 14;
@@ -425,7 +429,7 @@ namespace Pixel_Editor_Test_2
             this.buttonFillTool.FlatAppearance.BorderSize = 0;
             this.buttonFillTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFillTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonFillTool.Location = new System.Drawing.Point(8, 136);
+            this.buttonFillTool.Location = new System.Drawing.Point(8, 176);
             this.buttonFillTool.Name = "buttonFillTool";
             this.buttonFillTool.Size = new System.Drawing.Size(32, 32);
             this.buttonFillTool.TabIndex = 12;
@@ -437,7 +441,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(8, 128);
+            this.panel23.Location = new System.Drawing.Point(8, 168);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(32, 8);
             this.panel23.TabIndex = 15;
@@ -449,7 +453,7 @@ namespace Pixel_Editor_Test_2
             this.buttonPencilTool.FlatAppearance.BorderSize = 0;
             this.buttonPencilTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPencilTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonPencilTool.Location = new System.Drawing.Point(8, 96);
+            this.buttonPencilTool.Location = new System.Drawing.Point(8, 136);
             this.buttonPencilTool.Name = "buttonPencilTool";
             this.buttonPencilTool.Size = new System.Drawing.Size(32, 32);
             this.buttonPencilTool.TabIndex = 9;
@@ -461,7 +465,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(8, 88);
+            this.panel24.Location = new System.Drawing.Point(8, 128);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(32, 8);
             this.panel24.TabIndex = 16;
@@ -473,13 +477,37 @@ namespace Pixel_Editor_Test_2
             this.buttonEraserTool.FlatAppearance.BorderSize = 0;
             this.buttonEraserTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEraserTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonEraserTool.Location = new System.Drawing.Point(8, 56);
+            this.buttonEraserTool.Location = new System.Drawing.Point(8, 96);
             this.buttonEraserTool.Name = "buttonEraserTool";
             this.buttonEraserTool.Size = new System.Drawing.Size(32, 32);
             this.buttonEraserTool.TabIndex = 10;
             this.buttonEraserTool.Text = "E";
             this.buttonEraserTool.UseVisualStyleBackColor = false;
             this.buttonEraserTool.Click += new System.EventHandler(this.buttonEraserTool_Click);
+            // 
+            // panel49
+            // 
+            this.panel49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel49.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel49.Location = new System.Drawing.Point(8, 88);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(32, 8);
+            this.panel49.TabIndex = 28;
+            // 
+            // buttonMagicTool
+            // 
+            this.buttonMagicTool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.buttonMagicTool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonMagicTool.FlatAppearance.BorderSize = 0;
+            this.buttonMagicTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMagicTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonMagicTool.Location = new System.Drawing.Point(8, 56);
+            this.buttonMagicTool.Name = "buttonMagicTool";
+            this.buttonMagicTool.Size = new System.Drawing.Size(32, 32);
+            this.buttonMagicTool.TabIndex = 27;
+            this.buttonMagicTool.Text = "M";
+            this.buttonMagicTool.UseVisualStyleBackColor = false;
+            this.buttonMagicTool.Click += new System.EventHandler(this.buttonMagicTool_Click);
             // 
             // panel25
             // 
@@ -1637,6 +1665,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.canvasPanel.APBox = this.srcImage;
             this.canvasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
+            this.canvasPanel.BrushSize = 0;
             this.canvasPanel.Controls.Add(this.previewContainer);
             this.canvasPanel.Coordinates = null;
             this.canvasPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -2394,6 +2423,8 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.NumericUpDown numericFrame;
+        private System.Windows.Forms.Panel panel49;
+        private System.Windows.Forms.Button buttonMagicTool;
     }
 }
 

@@ -34,7 +34,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             } else if (!filled)
             {
-                List<Point> pixels = Bresenham.Rectangle(startPos, endPos);
+                List<Point> pixels = Shapes.Rectangle(startPos, endPos);
 
                 foreach (Point pixel in pixels)
                 {

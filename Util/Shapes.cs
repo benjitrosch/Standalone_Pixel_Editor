@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pixel_Editor_Test_2.Util
 {
-    public class Bresenham
+    public class Shapes
     {
         public static List<Point> Line(Point startPos, Point endPos)
         {
@@ -63,10 +63,10 @@ namespace Pixel_Editor_Test_2.Util
         {
             // ...it's a rectangle MADE out of Bresenham lines, that has to count, right?
 
-            List<Point> line1 = Bresenham.Line(startPos, new Point(endPos.X, startPos.Y));
-            List<Point> line2 = Bresenham.Line(new Point(endPos.X, startPos.Y), endPos);
-            List<Point> line3 = Bresenham.Line(endPos, new Point(startPos.X, endPos.Y));
-            List<Point> line4 = Bresenham.Line(new Point(startPos.X, endPos.Y), startPos);
+            List<Point> line1 = Shapes.Line(startPos, new Point(endPos.X, startPos.Y));
+            List<Point> line2 = Shapes.Line(new Point(endPos.X, startPos.Y), endPos);
+            List<Point> line3 = Shapes.Line(endPos, new Point(startPos.X, endPos.Y));
+            List<Point> line4 = Shapes.Line(new Point(startPos.X, endPos.Y), startPos);
 
             List<Point> pixels = new List<Point>(line1.Count + line2.Count + line3.Count + line4.Count);
             pixels.AddRange(line1);

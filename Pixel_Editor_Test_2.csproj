@@ -110,7 +110,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Systems\Global.cs" />
     <Compile Include="Util\BitmapExtensions.cs" />
-    <Compile Include="Util\Bresenham.cs" />
+    <Compile Include="Util\Shapes.cs" />
     <Compile Include="Util\Canvas.cs" />
     <Compile Include="Util\Calc.cs" />
     <EmbeddedResource Include="EditorWindow.resx">

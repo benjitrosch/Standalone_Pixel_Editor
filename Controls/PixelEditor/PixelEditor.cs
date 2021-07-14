@@ -24,6 +24,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             FILL,
             ERASER,
             SELECT,
+            MAGICWAND,
             HAND,
             EYEDROPPER,
             LINE,
@@ -270,31 +271,31 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             Invalidate();
         }
 
+        public void PixelEditor_AddToViewport(Size direction)
+        {
+            Viewport = Point.Add(Viewport, direction);
+        }
+
         private void PixelEditor_ViewportControl(KeyEventArgs e)
         {
             switch(e.KeyCode)
             {
                 case Keys.Left:
-                    Viewport = Point.Add(Viewport, new Size(-1, 0));
+                    PixelEditor_AddToViewport(new Size(-1, 0));
                     break;
 
                 case Keys.Right:
-                    Viewport = Point.Add(Viewport, new Size(1, 0));
+                    PixelEditor_AddToViewport(new Size(1, 0));
                     break;
 
                 case Keys.Up:
-                    Viewport = Point.Add(Viewport, new Size(0, -1));
+                    PixelEditor_AddToViewport(new Size(0, -1));
                     break;
 
                 case Keys.Down:
-                    Viewport = Point.Add(Viewport, new Size(0, 1));
+                    PixelEditor_AddToViewport(new Size(0, 1));
                     break;
             }
-        }
-
-        public void PixelEditor_AddToViewport(Size direction)
-        {
-            Viewport = Point.Add(Viewport, direction);
         }
 
         public void PixelEditor_SetTool(Tool tool)
@@ -339,15 +340,15 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             switch (ActiveTool)
             {
                 case Tool.LINE:
-                    pixels.AddRange(Bresenham.Line(ShapeStartPos, ShapeEndPos));
+                    pixels.AddRange(Shapes.Line(ShapeStartPos, ShapeEndPos));
                     break;
 
                 case Tool.RECTANGLE:
-                    pixels.AddRange(Bresenham.Rectangle(ShapeStartPos, ShapeEndPos));
+                    pixels.AddRange(Shapes.Rectangle(ShapeStartPos, ShapeEndPos));
                     break;
 
                 case Tool.OVAL:
-                    pixels.AddRange(Bresenham.Ellipse(ShapeStartPos, ShapeEndPos));
+                    pixels.AddRange(Shapes.Ellipse(ShapeStartPos, ShapeEndPos));
                     break;
 
                 default:

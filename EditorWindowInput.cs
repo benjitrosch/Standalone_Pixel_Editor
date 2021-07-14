@@ -30,7 +30,6 @@ namespace Pixel_Editor_Test_2
 
                         if (sfd.ShowDialog() == DialogResult.OK)
                         {
-                            //Bitmap bmp = (Bitmap)canvasPanel.APBox.Image;
                             Bitmap bmp = new Bitmap(32 * _animation.TotalFrames, 32);
                             using (Graphics g = Graphics.FromImage(bmp))
                             {
@@ -46,8 +45,11 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Keys.Q:
-                case Keys.M:
                     SelectSelectTool();
+                    break;
+
+                case Keys.M:
+                    SelectMagicTool();
                     break;
 
                 case Keys.P:

@@ -87,6 +87,11 @@ namespace Pixel_Editor_Test_2
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.SELECT);
         }
 
+        private void SelectMagicTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.MAGICWAND);
+        }
+
         private void SelectPencilTool()
         {
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);

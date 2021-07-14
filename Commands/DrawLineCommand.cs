@@ -17,7 +17,7 @@ namespace Pixel_Editor_Test_2.Commands
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {
-            List<Point> pixels = Bresenham.Line(startPos, endPos);
+            List<Point> pixels = Shapes.Line(startPos, endPos);
 
             foreach (Point pixel in pixels)
             {

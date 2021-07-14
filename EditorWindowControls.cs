@@ -63,6 +63,11 @@ namespace Pixel_Editor_Test_2
             SelectSelectTool();
         }
 
+        private void buttonMagicTool_Click(object sender, EventArgs e)
+        {
+            SelectMagicTool();
+        }
+
         private void buttonPencilTool_Click(object sender, EventArgs e)
         {
             SelectPencilTool();
