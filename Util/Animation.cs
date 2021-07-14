@@ -39,17 +39,17 @@ namespace Pixel_Editor_Test_2.Util
             }
         }
 
-        private bool _isPlaying;
-
-        private CancellationTokenSource _cancelToken;
-
-        public int TotalFrames {
+        public int TotalFrames
+        {
             get
             {
                 return _frames.Count;
             }
         }
         public int CurrentFrame { get; set; }
+
+        private bool _isPlaying;
+        private CancellationTokenSource _cancelToken;
 
         protected void OnFrameUpdated(Bitmap bmp)
         {

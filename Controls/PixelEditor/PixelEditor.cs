@@ -132,10 +132,12 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         public PixelEditor()
         {
             DoubleBuffered = true;
+
             BackColor = Color.White;
             GridColor = Color.Transparent;
             PrimaryColor = Color.Black;
             SecondaryColor = Color.White;
+
             Zoom = 8;
             TgtMousePos = Point.Empty;
 
@@ -374,9 +376,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void ResetAllPoints()
         {
-            ShapeStartPos = ShapeEndPos = Point.Empty;
-            ShapeStartPos = ShapeEndPos = Point.Empty;
             SelectionStartPos = SelectionEndPos = Point.Empty;
+            ShapeStartPos = ShapeEndPos = Point.Empty;
         }
     }
 }

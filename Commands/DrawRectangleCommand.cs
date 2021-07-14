@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Commands
 {
-    class DrawRectangleCommand : Command
+    public class DrawRectangleCommand : Command
     {
         public DrawRectangleCommand(PictureBox destination)
             : base(destination)

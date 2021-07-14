@@ -250,8 +250,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                     break;
 
                 case Keys.Escape:
-                    SelectionStartPos = Point.Empty;
-                    SelectionEndPos = Point.Empty;
+                    ResetAllPoints();
                     break;
 
                 case Keys.Delete:

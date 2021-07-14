@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\FillCommand.cs" />
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
     </Compile>
