@@ -185,6 +185,7 @@ namespace Pixel_Editor_Test_2
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.numericFrame = new System.Windows.Forms.NumericUpDown();
@@ -1648,6 +1649,7 @@ namespace Pixel_Editor_Test_2
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.canvasPanel);
             this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel6);
@@ -1881,6 +1883,7 @@ namespace Pixel_Editor_Test_2
             // panel37
             // 
             this.panel37.BackColor = System.Drawing.Color.Transparent;
+            this.panel37.Controls.Add(this.button1);
             this.panel37.Controls.Add(this.panel27);
             this.panel37.Controls.Add(this.panel19);
             this.panel37.Controls.Add(this.buttonOnionLeft);
@@ -1905,6 +1908,20 @@ namespace Pixel_Editor_Test_2
             this.panel37.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.panel37.Size = new System.Drawing.Size(952, 48);
             this.panel37.TabIndex = 29;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.button1.Location = new System.Drawing.Point(456, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 32);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "?";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel27
             // 
@@ -2425,6 +2442,7 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.NumericUpDown numericFrame;
         private System.Windows.Forms.Panel panel49;
         private System.Windows.Forms.Button buttonMagicTool;
+        private System.Windows.Forms.Button button1;
     }
 }
 

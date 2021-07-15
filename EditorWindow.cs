@@ -132,6 +132,33 @@ namespace Pixel_Editor_Test_2
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
         }
 
+        Label[] lbl;
+
+        int n = 4;
+        int space = 20;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lbl = new Label[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                lbl[i] = new Label();
+                lbl[i].Name = "n" + i;
+                lbl[i].Text = "n" + i;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                lbl[i].Visible = true;
+                lbl[i].Location = new Point(456 + space, 45);
+                lbl[i].ForeColor = Color.White;
+                lbl[i].BringToFront();
+                this.Controls.Add(lbl[i]);
+                space += 50;
+            }
+        }
+
         private void ToggleOnionSkin()
         {
             if (_leftOnionSkinEnabled)
@@ -140,14 +167,15 @@ namespace Pixel_Editor_Test_2
                 {
                     canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame - 1).Image;
                 }
-            }
-
-            if (_rightOnionSkinEnabled)
+            } else if (_rightOnionSkinEnabled)
             {
                 if (_animation.CurrentFrame < _animation.TotalFrames - 1)
                 {
                     canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame + 1).Image;
                 }
+            } else
+            {
+                canvasPanel.OnionSkin = null;
             }
         }
     }
