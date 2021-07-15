@@ -146,7 +146,6 @@ namespace Pixel_Editor_Test_2
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,8 +183,8 @@ namespace Pixel_Editor_Test_2
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.keyframeContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.numericFrame = new System.Windows.Forms.NumericUpDown();
@@ -1494,19 +1493,6 @@ namespace Pixel_Editor_Test_2
             this.panel9.Size = new System.Drawing.Size(8, 80);
             this.panel9.TabIndex = 24;
             // 
-            // panel6
-            // 
-            this.panel6.AutoScroll = true;
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(16, 527);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(952, 107);
-            this.panel6.TabIndex = 26;
-            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
-            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
-            this.panel6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
-            // 
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
@@ -1652,7 +1638,7 @@ namespace Pixel_Editor_Test_2
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.canvasPanel);
             this.panel1.Controls.Add(this.panel12);
-            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.keyframeContainer);
             this.panel1.Controls.Add(this.panel37);
             this.panel1.Location = new System.Drawing.Point(248, 34);
             this.panel1.Name = "panel1";
@@ -1880,10 +1866,19 @@ namespace Pixel_Editor_Test_2
             this.panel3.Size = new System.Drawing.Size(160, 32);
             this.panel3.TabIndex = 5;
             // 
+            // keyframeContainer
+            // 
+            this.keyframeContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.keyframeContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.keyframeContainer.Location = new System.Drawing.Point(16, 527);
+            this.keyframeContainer.Name = "keyframeContainer";
+            this.keyframeContainer.Padding = new System.Windows.Forms.Padding(16);
+            this.keyframeContainer.Size = new System.Drawing.Size(952, 107);
+            this.keyframeContainer.TabIndex = 30;
+            // 
             // panel37
             // 
             this.panel37.BackColor = System.Drawing.Color.Transparent;
-            this.panel37.Controls.Add(this.button1);
             this.panel37.Controls.Add(this.panel27);
             this.panel37.Controls.Add(this.panel19);
             this.panel37.Controls.Add(this.buttonOnionLeft);
@@ -1908,20 +1903,6 @@ namespace Pixel_Editor_Test_2
             this.panel37.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.panel37.Size = new System.Drawing.Size(952, 48);
             this.panel37.TabIndex = 29;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button1.Location = new System.Drawing.Point(456, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "?";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel27
             // 
@@ -2215,6 +2196,7 @@ namespace Pixel_Editor_Test_2
             this.Name = "EditorWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Untitled Sprite";
+            this.Load += new System.EventHandler(this.EditorWindow_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditorWindow_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EditorWindow_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.zoomCanvas)).EndInit();
@@ -2286,7 +2268,6 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -2442,7 +2423,7 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.NumericUpDown numericFrame;
         private System.Windows.Forms.Panel panel49;
         private System.Windows.Forms.Button buttonMagicTool;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel keyframeContainer;
     }
 }
 

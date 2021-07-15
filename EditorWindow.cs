@@ -27,23 +27,24 @@ namespace Pixel_Editor_Test_2
         {
             InitializeComponent();
 
-            Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
-
-            _animation = new AnimatedBitmap(new List<Frame>() { emptyFrame });
+            _animation = new AnimatedBitmap(new List<Frame>());
             _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
-
-            _animation.GotoFrame(0);
 
             canvasPanel.Coordinates = coordinatesLabel;
             canvasPanel.Selection = selectionLabel;
+            canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
+        }
 
-            canvasPanel.Zoom = 8;
-            canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
+        private void EditorWindow_Load(object sender, EventArgs e)
+        {
+            Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
+            AddKeyframe(emptyFrame);
 
             canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
             canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
+            canvasPanel.Zoom = 8;
+            canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
-            canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
 
             ToggleGrid(checkboxToggleGrid.Checked);
             TogglePreview(checkboxTogglePreview.Checked);
@@ -130,33 +131,6 @@ namespace Pixel_Editor_Test_2
         private void SelectOvalTool()
         {
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
-        }
-
-        Label[] lbl;
-
-        int n = 4;
-        int space = 20;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lbl = new Label[n];
-
-            for (int i = 0; i < n; i++)
-            {
-                lbl[i] = new Label();
-                lbl[i].Name = "n" + i;
-                lbl[i].Text = "n" + i;
-            }
-
-            for (int i = 0; i < n; i++)
-            {
-                lbl[i].Visible = true;
-                lbl[i].Location = new Point(456 + space, 45);
-                lbl[i].ForeColor = Color.White;
-                lbl[i].BringToFront();
-                this.Controls.Add(lbl[i]);
-                space += 50;
-            }
         }
 
         private void ToggleOnionSkin()

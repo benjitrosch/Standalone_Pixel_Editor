@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FillCommand.cs" />
+    <Compile Include="Controls\Keyframe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Keyframe.Designer.cs">
+      <DependentUpon>Keyframe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Util\Shapes.cs" />
     <Compile Include="Util\Canvas.cs" />
     <Compile Include="Util\Calc.cs" />
+    <EmbeddedResource Include="Controls\Keyframe.resx">
+      <DependentUpon>Keyframe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>
     </EmbeddedResource>

@@ -86,6 +86,7 @@ namespace Pixel_Editor_Test_2.Util
             if (i < 0 || i >= _frames.Count)
                 throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
 
+            PauseAnimation();
             CurrentFrame = i;
             OnFrameUpdated(_frames[i].Image);
         }
