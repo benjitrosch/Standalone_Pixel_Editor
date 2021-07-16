@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class ButtonContainer : UserControl
+    public partial class ActiveColors : UserControl
     {
-        public ButtonContainer()
+        public ActiveColors()
         {
             InitializeComponent();
         }

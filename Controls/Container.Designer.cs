@@ -43,7 +43,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(1157, 680);
+            this.panel1.Size = new System.Drawing.Size(32, 32);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -53,7 +53,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1155, 678);
+            this.panel2.Size = new System.Drawing.Size(30, 30);
             this.panel2.TabIndex = 0;
             // 
             // Container
@@ -61,8 +61,9 @@ namespace Pixel_Editor_Test_2.Controls
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Container";
-            this.Size = new System.Drawing.Size(1157, 680);
+            this.Size = new System.Drawing.Size(32, 32);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

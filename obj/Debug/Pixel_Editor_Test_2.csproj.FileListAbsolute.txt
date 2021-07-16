@@ -9,6 +9,7 @@ C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\e.pdb
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.EditorWindow.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Keyframe.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.KeyframeContainer.resources
-C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.ButtonContainer.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Container.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Toolbar.resources
+C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Titlebar.resources
+C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.ActiveColors.resources

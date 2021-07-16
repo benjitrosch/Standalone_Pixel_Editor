@@ -55,6 +55,7 @@ namespace Pixel_Editor_Test_2.Controls
             // container1
             // 
             this.container1.Location = new System.Drawing.Point(0, 0);
+            this.container1.Margin = new System.Windows.Forms.Padding(0);
             this.container1.Name = "container1";
             this.container1.Size = new System.Drawing.Size(48, 688);
             this.container1.TabIndex = 0;
@@ -304,6 +305,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Controls.Add(this.buttonSelect);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.container1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Toolbar";
             this.Size = new System.Drawing.Size(48, 688);
             this.ResumeLayout(false);

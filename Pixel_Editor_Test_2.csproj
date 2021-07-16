@@ -50,11 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FillCommand.cs" />
-    <Compile Include="Controls\ButtonContainer.cs">
+    <Compile Include="Controls\ActiveColors.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ButtonContainer.Designer.cs">
-      <DependentUpon>ButtonContainer.cs</DependentUpon>
+    <Compile Include="Controls\ActiveColors.Designer.cs">
+      <DependentUpon>ActiveColors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorWheel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Container.cs">
       <SubType>UserControl</SubType>
@@ -79,6 +82,12 @@
     </Compile>
     <Compile Include="Controls\PixelEditor\PixelEditorInput.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Titlebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Titlebar.Designer.cs">
+      <DependentUpon>Titlebar.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Toolbar.cs">
       <SubType>UserControl</SubType>
@@ -144,8 +153,8 @@
     <Compile Include="Util\Shapes.cs" />
     <Compile Include="Util\Canvas.cs" />
     <Compile Include="Util\Calc.cs" />
-    <EmbeddedResource Include="Controls\ButtonContainer.resx">
-      <DependentUpon>ButtonContainer.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ActiveColors.resx">
+      <DependentUpon>ActiveColors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Container.resx">
       <DependentUpon>Container.cs</DependentUpon>
@@ -155,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\KeyframeContainer.resx">
       <DependentUpon>KeyframeContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Titlebar.resx">
+      <DependentUpon>Titlebar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Toolbar.resx">
       <DependentUpon>Toolbar.cs</DependentUpon>
