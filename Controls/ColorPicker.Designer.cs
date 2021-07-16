@@ -31,9 +31,9 @@ namespace Pixel_Editor_Test_2.Controls
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.colorBox2D1 = new Pixel_Editor_Test_2.ColorBox2D();
             this.colorSliderVertical1 = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
+            this.colorBox2D1 = new Pixel_Editor_Test_2.ColorBox2D();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,25 +61,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel2.Size = new System.Drawing.Size(222, 126);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(224, 128);
-            this.panel3.TabIndex = 1;
-            // 
-            // colorBox2D1
-            // 
-            this.colorBox2D1.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
-            this.colorBox2D1.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorBox2D1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.colorBox2D1.Location = new System.Drawing.Point(8, 8);
-            this.colorBox2D1.Name = "colorBox2D1";
-            this.colorBox2D1.Size = new System.Drawing.Size(151, 110);
-            this.colorBox2D1.TabIndex = 3;
-            // 
             // colorSliderVertical1
             // 
             this.colorSliderVertical1.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
@@ -93,10 +74,30 @@ namespace Pixel_Editor_Test_2.Controls
             this.colorSliderVertical1.Size = new System.Drawing.Size(48, 110);
             this.colorSliderVertical1.TabIndex = 4;
             // 
+            // colorBox2D1
+            // 
+            this.colorBox2D1.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
+            this.colorBox2D1.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorBox2D1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.colorBox2D1.Location = new System.Drawing.Point(8, 8);
+            this.colorBox2D1.Name = "colorBox2D1";
+            this.colorBox2D1.Size = new System.Drawing.Size(151, 110);
+            this.colorBox2D1.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(8, 8);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(224, 128);
+            this.panel3.TabIndex = 1;
+            // 
             // ColorPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Name = "ColorPicker";

@@ -57,7 +57,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonSavePrimaryColor.BackColor = System.Drawing.Color.OrangeRed;
             this.buttonSavePrimaryColor.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSavePrimaryColor.FlatAppearance.BorderSize = 0;
+            this.buttonSavePrimaryColor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonSavePrimaryColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSavePrimaryColor.Font = new System.Drawing.Font("8-bit Operator+", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSavePrimaryColor.ForeColor = System.Drawing.Color.White;
@@ -65,7 +65,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSavePrimaryColor.Name = "buttonSavePrimaryColor";
             this.buttonSavePrimaryColor.Size = new System.Drawing.Size(32, 29);
             this.buttonSavePrimaryColor.TabIndex = 4;
-            this.buttonSavePrimaryColor.Text = "!";
+            this.buttonSavePrimaryColor.Text = "+";
             this.buttonSavePrimaryColor.UseVisualStyleBackColor = false;
             // 
             // panel3
@@ -117,7 +117,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonSaveSecondaryColor.BackColor = System.Drawing.Color.OrangeRed;
             this.buttonSaveSecondaryColor.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSaveSecondaryColor.FlatAppearance.BorderSize = 0;
+            this.buttonSaveSecondaryColor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonSaveSecondaryColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveSecondaryColor.Font = new System.Drawing.Font("8-bit Operator+", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSaveSecondaryColor.ForeColor = System.Drawing.Color.White;
@@ -125,7 +125,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSaveSecondaryColor.Name = "buttonSaveSecondaryColor";
             this.buttonSaveSecondaryColor.Size = new System.Drawing.Size(32, 29);
             this.buttonSaveSecondaryColor.TabIndex = 4;
-            this.buttonSaveSecondaryColor.Text = "!";
+            this.buttonSaveSecondaryColor.Text = "+";
             this.buttonSaveSecondaryColor.UseVisualStyleBackColor = false;
             // 
             // panel5
