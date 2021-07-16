@@ -32,10 +32,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline = new System.Windows.Forms.Panel();
             this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
-            this.labelOutline = new System.Windows.Forms.Panel();
-            this.labelContainer = new System.Windows.Forms.Panel();
-            this.labelAnimation = new System.Windows.Forms.Label();
-            this.labelShadow = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,11 +39,15 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.boxOutlineWhite = new System.Windows.Forms.Panel();
+            this.labelShadow = new System.Windows.Forms.Panel();
+            this.labelOutline = new System.Windows.Forms.Panel();
+            this.labelContainer = new System.Windows.Forms.Panel();
             this.boxOutlineInner = new System.Windows.Forms.Panel();
+            this.labelAnimation = new System.Windows.Forms.Label();
             this.boxOutline.SuspendLayout();
+            this.boxOutlineWhite.SuspendLayout();
             this.labelOutline.SuspendLayout();
             this.labelContainer.SuspendLayout();
-            this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,48 +78,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxShadow.Name = "boxShadow";
             this.boxShadow.Size = new System.Drawing.Size(947, 192);
             this.boxShadow.TabIndex = 1;
-            // 
-            // labelOutline
-            // 
-            this.labelOutline.BackColor = System.Drawing.Color.Black;
-            this.labelOutline.Controls.Add(this.labelContainer);
-            this.labelOutline.Location = new System.Drawing.Point(24, 0);
-            this.labelOutline.Margin = new System.Windows.Forms.Padding(0);
-            this.labelOutline.Name = "labelOutline";
-            this.labelOutline.Padding = new System.Windows.Forms.Padding(1);
-            this.labelOutline.Size = new System.Drawing.Size(160, 32);
-            this.labelOutline.TabIndex = 2;
-            // 
-            // labelContainer
-            // 
-            this.labelContainer.BackColor = System.Drawing.Color.White;
-            this.labelContainer.Controls.Add(this.labelAnimation);
-            this.labelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelContainer.Location = new System.Drawing.Point(1, 1);
-            this.labelContainer.Name = "labelContainer";
-            this.labelContainer.Size = new System.Drawing.Size(158, 30);
-            this.labelContainer.TabIndex = 0;
-            // 
-            // labelAnimation
-            // 
-            this.labelAnimation.BackColor = System.Drawing.Color.Transparent;
-            this.labelAnimation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnimation.Font = new System.Drawing.Font("8-bit Operator+", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnimation.Location = new System.Drawing.Point(0, 0);
-            this.labelAnimation.Name = "labelAnimation";
-            this.labelAnimation.Size = new System.Drawing.Size(158, 30);
-            this.labelAnimation.TabIndex = 0;
-            this.labelAnimation.Text = "Animation";
-            this.labelAnimation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelShadow
-            // 
-            this.labelShadow.BackColor = System.Drawing.Color.Black;
-            this.labelShadow.Location = new System.Drawing.Point(28, 4);
-            this.labelShadow.Margin = new System.Windows.Forms.Padding(0);
-            this.labelShadow.Name = "labelShadow";
-            this.labelShadow.Size = new System.Drawing.Size(160, 32);
-            this.labelShadow.TabIndex = 0;
             // 
             // panel1
             // 
@@ -201,6 +159,36 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineWhite.Size = new System.Drawing.Size(945, 190);
             this.boxOutlineWhite.TabIndex = 0;
             // 
+            // labelShadow
+            // 
+            this.labelShadow.BackColor = System.Drawing.Color.Black;
+            this.labelShadow.Location = new System.Drawing.Point(28, 4);
+            this.labelShadow.Margin = new System.Windows.Forms.Padding(0);
+            this.labelShadow.Name = "labelShadow";
+            this.labelShadow.Size = new System.Drawing.Size(160, 32);
+            this.labelShadow.TabIndex = 0;
+            // 
+            // labelOutline
+            // 
+            this.labelOutline.BackColor = System.Drawing.Color.Black;
+            this.labelOutline.Controls.Add(this.labelContainer);
+            this.labelOutline.Location = new System.Drawing.Point(24, 0);
+            this.labelOutline.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOutline.Name = "labelOutline";
+            this.labelOutline.Padding = new System.Windows.Forms.Padding(1);
+            this.labelOutline.Size = new System.Drawing.Size(160, 32);
+            this.labelOutline.TabIndex = 2;
+            // 
+            // labelContainer
+            // 
+            this.labelContainer.BackColor = System.Drawing.Color.White;
+            this.labelContainer.Controls.Add(this.labelAnimation);
+            this.labelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelContainer.Location = new System.Drawing.Point(1, 1);
+            this.labelContainer.Name = "labelContainer";
+            this.labelContainer.Size = new System.Drawing.Size(158, 30);
+            this.labelContainer.TabIndex = 0;
+            // 
             // boxOutlineInner
             // 
             this.boxOutlineInner.BackColor = System.Drawing.Color.Black;
@@ -212,6 +200,18 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
             this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
             this.boxOutlineInner.TabIndex = 0;
+            // 
+            // labelAnimation
+            // 
+            this.labelAnimation.BackColor = System.Drawing.Color.Transparent;
+            this.labelAnimation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelAnimation.Font = new System.Drawing.Font("8-bit Operator+", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnimation.Location = new System.Drawing.Point(0, 0);
+            this.labelAnimation.Name = "labelAnimation";
+            this.labelAnimation.Size = new System.Drawing.Size(158, 30);
+            this.labelAnimation.TabIndex = 0;
+            this.labelAnimation.Text = "Animation";
+            this.labelAnimation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // KeyframeContainer
             // 
@@ -231,9 +231,9 @@ namespace Pixel_Editor_Test_2.Controls
             this.Name = "KeyframeContainer";
             this.Size = new System.Drawing.Size(955, 232);
             this.boxOutline.ResumeLayout(false);
+            this.boxOutlineWhite.ResumeLayout(false);
             this.labelOutline.ResumeLayout(false);
             this.labelContainer.ResumeLayout(false);
-            this.boxOutlineWhite.ResumeLayout(false);
             this.boxOutlineInner.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -244,10 +244,6 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel boxOutline;
         private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;
         private System.Windows.Forms.Panel boxShadow;
-        private System.Windows.Forms.Panel labelOutline;
-        private System.Windows.Forms.Panel labelContainer;
-        private System.Windows.Forms.Label labelAnimation;
-        private System.Windows.Forms.Panel labelShadow;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
@@ -255,6 +251,10 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel boxOutlineWhite;
+        private System.Windows.Forms.Panel labelShadow;
+        private System.Windows.Forms.Panel labelOutline;
+        private System.Windows.Forms.Panel labelContainer;
         private System.Windows.Forms.Panel boxOutlineInner;
+        private System.Windows.Forms.Label labelAnimation;
     }
 }

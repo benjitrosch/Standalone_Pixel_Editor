@@ -36,15 +36,15 @@ namespace Pixel_Editor_Test_2
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.brushSize1 = new Pixel_Editor_Test_2.Controls.BrushSize();
+            this.brushSize = new Pixel_Editor_Test_2.Controls.BrushSize();
             this.canvasPanel = new Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor();
             this.srcImage = new System.Windows.Forms.PictureBox();
             this.keyframeContainer1 = new Pixel_Editor_Test_2.Controls.KeyframeContainer();
+            this.palette = new Pixel_Editor_Test_2.Controls.Palette();
             this.colorPicker1 = new Pixel_Editor_Test_2.Controls.ColorPicker();
             this.activeColors = new Pixel_Editor_Test_2.Controls.ActiveColors();
             this.toolbar = new Pixel_Editor_Test_2.Controls.Toolbar();
             this.titlebar = new Pixel_Editor_Test_2.Controls.Titlebar();
-            this.palette1 = new Pixel_Editor_Test_2.Controls.Palette();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -67,7 +67,7 @@ namespace Pixel_Editor_Test_2
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.palette1);
+            this.panel7.Controls.Add(this.palette);
             this.panel7.Controls.Add(this.colorPicker1);
             this.panel7.Controls.Add(this.activeColors);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -92,7 +92,7 @@ namespace Pixel_Editor_Test_2
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
-            this.panel9.Controls.Add(this.brushSize1);
+            this.panel9.Controls.Add(this.brushSize);
             this.panel9.Controls.Add(this.canvasPanel);
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.keyframeContainer1);
@@ -111,12 +111,12 @@ namespace Pixel_Editor_Test_2
             this.panel10.Size = new System.Drawing.Size(948, 32);
             this.panel10.TabIndex = 30;
             // 
-            // brushSize1
+            // brushSize
             // 
-            this.brushSize1.Location = new System.Drawing.Point(787, 395);
-            this.brushSize1.Name = "brushSize1";
-            this.brushSize1.Size = new System.Drawing.Size(160, 48);
-            this.brushSize1.TabIndex = 31;
+            this.brushSize.Location = new System.Drawing.Point(787, 400);
+            this.brushSize.Name = "brushSize";
+            this.brushSize.Size = new System.Drawing.Size(160, 32);
+            this.brushSize.TabIndex = 31;
             // 
             // canvasPanel
             // 
@@ -146,9 +146,9 @@ namespace Pixel_Editor_Test_2
             // 
             // srcImage
             // 
-            this.srcImage.Location = new System.Drawing.Point(880, 8);
+            this.srcImage.Location = new System.Drawing.Point(817, 3);
             this.srcImage.Name = "srcImage";
-            this.srcImage.Size = new System.Drawing.Size(64, 64);
+            this.srcImage.Size = new System.Drawing.Size(128, 128);
             this.srcImage.TabIndex = 0;
             this.srcImage.TabStop = false;
             this.srcImage.Visible = false;
@@ -161,6 +161,14 @@ namespace Pixel_Editor_Test_2
             this.keyframeContainer1.Name = "keyframeContainer1";
             this.keyframeContainer1.Size = new System.Drawing.Size(954, 232);
             this.keyframeContainer1.TabIndex = 0;
+            // 
+            // palette
+            // 
+            this.palette.BackColor = System.Drawing.Color.Transparent;
+            this.palette.Location = new System.Drawing.Point(20, 19);
+            this.palette.Name = "palette";
+            this.palette.Size = new System.Drawing.Size(208, 400);
+            this.palette.TabIndex = 27;
             // 
             // colorPicker1
             // 
@@ -197,14 +205,6 @@ namespace Pixel_Editor_Test_2
             this.titlebar.Name = "titlebar";
             this.titlebar.Size = new System.Drawing.Size(1278, 32);
             this.titlebar.TabIndex = 32;
-            // 
-            // palette1
-            // 
-            this.palette1.BackColor = System.Drawing.Color.Transparent;
-            this.palette1.Location = new System.Drawing.Point(11, 16);
-            this.palette1.Name = "palette1";
-            this.palette1.Size = new System.Drawing.Size(222, 404);
-            this.palette1.TabIndex = 27;
             // 
             // EditorWindow
             // 
@@ -252,8 +252,8 @@ namespace Pixel_Editor_Test_2
         private System.Windows.Forms.Panel panel10;
         private Controls.KeyframeContainer keyframeContainer1;
         private Controls.ColorPicker colorPicker1;
-        private Controls.BrushSize brushSize1;
-        private Controls.Palette palette1;
+        private Controls.BrushSize brushSize;
+        private Controls.Palette palette;
     }
 }
 

@@ -46,7 +46,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.trackBar.Maximum = 32;
             this.trackBar.Minimum = 1;
             this.trackBar.Name = "trackBar";
-            this.trackBar.Size = new System.Drawing.Size(142, 30);
+            this.trackBar.Size = new System.Drawing.Size(142, 14);
             this.trackBar.TabIndex = 2;
             this.trackBar.TickFrequency = 8;
             this.trackBar.Value = 1;
@@ -58,7 +58,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline.Location = new System.Drawing.Point(0, 0);
             this.boxOutline.Name = "boxOutline";
             this.boxOutline.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutline.Size = new System.Drawing.Size(160, 48);
+            this.boxOutline.Size = new System.Drawing.Size(160, 32);
             this.boxOutline.TabIndex = 3;
             // 
             // boxContainer
@@ -70,7 +70,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxContainer.Margin = new System.Windows.Forms.Padding(0);
             this.boxContainer.Name = "boxContainer";
             this.boxContainer.Padding = new System.Windows.Forms.Padding(8);
-            this.boxContainer.Size = new System.Drawing.Size(158, 46);
+            this.boxContainer.Size = new System.Drawing.Size(158, 30);
             this.boxContainer.TabIndex = 0;
             // 
             // BrushSize
@@ -79,7 +79,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.boxOutline);
             this.Name = "BrushSize";
-            this.Size = new System.Drawing.Size(160, 48);
+            this.Size = new System.Drawing.Size(160, 32);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.boxOutline.ResumeLayout(false);
             this.boxContainer.ResumeLayout(false);

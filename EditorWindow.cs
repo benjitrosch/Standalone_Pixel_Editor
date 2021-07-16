@@ -27,6 +27,10 @@ namespace Pixel_Editor_Test_2
         {
             InitializeComponent();
 
+            Session.Instance.SetEditor(this);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
+            Session.Instance.OnActiveToolChange += (_o, t) => canvasPanel.PixelEditor_SetTool(t);
+
             _animation = new AnimatedBitmap(new List<Frame>());
             _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
 
@@ -55,79 +59,9 @@ namespace Pixel_Editor_Test_2
             canvasPanel.Invalidate();
         }
 
-        private void ExitApplication()
+        private void canvasPanel_MouseHover(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        private void SelectSelectTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.SELECT);
-        }
-
-        private void SelectMagicTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.MAGICWAND);
-        }
-
-        private void SelectPencilTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
-        }
-
-        private void SelectEraserTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.ERASER);
-        }
-
-        private void SelectFillTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.FILL);
-        }
-
-        private void SelectHandTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.HAND);
-        }
-
-        private void SelectEyedropperTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.EYEDROPPER);
-        }
-
-        private void SelectLineTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
-        }
-
-        private void SelectRectangleTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
-        }
-
-        private void SelectOvalTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
-        }
-
-        private void ToggleOnionSkin()
-        {
-            if (_leftOnionSkinEnabled)
-            {
-                if (_animation.CurrentFrame > 0)
-                {
-                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame - 1).Image;
-                }
-            } else if (_rightOnionSkinEnabled)
-            {
-                if (_animation.CurrentFrame < _animation.TotalFrames - 1)
-                {
-                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame + 1).Image;
-                }
-            } else
-            {
-                canvasPanel.OnionSkin = null;
-            }
+            canvasPanel.Focus();
         }
     }
 }

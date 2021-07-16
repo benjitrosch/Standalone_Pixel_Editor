@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,10 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FillCommand.cs" />
-    <Compile Include="Controls\ActiveColors.cs">
+    <Compile Include="Controls\Color\ActiveColors.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ActiveColors.Designer.cs">
+    <Compile Include="Controls\Color\ActiveColors.Designer.cs">
       <DependentUpon>ActiveColors.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\BrushSize.cs">
@@ -62,13 +77,13 @@
     <Compile Include="Controls\BrushSize.Designer.cs">
       <DependentUpon>BrushSize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ColorPicker.cs">
+    <Compile Include="Controls\Color\ColorPicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ColorPicker.Designer.cs">
+    <Compile Include="Controls\Color\ColorPicker.Designer.cs">
       <DependentUpon>ColorPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ColorWheel.cs">
+    <Compile Include="Controls\Color\ColorWheel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Container.cs">
@@ -77,23 +92,29 @@
     <Compile Include="Controls\Container.Designer.cs">
       <DependentUpon>Container.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Keyframe.cs">
+    <Compile Include="Controls\Animation\Keyframe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Keyframe.Designer.cs">
+    <Compile Include="Controls\Animation\Keyframe.Designer.cs">
       <DependentUpon>Keyframe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\KeyframeContainer.cs">
+    <Compile Include="Controls\Animation\KeyframeContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\KeyframeContainer.Designer.cs">
+    <Compile Include="Controls\Animation\KeyframeContainer.Designer.cs">
       <DependentUpon>KeyframeContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Palette.cs">
+    <Compile Include="Controls\Color\Palette.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Palette.Designer.cs">
+    <Compile Include="Controls\Color\Palette.Designer.cs">
       <DependentUpon>Palette.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Color\PaletteColor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Color\PaletteColor.Designer.cs">
+      <DependentUpon>PaletteColor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
@@ -112,6 +133,12 @@
     </Compile>
     <Compile Include="Controls\Toolbar.Designer.cs">
       <DependentUpon>Toolbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolButton.Designer.cs">
+      <DependentUpon>ToolButton.cs</DependentUpon>
     </Compile>
     <Compile Include="EditorWindowAnimator.cs">
       <SubType>Form</SubType>
@@ -139,18 +166,18 @@
     <Compile Include="Commands\DrawRectangleCommand.cs" />
     <Compile Include="Commands\ReplaceColorCommand.cs" />
     <Compile Include="Commands\SelectAreaCommand.cs" />
-    <Compile Include="Controls\ColorBox.cs">
+    <Compile Include="Controls\Color\ColorBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ColorBox.Designer.cs">
+    <Compile Include="Controls\Color\ColorBox.Designer.cs">
       <DependentUpon>ColorBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Events\ColorChangedEventArgs.cs" />
     <Compile Include="Util\Color\ColorModes.cs" />
-    <Compile Include="Controls\ColorSlider.cs">
+    <Compile Include="Controls\Color\ColorSlider.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ColorSlider.Designer.cs">
+    <Compile Include="Controls\Color\ColorSlider.Designer.cs">
       <DependentUpon>ColorSlider.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
@@ -176,32 +203,38 @@
     <Compile Include="Util\Shapes.cs" />
     <Compile Include="Util\Canvas.cs" />
     <Compile Include="Util\Calc.cs" />
-    <EmbeddedResource Include="Controls\ActiveColors.resx">
+    <EmbeddedResource Include="Controls\Color\ActiveColors.resx">
       <DependentUpon>ActiveColors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BrushSize.resx">
       <DependentUpon>BrushSize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ColorPicker.resx">
+    <EmbeddedResource Include="Controls\Color\ColorPicker.resx">
       <DependentUpon>ColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Container.resx">
       <DependentUpon>Container.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Keyframe.resx">
+    <EmbeddedResource Include="Controls\Animation\Keyframe.resx">
       <DependentUpon>Keyframe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\KeyframeContainer.resx">
+    <EmbeddedResource Include="Controls\Animation\KeyframeContainer.resx">
       <DependentUpon>KeyframeContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Palette.resx">
+    <EmbeddedResource Include="Controls\Color\Palette.resx">
       <DependentUpon>Palette.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Color\PaletteColor.resx">
+      <DependentUpon>PaletteColor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Titlebar.resx">
       <DependentUpon>Titlebar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Toolbar.resx">
       <DependentUpon>Toolbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolButton.resx">
+      <DependentUpon>ToolButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>
@@ -259,6 +292,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newframe_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

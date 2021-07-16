@@ -29,48 +29,49 @@ namespace Pixel_Editor_Test_2.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOutline = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.menuOutline.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.AutoSize = false;
+            this.menuStrip.BackColor = System.Drawing.Color.White;
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1, 1);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip1.Size = new System.Drawing.Size(1278, 30);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(1, 1);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(0);
+            this.menuStrip.Size = new System.Drawing.Size(1278, 30);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip1";
+            this.menuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 30);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 30);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // menuOutline
             // 
             this.menuOutline.BackColor = System.Drawing.Color.Black;
             this.menuOutline.Controls.Add(this.buttonExit);
-            this.menuOutline.Controls.Add(this.menuStrip1);
+            this.menuOutline.Controls.Add(this.menuStrip);
             this.menuOutline.Location = new System.Drawing.Point(0, 0);
             this.menuOutline.Margin = new System.Windows.Forms.Padding(0);
             this.menuOutline.Name = "menuOutline";
@@ -102,8 +103,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Titlebar";
             this.Size = new System.Drawing.Size(1280, 32);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.menuOutline.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -111,7 +112,7 @@ namespace Pixel_Editor_Test_2.Controls
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.Panel menuOutline;

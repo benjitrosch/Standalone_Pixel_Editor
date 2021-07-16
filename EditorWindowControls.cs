@@ -1,4 +1,5 @@
 ﻿using Pixel_Editor_Test_2.Controls;
+using Pixel_Editor_Test_2.Controls.PixelEditor;
 using Pixel_Editor_Test_2.Systems;
 using Pixel_Editor_Test_2.Util;
 using System;
@@ -13,91 +14,6 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow
     {
-        private bool _mouseDown;
-        private Point _lastLocation;
-
-        private void menuStrip_MouseDown(object sender, MouseEventArgs e)
-        {
-            _mouseDown = true;
-            _lastLocation = e.Location;
-        }
-
-        private void menuStrip_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_mouseDown)
-            {
-                Location = new Point(
-                    (Location.X - _lastLocation.X) + e.X, (Location.Y - _lastLocation.Y) + e.Y);
-
-                Update();
-            }
-        }
-
-        private void menuStrip_MouseUp(object sender, MouseEventArgs e)
-        {
-            _mouseDown = false;
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            ExitApplication();
-        }
-
-        private void buttonSelectTool_Click(object sender, EventArgs e)
-        {
-            SelectSelectTool();
-        }
-
-        private void buttonMagicTool_Click(object sender, EventArgs e)
-        {
-            SelectMagicTool();
-        }
-
-        private void buttonPencilTool_Click(object sender, EventArgs e)
-        {
-            SelectPencilTool();
-        }
-
-        private void buttonEraserTool_Click(object sender, EventArgs e)
-        {
-            SelectEraserTool();
-        }
-
-        private void buttonFillTool_Click(object sender, EventArgs e)
-        {
-            SelectFillTool();
-        }
-
-        private void buttonHandTool_Click(object sender, EventArgs e)
-        {
-            SelectHandTool();
-        }
-
-        private void buttonEyedropperTool_Click(object sender, EventArgs e)
-        {
-            SelectEyedropperTool();
-        }
-
-        private void buttonLineTool_Click(object sender, EventArgs e)
-        {
-            SelectLineTool();
-        }
-
-        private void buttonRectangleTool_Click(object sender, EventArgs e)
-        {
-            SelectRectangleTool();
-        }
-
-        private void buttonOvalTool_Click(object sender, EventArgs e)
-        {
-            SelectOvalTool();
-        }
-
-        private void canvasPanel_MouseHover(object sender, EventArgs e)
-        {
-            canvasPanel.Focus();
-        }
-
         private bool _leftOnionSkinEnabled = false;
         private bool _rightOnionSkinEnabled = false;
 
@@ -113,6 +29,83 @@ namespace Pixel_Editor_Test_2
             _rightOnionSkinEnabled = !_rightOnionSkinEnabled;
             ToggleOnionSkin();
             canvasPanel.Invalidate();
+        }
+
+        public void ExitApplication()
+        {
+            Close();
+        }
+
+        public void SelectSelectTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.SELECT);
+        }
+
+        public void SelectMagicTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.MAGICWAND);
+        }
+
+        public void SelectPencilTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
+        }
+
+        public void SelectEraserTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.ERASER);
+        }
+
+        public void SelectFillTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.FILL);
+        }
+
+        public void SelectHandTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.HAND);
+        }
+
+        public void SelectEyedropperTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.EYEDROPPER);
+        }
+
+        public void SelectLineTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
+        }
+
+        public void SelectRectangleTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
+        }
+
+        public void SelectOvalTool()
+        {
+            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
+        }
+
+        private void ToggleOnionSkin()
+        {
+            if (_leftOnionSkinEnabled)
+            {
+                if (_animation.CurrentFrame > 0)
+                {
+                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame - 1).Image;
+                }
+            }
+            else if (_rightOnionSkinEnabled)
+            {
+                if (_animation.CurrentFrame < _animation.TotalFrames - 1)
+                {
+                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame + 1).Image;
+                }
+            }
+            else
+            {
+                canvasPanel.OnionSkin = null;
+            }
         }
     }
 }

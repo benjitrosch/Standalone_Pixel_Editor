@@ -29,111 +29,21 @@ namespace Pixel_Editor_Test_2.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Toolbar));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonSelect = new System.Windows.Forms.Button();
+            this.buttonFill = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonPencil = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonEraser = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonMagic = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonSelect = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonHand = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonLine = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonDropper = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonRectangle = new Pixel_Editor_Test_2.Controls.ToolButton();
+            this.buttonEllipse = new Pixel_Editor_Test_2.Controls.ToolButton();
             this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(10, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(32, 32);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(10, 68);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(32, 32);
-            this.panel2.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(10, 116);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(32, 32);
-            this.panel3.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(10, 164);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(32, 32);
-            this.panel4.TabIndex = 8;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(10, 212);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(32, 32);
-            this.panel5.TabIndex = 10;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(10, 260);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(32, 32);
-            this.panel6.TabIndex = 12;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Black;
-            this.panel7.Location = new System.Drawing.Point(10, 308);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(32, 32);
-            this.panel7.TabIndex = 14;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Location = new System.Drawing.Point(10, 356);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(32, 32);
-            this.panel8.TabIndex = 16;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Black;
-            this.panel9.Location = new System.Drawing.Point(10, 404);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(32, 32);
-            this.panel9.TabIndex = 18;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Black;
-            this.panel10.Location = new System.Drawing.Point(10, 452);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(32, 32);
-            this.panel10.TabIndex = 20;
             // 
             // panel11
             // 
@@ -150,239 +60,178 @@ namespace Pixel_Editor_Test_2.Controls
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.panel12.Controls.Add(this.buttonEllipse);
+            this.panel12.Controls.Add(this.buttonRectangle);
+            this.panel12.Controls.Add(this.buttonDropper);
+            this.panel12.Controls.Add(this.buttonLine);
+            this.panel12.Controls.Add(this.buttonHand);
+            this.panel12.Controls.Add(this.buttonFill);
+            this.panel12.Controls.Add(this.buttonPencil);
+            this.panel12.Controls.Add(this.buttonEraser);
+            this.panel12.Controls.Add(this.buttonMagic);
+            this.panel12.Controls.Add(this.buttonSelect);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(1, 1);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(46, 686);
             this.panel12.TabIndex = 0;
             // 
-            // button5
+            // buttonFill
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.BackgroundImage = global::Pixel_Editor_Test_2.Properties.Resources.hand_icon;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(6, 256);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(32, 32);
-            this.button5.TabIndex = 11;
-            this.button5.UseVisualStyleBackColor = false;
+            this.buttonFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonFill.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.FILL;
+            this.buttonFill.Icon = global::Pixel_Editor_Test_2.Properties.Resources.fill_icon;
+            this.buttonFill.Location = new System.Drawing.Point(6, 208);
+            this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonFill.Name = "buttonFill";
+            this.buttonFill.Size = new System.Drawing.Size(36, 36);
+            this.buttonFill.TabIndex = 23;
+            this.buttonFill.ToolCallback = null;
+            this.buttonFill.Load += new System.EventHandler(this.buttonFill_Load);
             // 
-            // button9
+            // buttonPencil
             // 
-            this.button9.BackColor = System.Drawing.Color.White;
-            this.button9.BackgroundImage = global::Pixel_Editor_Test_2.Properties.Resources.ellipse_icon;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Location = new System.Drawing.Point(6, 448);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(32, 32);
-            this.button9.TabIndex = 19;
-            this.button9.UseVisualStyleBackColor = false;
+            this.buttonPencil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonPencil.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.PENCIL;
+            this.buttonPencil.Icon = global::Pixel_Editor_Test_2.Properties.Resources.brush_icon;
+            this.buttonPencil.Location = new System.Drawing.Point(6, 160);
+            this.buttonPencil.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPencil.Name = "buttonPencil";
+            this.buttonPencil.Size = new System.Drawing.Size(36, 36);
+            this.buttonPencil.TabIndex = 7;
+            this.buttonPencil.ToolCallback = null;
+            this.buttonPencil.Load += new System.EventHandler(this.buttonPencil_Load);
             // 
-            // button8
+            // buttonEraser
             // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.BackgroundImage = global::Pixel_Editor_Test_2.Properties.Resources.rectangle_icon;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(6, 400);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 32);
-            this.button8.TabIndex = 17;
-            this.button8.UseVisualStyleBackColor = false;
+            this.buttonEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonEraser.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.ERASER;
+            this.buttonEraser.Icon = global::Pixel_Editor_Test_2.Properties.Resources.eraser_icon;
+            this.buttonEraser.Location = new System.Drawing.Point(6, 112);
+            this.buttonEraser.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonEraser.Name = "buttonEraser";
+            this.buttonEraser.Size = new System.Drawing.Size(36, 36);
+            this.buttonEraser.TabIndex = 5;
+            this.buttonEraser.ToolCallback = null;
+            this.buttonEraser.Load += new System.EventHandler(this.buttonEraser_Load);
             // 
-            // button7
+            // buttonMagic
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.BackgroundImage = global::Pixel_Editor_Test_2.Properties.Resources.eyedropper_icon;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(6, 352);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(32, 32);
-            this.button7.TabIndex = 15;
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.BackgroundImage = global::Pixel_Editor_Test_2.Properties.Resources.line_icon;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(6, 304);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(32, 32);
-            this.button6.TabIndex = 13;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(6, 208);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(32, 32);
-            this.button4.TabIndex = 9;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(6, 160);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 32);
-            this.button3.TabIndex = 7;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(6, 112);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 32);
-            this.button2.TabIndex = 5;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(6, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonMagic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonMagic.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.MAGICWAND;
+            this.buttonMagic.Icon = global::Pixel_Editor_Test_2.Properties.Resources.magic_icon;
+            this.buttonMagic.Location = new System.Drawing.Point(6, 64);
+            this.buttonMagic.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMagic.Name = "buttonMagic";
+            this.buttonMagic.Size = new System.Drawing.Size(36, 36);
+            this.buttonMagic.TabIndex = 3;
+            this.buttonMagic.ToolCallback = null;
+            this.buttonMagic.Load += new System.EventHandler(this.buttonMagic_Load);
             // 
             // buttonSelect
             // 
-            this.buttonSelect.BackColor = System.Drawing.Color.White;
-            this.buttonSelect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelect.BackgroundImage")));
-            this.buttonSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonSelect.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelect.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.buttonSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(203)))), ((int)(((byte)(254)))));
-            this.buttonSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelect.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelect.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonSelect.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.SELECT;
+            this.buttonSelect.Icon = global::Pixel_Editor_Test_2.Properties.Resources.select_icon;
             this.buttonSelect.Location = new System.Drawing.Point(6, 16);
             this.buttonSelect.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(32, 32);
+            this.buttonSelect.Size = new System.Drawing.Size(36, 36);
             this.buttonSelect.TabIndex = 1;
-            this.buttonSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSelect.UseVisualStyleBackColor = false;
+            this.buttonSelect.ToolCallback = null;
+            this.buttonSelect.Load += new System.EventHandler(this.buttonSelect_Load);
+            // 
+            // buttonHand
+            // 
+            this.buttonHand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonHand.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.HAND;
+            this.buttonHand.Icon = global::Pixel_Editor_Test_2.Properties.Resources.hand_icon;
+            this.buttonHand.Location = new System.Drawing.Point(6, 256);
+            this.buttonHand.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonHand.Name = "buttonHand";
+            this.buttonHand.Size = new System.Drawing.Size(36, 36);
+            this.buttonHand.TabIndex = 25;
+            this.buttonHand.ToolCallback = null;
+            this.buttonHand.Load += new System.EventHandler(this.buttonHand_Load);
+            // 
+            // buttonLine
+            // 
+            this.buttonLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonLine.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.LINE;
+            this.buttonLine.Icon = global::Pixel_Editor_Test_2.Properties.Resources.line_icon;
+            this.buttonLine.Location = new System.Drawing.Point(6, 304);
+            this.buttonLine.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(36, 36);
+            this.buttonLine.TabIndex = 27;
+            this.buttonLine.ToolCallback = null;
+            this.buttonLine.Load += new System.EventHandler(this.buttonLine_Load);
+            // 
+            // buttonDropper
+            // 
+            this.buttonDropper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonDropper.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.EYEDROPPER;
+            this.buttonDropper.Icon = global::Pixel_Editor_Test_2.Properties.Resources.eyedropper_icon;
+            this.buttonDropper.Location = new System.Drawing.Point(6, 352);
+            this.buttonDropper.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDropper.Name = "buttonDropper";
+            this.buttonDropper.Size = new System.Drawing.Size(36, 36);
+            this.buttonDropper.TabIndex = 29;
+            this.buttonDropper.ToolCallback = null;
+            this.buttonDropper.Load += new System.EventHandler(this.buttonDropper_Load);
+            // 
+            // buttonRectangle
+            // 
+            this.buttonRectangle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonRectangle.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.RECTANGLE;
+            this.buttonRectangle.Icon = global::Pixel_Editor_Test_2.Properties.Resources.rectangle_icon;
+            this.buttonRectangle.Location = new System.Drawing.Point(6, 400);
+            this.buttonRectangle.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonRectangle.Name = "buttonRectangle";
+            this.buttonRectangle.Size = new System.Drawing.Size(36, 36);
+            this.buttonRectangle.TabIndex = 31;
+            this.buttonRectangle.ToolCallback = null;
+            this.buttonRectangle.Load += new System.EventHandler(this.buttonRectangle_Load);
+            // 
+            // buttonEllipse
+            // 
+            this.buttonEllipse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.buttonEllipse.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.OVAL;
+            this.buttonEllipse.Icon = global::Pixel_Editor_Test_2.Properties.Resources.ellipse_icon;
+            this.buttonEllipse.Location = new System.Drawing.Point(6, 448);
+            this.buttonEllipse.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonEllipse.Name = "buttonEllipse";
+            this.buttonEllipse.Size = new System.Drawing.Size(36, 36);
+            this.buttonEllipse.TabIndex = 33;
+            this.buttonEllipse.ToolCallback = null;
+            this.buttonEllipse.Load += new System.EventHandler(this.buttonEllipse_Load);
             // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.panel10);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.buttonSelect);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel11);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Toolbar";
             this.Size = new System.Drawing.Size(48, 688);
             this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSelect;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
+        private ToolButton buttonSelect;
+        private ToolButton buttonMagic;
+        private ToolButton buttonEraser;
+        private ToolButton buttonPencil;
+        private ToolButton buttonFill;
+        private ToolButton buttonHand;
+        private ToolButton buttonLine;
+        private ToolButton buttonDropper;
+        private ToolButton buttonRectangle;
+        private ToolButton buttonEllipse;
     }
 }
