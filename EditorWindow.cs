@@ -45,9 +45,6 @@ namespace Pixel_Editor_Test_2
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
-
-            ToggleGrid(checkboxToggleGrid.Checked);
-            TogglePreview(checkboxTogglePreview.Checked);
         }
 
         private void UpdateFrame(Bitmap bmp)
@@ -57,30 +54,12 @@ namespace Pixel_Editor_Test_2
 
             ToggleOnionSkin();
 
-            if (numericFrame.InvokeRequired)
-            {
-                numericFrame.Invoke(new MethodInvoker(delegate { numericFrame.Value = _animation.CurrentFrame; }));
-            }
-
             canvasPanel.Invalidate();
         }
 
         private void ExitApplication()
         {
             Close();
-        }
-
-        private void ToggleGrid(bool status)
-        {
-            canvasPanel.GridColor = status ? Color.DimGray : Color.Transparent;
-        }
-
-        private void TogglePreview(bool status)
-        {
-            if (status)
-                previewContainer.Show();
-            else
-                previewContainer.Hide();
         }
 
         private void SelectSelectTool()

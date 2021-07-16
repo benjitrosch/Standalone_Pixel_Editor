@@ -16,6 +16,8 @@ namespace Pixel_Editor_Test_2
 
         private void AddKeyframe(Frame frame)
         {
+            _animation.PauseAnimation();
+
             int frameIndex = _animation.TotalFrames;
             _animation.AddFrame(frame);
 

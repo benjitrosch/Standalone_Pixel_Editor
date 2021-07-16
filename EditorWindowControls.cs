@@ -43,16 +43,6 @@ namespace Pixel_Editor_Test_2
             canvasPanel.Zoom = zoomCanvas.Value;
         }
 
-        private void checkboxToggleGrid_CheckStateChanged(object sender, EventArgs e)
-        {
-            ToggleGrid(checkboxToggleGrid.Checked);
-            canvasPanel.Invalidate();
-        }
-
-        private void checkboxTogglePreview_CheckStateChanged(object sender, EventArgs e)
-        {
-            TogglePreview(checkboxTogglePreview.Checked);
-        }
         private void buttonExit_Click(object sender, EventArgs e)
         {
             ExitApplication();
