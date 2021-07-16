@@ -30,8 +30,6 @@ namespace Pixel_Editor_Test_2
             _animation = new AnimatedBitmap(new List<Frame>());
             _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
 
-            canvasPanel.Coordinates = coordinatesLabel;
-            canvasPanel.Selection = selectionLabel;
             canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
         }
 

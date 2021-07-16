@@ -107,29 +107,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         public Bitmap OnionSkin { get; set; } = null;
 
-        private Point _coordinates;
-
-        Label coordinates = null, selection = null;
-
-        public Label Coordinates
-        {
-            get { return coordinates; }
-            set
-            {
-                if (value == null) return;
-                coordinates = value;
-            }
-        }
-        public Label Selection
-        {
-            get { return selection; }
-            set
-            {
-                if (value == null) return;
-                selection = value;
-            }
-        }
-
         public PixelEditor()
         {
             DoubleBuffered = true;
@@ -186,7 +163,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                             col = y % 2 == 1 ? Color.FromArgb(190, 190, 190) : Color.FromArgb(127, 127, 127);
                     }
 
-                    if (pC == _coordinates || pC == SelectionStartPos)
+                    if (pC == SelectionStartPos)
                         drawColor = Color.White;
 
                     using (SolidBrush b = new SolidBrush(col))
@@ -218,16 +195,16 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             ControlPaint.DrawBorder(g,
                                     ClientRectangle,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid);
 
             PixelEditor_RenderSelectionPreview(e);

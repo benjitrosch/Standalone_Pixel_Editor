@@ -50,17 +50,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FillCommand.cs" />
+    <Compile Include="Controls\ButtonContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ButtonContainer.Designer.cs">
+      <DependentUpon>ButtonContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Container.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Container.Designer.cs">
+      <DependentUpon>Container.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Keyframe.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Keyframe.Designer.cs">
       <DependentUpon>Keyframe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\KeyframeContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\KeyframeContainer.Designer.cs">
+      <DependentUpon>KeyframeContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\PixelEditor\PixelEditorInput.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Toolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Toolbar.Designer.cs">
+      <DependentUpon>Toolbar.cs</DependentUpon>
     </Compile>
     <Compile Include="EditorWindowAnimator.cs">
       <SubType>Form</SubType>
@@ -120,8 +144,20 @@
     <Compile Include="Util\Shapes.cs" />
     <Compile Include="Util\Canvas.cs" />
     <Compile Include="Util\Calc.cs" />
+    <EmbeddedResource Include="Controls\ButtonContainer.resx">
+      <DependentUpon>ButtonContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Container.resx">
+      <DependentUpon>Container.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Keyframe.resx">
       <DependentUpon>Keyframe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\KeyframeContainer.resx">
+      <DependentUpon>KeyframeContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Toolbar.resx">
+      <DependentUpon>Toolbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>

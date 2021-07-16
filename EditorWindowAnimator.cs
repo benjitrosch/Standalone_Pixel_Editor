@@ -24,13 +24,13 @@ namespace Pixel_Editor_Test_2
             Keyframe newKeyframe = new Keyframe(frameIndex);
             _keyframes.Add(newKeyframe);
 
-            keyframeContainer.Controls.Clear();
+            //keyframeContainer.Controls.Clear();
 
-            foreach(Keyframe keyframe in _keyframes)
+            /*foreach(Keyframe keyframe in _keyframes)
             {
                 keyframe.Click += new EventHandler(ClickEvent);
                 keyframeContainer.Controls.Add(keyframe);
-            }
+            }*/
 
             _animation.GotoFrame(frameIndex);
         }

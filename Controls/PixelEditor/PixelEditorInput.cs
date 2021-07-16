@@ -77,17 +77,10 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
             Point p = new Point(x, y);
 
-            _coordinates = p;
             Invalidate();
 
             int width = Math.Abs(SelectionStartPos.X - SelectionEndPos.X);
             int height = Math.Abs(SelectionStartPos.Y - SelectionEndPos.Y);
-
-            if (Coordinates != null && Selection != null)
-            {
-                Coordinates.Text = $"X: {_coordinates.X} Y: {_coordinates.Y}";
-                Selection.Text = $"W: {width} H: {Math.Abs(height)}";
-            }
 
             if (e.Button == MouseButtons.Middle)
             {

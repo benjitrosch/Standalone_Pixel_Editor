@@ -38,11 +38,6 @@ namespace Pixel_Editor_Test_2
             _mouseDown = false;
         }
 
-        private void zoomBar_ValueChanged(object sender, EventArgs e)
-        {
-            canvasPanel.Zoom = zoomCanvas.Value;
-        }
-
         private void buttonExit_Click(object sender, EventArgs e)
         {
             ExitApplication();
