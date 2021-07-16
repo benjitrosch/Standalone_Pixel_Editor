@@ -30,7 +30,7 @@ namespace Pixel_Editor_Test_2
             _animation = new AnimatedBitmap(new List<Frame>());
             _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
 
-            canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
+            //canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
         }
 
         private void EditorWindow_Load(object sender, EventArgs e)
@@ -38,8 +38,8 @@ namespace Pixel_Editor_Test_2
             Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
             AddKeyframe(emptyFrame);
 
-            canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
-            canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
+            //canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
+            //canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
             canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);

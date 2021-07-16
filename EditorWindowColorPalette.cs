@@ -53,15 +53,6 @@ namespace Pixel_Editor_Test_2
             SaveColor(_secondaryColor);
         }
 
-        private void buttonSwitchColors_Click(object sender, EventArgs e)
-        {
-            Color prevPrimary = _primaryColor;
-            Color prevSecondary = _secondaryColor;
-
-            canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, prevSecondary);
-            canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, prevPrimary);
-        }
-
         private void colorSlider_ColorChanged(object sender, ColorChangedEventArgs args)
         {
             //HslColor colorHSL = colorSlider.ColorHSL;
@@ -78,7 +69,7 @@ namespace Pixel_Editor_Test_2
             //PickColor(colorBox2D.ColorHSL.RgbValue, e);
         }
 
-        private void PickColor(Color color, MouseEventArgs e)
+        /*private void PickColor(Color color, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
                 canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, color);
@@ -102,6 +93,6 @@ namespace Pixel_Editor_Test_2
                 canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, paletteBtn.BackColor);
             else if (e.Button == MouseButtons.Right)
                 canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, paletteBtn.BackColor);
-        }
+        }*/
     }
 }

@@ -56,6 +56,12 @@
     <Compile Include="Controls\ActiveColors.Designer.cs">
       <DependentUpon>ActiveColors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorPicker.Designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ColorWheel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -107,6 +113,11 @@
     <Compile Include="EditorWindowInput.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Systems\Session.cs" />
     <Compile Include="Util\Animation.cs" />
     <Compile Include="Commands\DrawCircleCommand.cs" />
@@ -156,6 +167,9 @@
     <EmbeddedResource Include="Controls\ActiveColors.resx">
       <DependentUpon>ActiveColors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Container.resx">
       <DependentUpon>Container.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,14 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,7 +207,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\select_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brush_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magic_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brush_icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fill_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ellipse_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyedropper_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

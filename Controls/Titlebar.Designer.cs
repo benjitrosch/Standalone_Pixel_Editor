@@ -47,9 +47,10 @@ namespace Pixel_Editor_Test_2.Controls
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(2, 2);
+            this.menuStrip1.Location = new System.Drawing.Point(1, 1);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1276, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.menuStrip1.Size = new System.Drawing.Size(1278, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,7 +74,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.menuOutline.Location = new System.Drawing.Point(0, 0);
             this.menuOutline.Margin = new System.Windows.Forms.Padding(0);
             this.menuOutline.Name = "menuOutline";
-            this.menuOutline.Padding = new System.Windows.Forms.Padding(2);
+            this.menuOutline.Padding = new System.Windows.Forms.Padding(1);
             this.menuOutline.Size = new System.Drawing.Size(1280, 32);
             this.menuOutline.TabIndex = 1;
             // 
@@ -84,9 +85,10 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
-            this.buttonExit.Location = new System.Drawing.Point(1230, 2);
+            this.buttonExit.Location = new System.Drawing.Point(1231, 1);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(48, 28);
+            this.buttonExit.Size = new System.Drawing.Size(48, 30);
             this.buttonExit.TabIndex = 2;
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = false;

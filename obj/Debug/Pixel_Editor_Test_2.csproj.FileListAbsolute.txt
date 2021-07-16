@@ -13,3 +13,4 @@ C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Co
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Toolbar.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.Titlebar.resources
 C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.ActiveColors.resources
+C:\Users\benji\source\repos\Pixel_Editor_Test_2\obj\Debug\Pixel_Editor_Test_2.Controls.ColorPicker.resources

@@ -33,8 +33,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
             this.labelOutline = new System.Windows.Forms.Panel();
-            this.labelAnimation = new System.Windows.Forms.Label();
             this.labelContainer = new System.Windows.Forms.Panel();
+            this.labelAnimation = new System.Windows.Forms.Label();
             this.labelShadow = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -86,6 +86,16 @@ namespace Pixel_Editor_Test_2.Controls
             this.labelOutline.Size = new System.Drawing.Size(160, 32);
             this.labelOutline.TabIndex = 2;
             // 
+            // labelContainer
+            // 
+            this.labelContainer.BackColor = System.Drawing.Color.White;
+            this.labelContainer.Controls.Add(this.labelAnimation);
+            this.labelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelContainer.Location = new System.Drawing.Point(1, 1);
+            this.labelContainer.Name = "labelContainer";
+            this.labelContainer.Size = new System.Drawing.Size(158, 30);
+            this.labelContainer.TabIndex = 0;
+            // 
             // labelAnimation
             // 
             this.labelAnimation.BackColor = System.Drawing.Color.Transparent;
@@ -98,20 +108,10 @@ namespace Pixel_Editor_Test_2.Controls
             this.labelAnimation.Text = "Animation";
             this.labelAnimation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelContainer
-            // 
-            this.labelContainer.BackColor = System.Drawing.Color.White;
-            this.labelContainer.Controls.Add(this.labelAnimation);
-            this.labelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelContainer.Location = new System.Drawing.Point(1, 1);
-            this.labelContainer.Name = "labelContainer";
-            this.labelContainer.Size = new System.Drawing.Size(158, 30);
-            this.labelContainer.TabIndex = 0;
-            // 
             // labelShadow
             // 
             this.labelShadow.BackColor = System.Drawing.Color.Black;
-            this.labelShadow.Location = new System.Drawing.Point(32, 8);
+            this.labelShadow.Location = new System.Drawing.Point(30, 6);
             this.labelShadow.Margin = new System.Windows.Forms.Padding(0);
             this.labelShadow.Name = "labelShadow";
             this.labelShadow.Size = new System.Drawing.Size(160, 32);
@@ -133,7 +133,7 @@ namespace Pixel_Editor_Test_2.Controls
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(904, 200);
+            this.panel1.Location = new System.Drawing.Point(902, 198);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(32, 32);
@@ -155,7 +155,7 @@ namespace Pixel_Editor_Test_2.Controls
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(32, 200);
+            this.panel2.Location = new System.Drawing.Point(30, 198);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(32, 32);
@@ -177,7 +177,7 @@ namespace Pixel_Editor_Test_2.Controls
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(88, 200);
+            this.panel3.Location = new System.Drawing.Point(86, 198);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(32, 32);
