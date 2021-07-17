@@ -30,10 +30,10 @@ namespace Pixel_Editor_Test_2.Controls
         private void InitializeComponent()
         {
             this.boxOutline = new System.Windows.Forms.Panel();
-            this.layoutPalette = new System.Windows.Forms.FlowLayoutPanel();
-            this.boxShadow = new System.Windows.Forms.Panel();
             this.boxOutlineWhite = new System.Windows.Forms.Panel();
             this.boxOutlineInner = new System.Windows.Forms.Panel();
+            this.layoutPalette = new System.Windows.Forms.FlowLayoutPanel();
+            this.boxShadow = new System.Windows.Forms.Panel();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
@@ -47,25 +47,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline.Margin = new System.Windows.Forms.Padding(0);
             this.boxOutline.Name = "boxOutline";
             this.boxOutline.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutline.Size = new System.Drawing.Size(200, 392);
+            this.boxOutline.Size = new System.Drawing.Size(202, 392);
             this.boxOutline.TabIndex = 0;
-            // 
-            // layoutPalette
-            // 
-            this.layoutPalette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
-            this.layoutPalette.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutPalette.Location = new System.Drawing.Point(1, 1);
-            this.layoutPalette.Name = "layoutPalette";
-            this.layoutPalette.Size = new System.Drawing.Size(192, 384);
-            this.layoutPalette.TabIndex = 0;
-            // 
-            // boxShadow
-            // 
-            this.boxShadow.BackColor = System.Drawing.Color.Black;
-            this.boxShadow.Location = new System.Drawing.Point(8, 8);
-            this.boxShadow.Name = "boxShadow";
-            this.boxShadow.Size = new System.Drawing.Size(200, 392);
-            this.boxShadow.TabIndex = 1;
             // 
             // boxOutlineWhite
             // 
@@ -75,7 +58,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineWhite.Location = new System.Drawing.Point(1, 1);
             this.boxOutlineWhite.Name = "boxOutlineWhite";
             this.boxOutlineWhite.Padding = new System.Windows.Forms.Padding(2);
-            this.boxOutlineWhite.Size = new System.Drawing.Size(198, 390);
+            this.boxOutlineWhite.Size = new System.Drawing.Size(200, 390);
             this.boxOutlineWhite.TabIndex = 0;
             // 
             // boxOutlineInner
@@ -86,8 +69,25 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner.Location = new System.Drawing.Point(2, 2);
             this.boxOutlineInner.Name = "boxOutlineInner";
             this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutlineInner.Size = new System.Drawing.Size(194, 386);
+            this.boxOutlineInner.Size = new System.Drawing.Size(196, 386);
             this.boxOutlineInner.TabIndex = 0;
+            // 
+            // layoutPalette
+            // 
+            this.layoutPalette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(249)))), ((int)(((byte)(254)))));
+            this.layoutPalette.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutPalette.Location = new System.Drawing.Point(1, 1);
+            this.layoutPalette.Name = "layoutPalette";
+            this.layoutPalette.Size = new System.Drawing.Size(194, 384);
+            this.layoutPalette.TabIndex = 0;
+            // 
+            // boxShadow
+            // 
+            this.boxShadow.BackColor = System.Drawing.Color.Black;
+            this.boxShadow.Location = new System.Drawing.Point(8, 8);
+            this.boxShadow.Name = "boxShadow";
+            this.boxShadow.Size = new System.Drawing.Size(202, 392);
+            this.boxShadow.TabIndex = 1;
             // 
             // Palette
             // 
@@ -97,7 +97,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "Palette";
-            this.Size = new System.Drawing.Size(208, 400);
+            this.Size = new System.Drawing.Size(210, 400);
+            this.Load += new System.EventHandler(this.Palette_Load);
             this.boxOutline.ResumeLayout(false);
             this.boxOutlineWhite.ResumeLayout(false);
             this.boxOutlineInner.ResumeLayout(false);

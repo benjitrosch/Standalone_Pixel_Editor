@@ -143,9 +143,6 @@
     <Compile Include="EditorWindowAnimator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditorWindowColorPalette.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="EditorWindowControls.cs">
       <SubType>Form</SubType>
     </Compile>

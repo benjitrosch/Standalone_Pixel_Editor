@@ -67,6 +67,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSavePrimaryColor.TabIndex = 4;
             this.buttonSavePrimaryColor.Text = "+";
             this.buttonSavePrimaryColor.UseVisualStyleBackColor = false;
+            this.buttonSavePrimaryColor.Click += new System.EventHandler(this.buttonSavePrimaryColor_Click);
             // 
             // panel3
             // 
@@ -127,6 +128,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSaveSecondaryColor.TabIndex = 4;
             this.buttonSaveSecondaryColor.Text = "+";
             this.buttonSaveSecondaryColor.UseVisualStyleBackColor = false;
+            this.buttonSaveSecondaryColor.Click += new System.EventHandler(this.buttonSaveSecondaryColor_Click);
             // 
             // panel5
             // 
@@ -172,6 +174,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Name = "ActiveColors";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Size = new System.Drawing.Size(224, 88);
+            this.Load += new System.EventHandler(this.ActiveColors_Load);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

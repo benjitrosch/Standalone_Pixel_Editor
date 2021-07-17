@@ -30,14 +30,14 @@ namespace Pixel_Editor_Test_2.Controls
         private void InitializeComponent()
         {
             this.boxOutline = new System.Windows.Forms.Panel();
-            this.color = new System.Windows.Forms.Panel();
+            this.buttonColor = new System.Windows.Forms.Panel();
             this.boxOutline.SuspendLayout();
             this.SuspendLayout();
             // 
             // boxOutline
             // 
             this.boxOutline.BackColor = System.Drawing.Color.Black;
-            this.boxOutline.Controls.Add(this.color);
+            this.boxOutline.Controls.Add(this.buttonColor);
             this.boxOutline.Location = new System.Drawing.Point(0, 0);
             this.boxOutline.Margin = new System.Windows.Forms.Padding(0);
             this.boxOutline.Name = "boxOutline";
@@ -45,14 +45,15 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline.Size = new System.Drawing.Size(32, 32);
             this.boxOutline.TabIndex = 0;
             // 
-            // color
+            // buttonColor
             // 
-            this.color.BackColor = System.Drawing.Color.Magenta;
-            this.color.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.color.Location = new System.Drawing.Point(1, 1);
-            this.color.Name = "color";
-            this.color.Size = new System.Drawing.Size(30, 30);
-            this.color.TabIndex = 0;
+            this.buttonColor.BackColor = System.Drawing.Color.Magenta;
+            this.buttonColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonColor.Location = new System.Drawing.Point(1, 1);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(30, 30);
+            this.buttonColor.TabIndex = 0;
+            this.buttonColor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.color_MouseDown);
             // 
             // PaletteColor
             // 
@@ -70,6 +71,6 @@ namespace Pixel_Editor_Test_2.Controls
         #endregion
 
         private System.Windows.Forms.Panel boxOutline;
-        private System.Windows.Forms.Panel color;
+        private System.Windows.Forms.Panel buttonColor;
     }
 }

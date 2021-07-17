@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pixel_Editor_Test_2.Systems;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,30 @@ namespace Pixel_Editor_Test_2.Controls
         public ColorPicker()
         {
             InitializeComponent();
+        }
+
+        private void colorSlider_ColorChanged(object sender, ColorChangedEventArgs args)
+        {
+            HslColor colorHSL = colorSlider.ColorHSL;
+            colorBox2D.ColorHSL = colorHSL;
+        }
+
+        private void colorBox2D_MouseDown(object sender, MouseEventArgs e)
+        {
+            PickColor(colorBox2D.ColorHSL.RgbValue, e);
+        }
+
+        private void colorBox2D_MouseMove(object sender, MouseEventArgs e)
+        {
+            PickColor(colorBox2D.ColorHSL.RgbValue, e);
+        }
+
+        private void PickColor(Color color, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                Session.Instance.SetPrimaryColor(color);
+            else if (e.Button == MouseButtons.Right)
+                Session.Instance.SetSecondaryColor(color);
         }
     }
 }

@@ -16,7 +16,11 @@ namespace Pixel_Editor_Test_2.Systems
 
         public Color PrimaryColor { get; set; }
         public Color SecondaryColor { get; set; }
-        private Color[] Palette = new Color[64];
+        public event EventHandler<Color> OnPrimaryColorChange;
+        public event EventHandler<Color> OnSecondaryColorChange;
+
+        private List<Color> Palette = new List<Color>();
+        public event EventHandler<Color> OnPaletteUpdate;
 
         public int BrushSize { get; set; }
 
@@ -47,10 +51,35 @@ namespace Pixel_Editor_Test_2.Systems
             if (ActiveTool == tool)
                 return;
 
-            EventHandler<PixelEditor.Tool> handler = OnActiveToolChange;
-            handler?.Invoke(this, tool);
-
             ActiveTool = tool;
+            OnActiveToolChange?.Invoke(this, tool);
+        }
+
+        public void SetPrimaryColor(Color color)
+        {
+            if (PrimaryColor == color)
+                return;
+
+            PrimaryColor = color;
+            OnPrimaryColorChange?.Invoke(this, color);
+        }
+
+        public void SetSecondaryColor(Color color)
+        {
+            if (SecondaryColor == color)
+                return;
+
+            SecondaryColor = color;
+            OnSecondaryColorChange?.Invoke(this, color);
+        }
+
+        public void SaveColorToPalette(Color color)
+        {
+            if (Palette.Contains(color))
+                return;
+
+            Palette.Add(color);
+            OnPaletteUpdate?.Invoke(this, color);
         }
     }
 }

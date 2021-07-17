@@ -31,8 +31,8 @@ namespace Pixel_Editor_Test_2.Controls
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.colorSliderVertical1 = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
-            this.colorBox2D1 = new Pixel_Editor_Test_2.ColorBox2D();
+            this.colorSlider = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
+            this.colorBox2D = new Pixel_Editor_Test_2.ColorBox2D();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,8 +52,8 @@ namespace Pixel_Editor_Test_2.Controls
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.colorSliderVertical1);
-            this.panel2.Controls.Add(this.colorBox2D1);
+            this.panel2.Controls.Add(this.colorSlider);
+            this.panel2.Controls.Add(this.colorBox2D);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Name = "panel2";
@@ -61,28 +61,31 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel2.Size = new System.Drawing.Size(222, 126);
             this.panel2.TabIndex = 0;
             // 
-            // colorSliderVertical1
+            // colorSlider
             // 
-            this.colorSliderVertical1.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
-            this.colorSliderVertical1.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorSliderVertical1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.colorSliderVertical1.Location = new System.Drawing.Point(166, 8);
-            this.colorSliderVertical1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.colorSliderVertical1.Name = "colorSliderVertical1";
-            this.colorSliderVertical1.NubColor = System.Drawing.Color.Empty;
-            this.colorSliderVertical1.Position = 0;
-            this.colorSliderVertical1.Size = new System.Drawing.Size(48, 110);
-            this.colorSliderVertical1.TabIndex = 4;
+            this.colorSlider.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
+            this.colorSlider.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorSlider.Dock = System.Windows.Forms.DockStyle.Right;
+            this.colorSlider.Location = new System.Drawing.Point(166, 8);
+            this.colorSlider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorSlider.Name = "colorSlider";
+            this.colorSlider.NubColor = System.Drawing.Color.Empty;
+            this.colorSlider.Position = 0;
+            this.colorSlider.Size = new System.Drawing.Size(48, 110);
+            this.colorSlider.TabIndex = 4;
+            this.colorSlider.ColorChanged += new Pixel_Editor_Test_2.Controls.ColorSliderVertical.ColorChangedEventHandler(this.colorSlider_ColorChanged);
             // 
-            // colorBox2D1
+            // colorBox2D
             // 
-            this.colorBox2D1.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
-            this.colorBox2D1.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorBox2D1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.colorBox2D1.Location = new System.Drawing.Point(8, 8);
-            this.colorBox2D1.Name = "colorBox2D1";
-            this.colorBox2D1.Size = new System.Drawing.Size(151, 110);
-            this.colorBox2D1.TabIndex = 3;
+            this.colorBox2D.ColorMode = Pixel_Editor_Test_2.Controls.ColorModes.Hue;
+            this.colorBox2D.ColorRGB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorBox2D.Dock = System.Windows.Forms.DockStyle.Left;
+            this.colorBox2D.Location = new System.Drawing.Point(8, 8);
+            this.colorBox2D.Name = "colorBox2D";
+            this.colorBox2D.Size = new System.Drawing.Size(151, 110);
+            this.colorBox2D.TabIndex = 3;
+            this.colorBox2D.MouseDown += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseDown);
+            this.colorBox2D.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseMove);
             // 
             // panel3
             // 
@@ -113,7 +116,7 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private ColorSliderVertical colorSliderVertical1;
-        private ColorBox2D colorBox2D1;
+        private ColorSliderVertical colorSlider;
+        private ColorBox2D colorBox2D;
     }
 }
