@@ -10,20 +10,20 @@ namespace Pixel_Editor_Test_2.Controls
 {
     public class EyeDropperEventArgs : EventArgs
     {
-        private Color selectedColor;
-        private MouseButtons mouseButton;
+        private Color _selectedColor;
+        private MouseButtons _mouseButton;
 
         public EyeDropperEventArgs(Color selectedColor, MouseButtons mouseButton)
         {
-            this.selectedColor = selectedColor;
-            this.mouseButton = mouseButton;
+            this._selectedColor = selectedColor;
+            this._mouseButton = mouseButton;
         }
 
         public Color SelectedColor
         {
             get
             {
-                return this.selectedColor;
+                return this._selectedColor;
             }
         }
 
@@ -31,7 +31,7 @@ namespace Pixel_Editor_Test_2.Controls
         {
             get
             {
-                return this.mouseButton;
+                return this._mouseButton;
             }
         }
     }

@@ -18,35 +18,29 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow : Form
     {
-        private Color _primaryColor, _secondaryColor;
-        private Color[] _palette = new Color[64];
-
         private AnimatedBitmap _animation;
 
         public EditorWindow()
         {
             InitializeComponent();
+        }
 
+        private void EditorWindow_Load(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditor(this);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
+            Session.Instance.SetPrimaryColor(Color.Black);
+            Session.Instance.SetSecondaryColor(Color.White);
+            Session.Instance.BrushSize = 1;
+
+            AnimatedBitmap animation = Session.Instance.CreateNewAnimation();
+            animation.FrameUpdated += (_o, f) => UpdateFrame(f);
             Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
-
-            _animation = new AnimatedBitmap(new List<Frame>() { emptyFrame });
-            _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
-
-            _animation.GotoFrame(0);
-
-            canvasPanel.Coordinates = coordinatesLabel;
-            canvasPanel.Selection = selectionLabel;
+            Session.Instance.AddKeyframe(emptyFrame);
 
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
-
-            canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
-            canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
-            canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
-
-            ToggleGrid(checkboxToggleGrid.Checked);
-            TogglePreview(checkboxTogglePreview.Checked);
+            canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
         }
 
         private void UpdateFrame(Bitmap bmp)
@@ -56,99 +50,20 @@ namespace Pixel_Editor_Test_2
 
             ToggleOnionSkin();
 
-            if (numericFrame.InvokeRequired)
-            {
-                numericFrame.Invoke(new MethodInvoker(delegate { numericFrame.Value = _animation.CurrentFrame; }));
-            }
-
             canvasPanel.Invalidate();
         }
 
-        private void ExitApplication()
+        private void canvasPanel_MouseHover(object sender, EventArgs e)
         {
-            Close();
+            canvasPanel.Focus();
         }
 
-        private void ToggleGrid(bool status)
+        private void SetEyedropperColor(EyeDropperEventArgs e)
         {
-            canvasPanel.GridColor = status ? Color.DimGray : Color.Transparent;
-        }
-
-        private void TogglePreview(bool status)
-        {
-            if (status)
-                previewContainer.Show();
-            else
-                previewContainer.Hide();
-        }
-
-        private void SelectSelectTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.SELECT);
-        }
-
-        private void SelectMagicTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.MAGICWAND);
-        }
-
-        private void SelectPencilTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
-        }
-
-        private void SelectEraserTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.ERASER);
-        }
-
-        private void SelectFillTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.FILL);
-        }
-
-        private void SelectHandTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.HAND);
-        }
-
-        private void SelectEyedropperTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.EYEDROPPER);
-        }
-
-        private void SelectLineTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
-        }
-
-        private void SelectRectangleTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
-        }
-
-        private void SelectOvalTool()
-        {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
-        }
-
-        private void ToggleOnionSkin()
-        {
-            if (_leftOnionSkinEnabled)
-            {
-                if (_animation.CurrentFrame > 0)
-                {
-                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame - 1).Image;
-                }
-            }
-
-            if (_rightOnionSkinEnabled)
-            {
-                if (_animation.CurrentFrame < _animation.TotalFrames - 1)
-                {
-                    canvasPanel.OnionSkin = _animation.GetFrameByIndex(_animation.CurrentFrame + 1).Image;
-                }
-            }
+            if (e.MouseButton == MouseButtons.Left)
+                Session.Instance.SetPrimaryColor(e.SelectedColor);
+            else if (e.MouseButton == MouseButtons.Right)
+                Session.Instance.SetSecondaryColor(e.SelectedColor);
         }
     }
 }

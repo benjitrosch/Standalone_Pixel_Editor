@@ -15,9 +15,9 @@ namespace Pixel_Editor_Test_2.Commands
             : base(destination)
         {}
 
-        public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
+        public void Execute(Bitmap bmp, Point startPos, Point endPos, Color color, bool fill)
         {
-            List<Point> pixels = Shapes.Ellipse(startPos, endPos);
+            List<Point> pixels = Shapes.Ellipse(startPos, endPos, fill);
 
             foreach (Point pixel in pixels)
             {
@@ -30,6 +30,10 @@ namespace Pixel_Editor_Test_2.Commands
             }
 
             _destinationRef.Image = bmp;
+        }
+        public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
+        {
+            Execute(bmp, startPos, endPos, color, false);
         }
     }
 }

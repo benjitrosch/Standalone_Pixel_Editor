@@ -1,5 +1,6 @@
 ﻿using Pixel_Editor_Test_2.Commands;
 using Pixel_Editor_Test_2.Controls;
+using Pixel_Editor_Test_2.Systems;
 using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
@@ -32,35 +33,15 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             OVAL
         }
 
-        public Tool ActiveTool { get; private set; }
-
         public List<Command> UndoHistory = new List<Command>();
         public List<Command> RedoHistory = new List<Command>();
 
         public event EventHandler<EyeDropperEventArgs> OnEyedropperChange;
 
         private int _activeMouseButton = -1;
-        private int _brushSize = 1;
-        public int BrushSize
-        {
-            get
-            {
-                return (int)Math.Round((double)_brushSize / 2);
-            }
-            set
-            {
-                _brushSize = value;
-            }
-        } 
-
         public bool KeyShiftDown { get; set; }
 
-        public Color PrimaryColor { get; set; }
-        public Color SecondaryColor { get; set; }
-        public Color GridColor { get; set; }
-
-        int _zoom = 8;
-
+        private int _zoom = 8;
         public int Zoom
         {
             get { return _zoom; }
@@ -107,37 +88,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         public Bitmap OnionSkin { get; set; } = null;
 
-        private Point _coordinates;
-
-        Label coordinates = null, selection = null;
-
-        public Label Coordinates
-        {
-            get { return coordinates; }
-            set
-            {
-                if (value == null) return;
-                coordinates = value;
-            }
-        }
-        public Label Selection
-        {
-            get { return selection; }
-            set
-            {
-                if (value == null) return;
-                selection = value;
-            }
-        }
-
         public PixelEditor()
         {
             DoubleBuffered = true;
-
-            BackColor = Color.White;
-            GridColor = Color.Transparent;
-            PrimaryColor = Color.Black;
-            SecondaryColor = Color.White;
 
             Zoom = 8;
             TgtMousePos = Point.Empty;
@@ -176,8 +129,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                     onion = onion.A != 0 ? Color.FromArgb(100, onion.R, onion.G, onion.B) : onion;
                     Color col = bmp.GetPixel(sx, sy);
 
-                    Color drawColor = GridColor;
-
                     if (col.ToArgb() == 0 || col.ToArgb() == 16777215)
                     {
                         if (x % 2 == 1)
@@ -186,12 +137,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                             col = y % 2 == 1 ? Color.FromArgb(190, 190, 190) : Color.FromArgb(127, 127, 127);
                     }
 
-                    if (pC == _coordinates || pC == SelectionStartPos)
-                        drawColor = Color.White;
-
                     using (SolidBrush b = new SolidBrush(col))
                     using (SolidBrush o = new SolidBrush(onion))
-                    using (Pen p = new Pen(drawColor))
                     {
                         Rectangle rect = new Rectangle(x * Zoom,
                                                        y * Zoom,
@@ -199,7 +146,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                        Zoom);
                         g.FillRectangle(b, rect);
                         g.FillRectangle(o, rect);
-                        g.DrawRectangle(p, rect);
                     }
                 }
 
@@ -218,16 +164,16 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             ControlPaint.DrawBorder(g,
                                     ClientRectangle,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid,
                                     Color.Black,
-                                    2,
+                                    1,
                                     ButtonBorderStyle.Solid);
 
             PixelEditor_RenderSelectionPreview(e);
@@ -298,14 +244,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             }
         }
 
-        public void PixelEditor_SetTool(Tool tool)
-        {
-            if (ActiveTool == tool)
-                return;
-
-            ActiveTool = tool;
-        }
-
         private void PixelEditor_RenderSelectionPreview(PaintEventArgs e)
         {
             Point startPos = SelectionStartPos;
@@ -337,7 +275,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         {
             List<Point> pixels = new List<Point>();
 
-            switch (ActiveTool)
+            switch (Session.Instance.ActiveTool)
             {
                 case Tool.LINE:
                     pixels.AddRange(Shapes.Line(ShapeStartPos, ShapeEndPos));
@@ -358,9 +296,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             Color drawColor = Color.Transparent;
 
             if (_activeMouseButton == 0)
-                drawColor = PrimaryColor;
+                drawColor = Session.Instance.PrimaryColor;
             else if (_activeMouseButton == 1)
-                drawColor = SecondaryColor;
+                drawColor = Session.Instance.SecondaryColor;
 
             foreach (Point pixel in pixels)
             {
