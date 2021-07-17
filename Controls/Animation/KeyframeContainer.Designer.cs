@@ -32,7 +32,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline = new System.Windows.Forms.Panel();
             this.boxOutlineWhite = new System.Windows.Forms.Panel();
             this.boxOutlineInner = new System.Windows.Forms.Panel();
-            this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonPlay = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonPause = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonAddFrame = new System.Windows.Forms.Button();
+            this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
@@ -79,15 +79,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
             this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
             this.boxOutlineInner.TabIndex = 0;
-            // 
-            // layoutKeyframe
-            // 
-            this.layoutKeyframe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(204)))), ((int)(((byte)(203)))));
-            this.layoutKeyframe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutKeyframe.Location = new System.Drawing.Point(1, 1);
-            this.layoutKeyframe.Name = "layoutKeyframe";
-            this.layoutKeyframe.Size = new System.Drawing.Size(939, 184);
-            this.layoutKeyframe.TabIndex = 0;
             // 
             // boxShadow
             // 
@@ -168,6 +159,15 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonAddFrame.UseVisualStyleBackColor = false;
             this.buttonAddFrame.Click += new System.EventHandler(this.buttonAddFrame_Click);
             // 
+            // layoutKeyframe
+            // 
+            this.layoutKeyframe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(204)))), ((int)(((byte)(203)))));
+            this.layoutKeyframe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutKeyframe.Location = new System.Drawing.Point(1, 1);
+            this.layoutKeyframe.Name = "layoutKeyframe";
+            this.layoutKeyframe.Size = new System.Drawing.Size(939, 184);
+            this.layoutKeyframe.TabIndex = 0;
+            // 
             // KeyframeContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,7 +194,6 @@ namespace Pixel_Editor_Test_2.Controls
         #endregion
 
         private System.Windows.Forms.Panel boxOutline;
-        private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;
         private System.Windows.Forms.Panel boxShadow;
         private System.Windows.Forms.Button buttonAddFrame;
         private System.Windows.Forms.Panel panel1;
@@ -204,5 +203,6 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel boxOutlineWhite;
         private System.Windows.Forms.Panel boxOutlineInner;
+        private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;
     }
 }
