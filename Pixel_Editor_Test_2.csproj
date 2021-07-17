@@ -116,6 +116,12 @@
     <Compile Include="Controls\Color\PaletteColor.Designer.cs">
       <DependentUpon>PaletteColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditorControl.Designer.cs">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Events\KeyframeAddedEventArgs.cs" />
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
@@ -153,6 +159,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Systems\Session.cs" />
+    <Compile Include="Systems\Themes.cs" />
     <Compile Include="Util\Animation.cs" />
     <Compile Include="Commands\DrawCircleCommand.cs" />
     <Compile Include="Commands\DrawLineCommand.cs" />

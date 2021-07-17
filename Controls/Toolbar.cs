@@ -11,11 +11,22 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class Toolbar : UserControl
+    public partial class Toolbar : EditorControl
     {
         public Toolbar()
         {
             InitializeComponent();
+        }
+
+        private void Toolbar_Load(object sender, EventArgs e)
+        {
+            base.OnLoad();
+        }
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            toolContainer.BackColor = Themes.TOOLBAR_COLOR;
+            boxOutline.BackColor = Themes.OUTLINE_COLOR;
         }
 
         private void buttonSelect_Load(object sender, EventArgs e)

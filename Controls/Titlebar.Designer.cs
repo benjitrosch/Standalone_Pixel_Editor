@@ -105,6 +105,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Titlebar";
             this.Size = new System.Drawing.Size(1280, 32);
+            this.Load += new System.EventHandler(this.Titlebar_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.menuOutline.ResumeLayout(false);

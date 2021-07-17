@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class ActiveColors : UserControl
+    public partial class ActiveColors : EditorControl
     {
         public ActiveColors()
         {
@@ -20,8 +20,16 @@ namespace Pixel_Editor_Test_2.Controls
 
         private void ActiveColors_Load(object sender, EventArgs e)
         {
+            base.OnLoad();
             Session.Instance.OnPrimaryColorChange += PrimaryColorChange;
             Session.Instance.OnSecondaryColorChange += SecondaryColorChange;
+        }
+
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            container.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.MENUSTRIP_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
         }
 
         private void PrimaryColorChange(object sender, Color color)

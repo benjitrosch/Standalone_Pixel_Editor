@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class Palette : UserControl
+    public partial class Palette : EditorControl
     {
         public Palette()
         {
@@ -20,7 +20,16 @@ namespace Pixel_Editor_Test_2.Controls
 
         private void Palette_Load(object sender, EventArgs e)
         {
+            base.OnLoad();
             Session.Instance.OnPaletteUpdate += PaletteUpdate;
+        }
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            layoutPalette.BackColor = Themes.PALETTE_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
+            boxOutline.BackColor = boxOutlineInner.BackColor = Themes.OUTLINE_COLOR;
+            boxOutlineWhite.BackColor = Themes.TRIM_COLOR;
         }
 
         private void PaletteUpdate(object sender, Color color)

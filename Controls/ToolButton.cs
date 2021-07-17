@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class ToolButton : UserControl
+    public partial class ToolButton : EditorControl
     {
         public Image Icon { get; set; }
         public PixelEditor.PixelEditor.Tool ButtonTool { get; set; }
@@ -24,18 +24,29 @@ namespace Pixel_Editor_Test_2.Controls
 
         private void ToolButton_Load(object sender, EventArgs e)
         {
+            base.OnLoad();
             if (Icon != null)
                 button.BackgroundImage = Icon;
 
             Session.Instance.OnActiveToolChange += (_o, t) => CheckToolSelection(t);
         }
 
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            BackColor = Themes.TOOLBAR_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
+            button.BackColor = Themes.BUTTON_BG_COLOR;
+            button.FlatAppearance.BorderColor = Themes.OUTLINE_COLOR;
+            button.FlatAppearance.MouseOverBackColor = Themes.BUTTON_HOVER_COLOR;
+            button.FlatAppearance.MouseDownBackColor = Themes.BUTTON_HOVER_COLOR;
+        }
+
         private void CheckToolSelection(PixelEditor.PixelEditor.Tool tool)
         {
             if (ButtonTool == tool)
-                button.BackColor = Color.FromArgb(250, 203, 254);
+                button.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
             else
-                button.BackColor = Color.White;
+                button.BackColor = Themes.BUTTON_BG_COLOR;
         }
 
         private void button_Click(object sender, EventArgs e)
