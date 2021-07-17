@@ -1,4 +1,5 @@
 ﻿using Pixel_Editor_Test_2.Commands;
+using Pixel_Editor_Test_2.Systems;
 using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 _activeMouseButton = 1;
             else _activeMouseButton = -1;
 
-            switch (ActiveTool)
+            switch (Session.Instance.ActiveTool)
             {
                 case Tool.PENCIL:
                 case Tool.ERASER:
@@ -95,7 +96,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
             if (e.Button != MouseButtons.Left && e.Button != MouseButtons.Right) return;
 
-            switch (ActiveTool)
+            switch (Session.Instance.ActiveTool)
             {
                 case Tool.PENCIL:
                 case Tool.ERASER:
@@ -152,7 +153,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             if (e.Button == MouseButtons.Middle)
                 return;
 
-            switch (ActiveTool)
+            switch (Session.Instance.ActiveTool)
             {
                 case Tool.PENCIL:
                 case Tool.ERASER:
@@ -239,7 +240,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
                 case Keys.R:
                     if (e.Control)
-                        PixelEditor_ReplaceColor(PrimaryColor, SecondaryColor);
+                        PixelEditor_ReplaceColor(Session.Instance.PrimaryColor, Session.Instance.SecondaryColor);
                     break;
 
                 case Keys.Escape:

@@ -18,35 +18,30 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow : Form
     {
-        private Color _primaryColor, _secondaryColor;
-        private Color[] _palette = new Color[64];
-
         private AnimatedBitmap _animation;
 
         public EditorWindow()
         {
             InitializeComponent();
-
-            Session.Instance.SetEditor(this);
-            Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
-            Session.Instance.OnActiveToolChange += (_o, t) => canvasPanel.PixelEditor_SetTool(t);
-
-            _animation = new AnimatedBitmap(new List<Frame>());
-            _animation.FrameUpdated += (_o, e) => UpdateFrame(e);
-
-            //canvasPanel.OnEyedropperChange += (_o, e) => SetEyedropperColor(e);
         }
 
         private void EditorWindow_Load(object sender, EventArgs e)
         {
+            Session.Instance.SetEditor(this);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
+            Session.Instance.SetPrimaryColor(Color.Black);
+            Session.Instance.SetSecondaryColor(Color.White);
+
+            _animation = new AnimatedBitmap(new List<Frame>());
+            _animation.FrameUpdated += (_o, f) => UpdateFrame(f);
+
             Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
             AddKeyframe(emptyFrame);
 
-            //canvasPanel.PrimaryColor = SetColor(ref _primaryColor, buttonPrimaryColor, Color.Black);
-            //canvasPanel.SecondaryColor = SetColor(ref _secondaryColor, buttonSecondaryColor, Color.White);
+            canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
+
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
         }
 
         private void UpdateFrame(Bitmap bmp)
@@ -62,6 +57,14 @@ namespace Pixel_Editor_Test_2
         private void canvasPanel_MouseHover(object sender, EventArgs e)
         {
             canvasPanel.Focus();
+        }
+
+        private void SetEyedropperColor(EyeDropperEventArgs e)
+        {
+            if (e.MouseButton == MouseButtons.Left)
+                Session.Instance.SetPrimaryColor(e.SelectedColor);
+            else if (e.MouseButton == MouseButtons.Right)
+                Session.Instance.SetSecondaryColor(e.SelectedColor);
         }
     }
 }

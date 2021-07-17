@@ -22,7 +22,18 @@ namespace Pixel_Editor_Test_2.Systems
         private List<Color> Palette = new List<Color>();
         public event EventHandler<Color> OnPaletteUpdate;
 
-        public int BrushSize { get; set; }
+        private int _brushSize;
+        public int BrushSize
+        {
+            get
+            {
+                return (int)Math.Round((double)_brushSize / 2);
+            }
+            set
+            {
+                _brushSize = value;
+            }
+        }
 
         public PixelEditor.Tool ActiveTool { get; set; }
         public event EventHandler<PixelEditor.Tool> OnActiveToolChange;

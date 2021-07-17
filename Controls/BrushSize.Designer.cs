@@ -42,14 +42,16 @@ namespace Pixel_Editor_Test_2.Controls
             this.trackBar.AutoSize = false;
             this.trackBar.BackColor = System.Drawing.Color.White;
             this.trackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar.LargeChange = 1;
             this.trackBar.Location = new System.Drawing.Point(8, 8);
-            this.trackBar.Maximum = 32;
+            this.trackBar.Maximum = 16;
             this.trackBar.Minimum = 1;
             this.trackBar.Name = "trackBar";
             this.trackBar.Size = new System.Drawing.Size(142, 14);
             this.trackBar.TabIndex = 2;
-            this.trackBar.TickFrequency = 8;
+            this.trackBar.TickFrequency = 4;
             this.trackBar.Value = 1;
+            this.trackBar.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
             // 
             // boxOutline
             // 

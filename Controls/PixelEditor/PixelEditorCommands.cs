@@ -1,4 +1,5 @@
 ﻿using Pixel_Editor_Test_2.Commands;
+using Pixel_Editor_Test_2.Systems;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,14 +22,14 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             if (e.Button == MouseButtons.Middle)
                 return;
 
-            switch (ActiveTool)
+            switch (Session.Instance.ActiveTool)
             {
                 case Tool.PENCIL:
                     if (e.Button == MouseButtons.Left)
-                        drawColor = PrimaryColor;
+                        drawColor = Session.Instance.PrimaryColor;
 
                     if (e.Button == MouseButtons.Right)
-                        drawColor = SecondaryColor;
+                        drawColor = Session.Instance.SecondaryColor;
                     break;
 
                 case Tool.ERASER:
@@ -42,7 +43,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             DrawCircleCommand drawPixel = new DrawCircleCommand(APBox);
             drawPixel.Execute(
                 (Bitmap)APBox.Image,
-                new Point(x - BrushSize, y - BrushSize),
+                new Point(x - Session.Instance.BrushSize, y - Session.Instance.BrushSize),
                 new Point(x, y),
                 drawColor
             );
@@ -58,7 +59,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 (Bitmap)APBox.Image,
                 startPos,
                 endPos,
-                e.Button == MouseButtons.Left ? PrimaryColor : SecondaryColor
+                e.Button == MouseButtons.Left ? Session.Instance.PrimaryColor : Session.Instance.SecondaryColor
             );
             UndoHistory.Add(command);
             RedoHistory.Clear();
@@ -76,7 +77,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 (Bitmap)APBox.Image,
                 new Point(x, y),
                 Point.Empty,
-                e.Button == MouseButtons.Left ? PrimaryColor : SecondaryColor
+                e.Button == MouseButtons.Left ? Session.Instance.PrimaryColor : Session.Instance.SecondaryColor
             );
             UndoHistory.Add(fill);
             RedoHistory.Clear();

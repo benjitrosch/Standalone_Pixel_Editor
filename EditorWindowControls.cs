@@ -38,52 +38,52 @@ namespace Pixel_Editor_Test_2
 
         public void SelectSelectTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.SELECT);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.SELECT);
         }
 
         public void SelectMagicTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.MAGICWAND);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.MAGICWAND);
         }
 
         public void SelectPencilTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.PENCIL);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
         }
 
         public void SelectEraserTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.ERASER);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.ERASER);
         }
 
         public void SelectFillTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.FILL);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.FILL);
         }
 
         public void SelectHandTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.HAND);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.HAND);
         }
 
         public void SelectEyedropperTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.EYEDROPPER);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.EYEDROPPER);
         }
 
         public void SelectLineTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.LINE);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.LINE);
         }
 
         public void SelectRectangleTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.RECTANGLE);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.RECTANGLE);
         }
 
         public void SelectOvalTool()
         {
-            canvasPanel.PixelEditor_SetTool(PixelEditor.Tool.OVAL);
+            Session.Instance.SetEditorTool(PixelEditor.Tool.OVAL);
         }
 
         private void ToggleOnionSkin()

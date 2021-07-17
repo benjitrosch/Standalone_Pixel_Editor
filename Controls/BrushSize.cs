@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pixel_Editor_Test_2.Systems;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Pixel_Editor_Test_2.Controls
         public BrushSize()
         {
             InitializeComponent();
+        }
+
+        private void trackBar_ValueChanged(object sender, EventArgs e)
+        {
+            Session.Instance.BrushSize = trackBar.Value;
         }
     }
 }

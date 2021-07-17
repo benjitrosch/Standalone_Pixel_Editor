@@ -122,9 +122,7 @@ namespace Pixel_Editor_Test_2
             // 
             this.canvasPanel.APBox = null;
             this.canvasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
-            this.canvasPanel.BrushSize = 0;
             this.canvasPanel.Controls.Add(this.srcImage);
-            this.canvasPanel.GridColor = System.Drawing.Color.Transparent;
             this.canvasPanel.HandEndPos = new System.Drawing.Point(0, 0);
             this.canvasPanel.HandStartPos = new System.Drawing.Point(0, 0);
             this.canvasPanel.KeyShiftDown = false;
@@ -132,8 +130,6 @@ namespace Pixel_Editor_Test_2
             this.canvasPanel.Margin = new System.Windows.Forms.Padding(0);
             this.canvasPanel.Name = "canvasPanel";
             this.canvasPanel.OnionSkin = null;
-            this.canvasPanel.PrimaryColor = System.Drawing.Color.Black;
-            this.canvasPanel.SecondaryColor = System.Drawing.Color.White;
             this.canvasPanel.SelectionEndPos = new System.Drawing.Point(0, 0);
             this.canvasPanel.SelectionStartPos = new System.Drawing.Point(0, 0);
             this.canvasPanel.ShapeEndPos = new System.Drawing.Point(0, 0);
