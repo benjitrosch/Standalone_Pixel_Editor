@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class Titlebar : UserControl
+    public partial class Titlebar : EditorControl
     {
         private bool _mouseDown;
         private Point _lastLocation;
@@ -19,6 +19,17 @@ namespace Pixel_Editor_Test_2.Controls
         public Titlebar()
         {
             InitializeComponent();
+        }
+
+        private void Titlebar_Load(object sender, EventArgs e)
+        {
+            base.OnLoad();
+        }
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            menuStrip.BackColor = buttonExit.BackColor =  Themes.MENUSTRIP_COLOR;
+            menuOutline.BackColor = Themes.OUTLINE_COLOR;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

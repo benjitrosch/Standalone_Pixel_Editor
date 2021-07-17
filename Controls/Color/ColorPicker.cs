@@ -11,11 +11,23 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class ColorPicker : UserControl
+    public partial class ColorPicker : EditorControl
     {
         public ColorPicker()
         {
             InitializeComponent();
+        }
+
+        private void ColorPicker_Load(object sender, EventArgs e)
+        {
+            base.OnLoad();
+        }
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            colorContainer.BackColor = Themes.MENUSTRIP_COLOR;
+            boxOutline.BackColor = Themes.OUTLINE_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
         }
 
         private void colorSlider_ColorChanged(object sender, ColorChangedEventArgs args)

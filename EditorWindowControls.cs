@@ -20,14 +20,14 @@ namespace Pixel_Editor_Test_2
         private void buttonOnionLeft_Click(object sender, EventArgs e)
         {
             _leftOnionSkinEnabled = !_leftOnionSkinEnabled;
-            ToggleOnionSkin();
+            //ToggleOnionSkin();
             canvasPanel.Invalidate();
         }
 
         private void buttonOnionRight_Click(object sender, EventArgs e)
         {
             _rightOnionSkinEnabled = !_rightOnionSkinEnabled;
-            ToggleOnionSkin();
+            //ToggleOnionSkin();
             canvasPanel.Invalidate();
         }
 
@@ -86,7 +86,7 @@ namespace Pixel_Editor_Test_2
             Session.Instance.SetEditorTool(PixelEditor.Tool.OVAL);
         }
 
-        private void ToggleOnionSkin()
+        /*private void ToggleOnionSkin()
         {
             if (_leftOnionSkinEnabled)
             {
@@ -106,6 +106,6 @@ namespace Pixel_Editor_Test_2
             {
                 canvasPanel.OnionSkin = null;
             }
-        }
+        }*/
     }
 }

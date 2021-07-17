@@ -23,7 +23,7 @@ namespace Pixel_Editor_Test_2
                     break;
 
                 case Keys.S:
-                    if (e.Control)
+                    /*if (e.Control)
                     {
                         SaveFileDialog sfd = new SaveFileDialog();
                         sfd.Filter = "Sprite Sheet (.png)|*.png";
@@ -41,7 +41,7 @@ namespace Pixel_Editor_Test_2
 
                             bmp.Save(sfd.FileName, ImageFormat.Png);
                         }
-                    }
+                    }*/
                     break;
 
                 case Keys.Q:

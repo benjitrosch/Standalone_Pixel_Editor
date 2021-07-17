@@ -18,8 +18,6 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow : Form
     {
-        private AnimatedBitmap _animation;
-
         public EditorWindow()
         {
             InitializeComponent();
@@ -27,7 +25,10 @@ namespace Pixel_Editor_Test_2
 
         private void EditorWindow_Load(object sender, EventArgs e)
         {
+
             Session.Instance.SetEditor(this);
+            Session.Instance.OnChangeTheme += UpdateTheme;
+            Session.Instance.SetEditorTheme(Themes.DEFAULT_THEME);
             Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
             Session.Instance.SetPrimaryColor(Color.Black);
             Session.Instance.SetSecondaryColor(Color.White);
@@ -43,12 +44,19 @@ namespace Pixel_Editor_Test_2
             canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
         }
 
+        private void UpdateTheme(object sender, EventArgs e)
+        {
+            BackColor = Themes.OUTLINE_COLOR;
+            canvasContainer.BackColor = colorContainer.BackColor = Themes.MAIN_BG_COLOR;
+            canvasOutline.BackColor = colorOutline.BackColor = Themes.OUTLINE_COLOR;
+        }
+
         private void UpdateFrame(Bitmap bmp)
         {
             srcImage.Image = bmp;
             canvasPanel.APBox = srcImage;
 
-            ToggleOnionSkin();
+            //ToggleOnionSkin();
 
             canvasPanel.Invalidate();
         }

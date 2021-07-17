@@ -32,14 +32,14 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline = new System.Windows.Forms.Panel();
             this.boxOutlineWhite = new System.Windows.Forms.Panel();
             this.boxOutlineInner = new System.Windows.Forms.Panel();
-            this.boxShadow = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonPlay = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonPause = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonAddFrame = new System.Windows.Forms.Button();
             this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
+            this.boxShadow = new System.Windows.Forms.Panel();
+            this.addShadow = new System.Windows.Forms.Panel();
+            this.buttonPlay = new System.Windows.Forms.Button();
+            this.playShadow = new System.Windows.Forms.Panel();
+            this.buttonPause = new System.Windows.Forms.Button();
+            this.pauseShadow = new System.Windows.Forms.Panel();
+            this.buttonAddFrame = new System.Windows.Forms.Button();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
@@ -80,6 +80,15 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
             this.boxOutlineInner.TabIndex = 0;
             // 
+            // layoutKeyframe
+            // 
+            this.layoutKeyframe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(204)))), ((int)(((byte)(203)))));
+            this.layoutKeyframe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutKeyframe.Location = new System.Drawing.Point(1, 1);
+            this.layoutKeyframe.Name = "layoutKeyframe";
+            this.layoutKeyframe.Size = new System.Drawing.Size(939, 184);
+            this.layoutKeyframe.TabIndex = 0;
+            // 
             // boxShadow
             // 
             this.boxShadow.BackColor = System.Drawing.Color.Black;
@@ -88,14 +97,14 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxShadow.Size = new System.Drawing.Size(947, 192);
             this.boxShadow.TabIndex = 1;
             // 
-            // panel1
+            // addShadow
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(900, 196);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(32, 32);
-            this.panel1.TabIndex = 4;
+            this.addShadow.BackColor = System.Drawing.Color.Black;
+            this.addShadow.Location = new System.Drawing.Point(900, 196);
+            this.addShadow.Margin = new System.Windows.Forms.Padding(0);
+            this.addShadow.Name = "addShadow";
+            this.addShadow.Size = new System.Drawing.Size(32, 32);
+            this.addShadow.TabIndex = 4;
             // 
             // buttonPlay
             // 
@@ -111,14 +120,14 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonPlay.UseVisualStyleBackColor = false;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
-            // panel2
+            // playShadow
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(28, 196);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(32, 32);
-            this.panel2.TabIndex = 6;
+            this.playShadow.BackColor = System.Drawing.Color.Black;
+            this.playShadow.Location = new System.Drawing.Point(28, 196);
+            this.playShadow.Margin = new System.Windows.Forms.Padding(0);
+            this.playShadow.Name = "playShadow";
+            this.playShadow.Size = new System.Drawing.Size(32, 32);
+            this.playShadow.TabIndex = 6;
             // 
             // buttonPause
             // 
@@ -134,14 +143,14 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonPause.UseVisualStyleBackColor = false;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
-            // panel3
+            // pauseShadow
             // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(84, 196);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(32, 32);
-            this.panel3.TabIndex = 8;
+            this.pauseShadow.BackColor = System.Drawing.Color.Black;
+            this.pauseShadow.Location = new System.Drawing.Point(84, 196);
+            this.pauseShadow.Margin = new System.Windows.Forms.Padding(0);
+            this.pauseShadow.Name = "pauseShadow";
+            this.pauseShadow.Size = new System.Drawing.Size(32, 32);
+            this.pauseShadow.TabIndex = 8;
             // 
             // buttonAddFrame
             // 
@@ -159,26 +168,17 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonAddFrame.UseVisualStyleBackColor = false;
             this.buttonAddFrame.Click += new System.EventHandler(this.buttonAddFrame_Click);
             // 
-            // layoutKeyframe
-            // 
-            this.layoutKeyframe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(204)))), ((int)(((byte)(203)))));
-            this.layoutKeyframe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutKeyframe.Location = new System.Drawing.Point(1, 1);
-            this.layoutKeyframe.Name = "layoutKeyframe";
-            this.layoutKeyframe.Size = new System.Drawing.Size(939, 184);
-            this.layoutKeyframe.TabIndex = 0;
-            // 
             // KeyframeContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.buttonPause);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pauseShadow);
             this.Controls.Add(this.buttonPlay);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.playShadow);
             this.Controls.Add(this.buttonAddFrame);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addShadow);
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "KeyframeContainer";
@@ -196,11 +196,11 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel boxOutline;
         private System.Windows.Forms.Panel boxShadow;
         private System.Windows.Forms.Button buttonAddFrame;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel addShadow;
         private System.Windows.Forms.Button buttonPlay;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel playShadow;
         private System.Windows.Forms.Button buttonPause;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pauseShadow;
         private System.Windows.Forms.Panel boxOutlineWhite;
         private System.Windows.Forms.Panel boxOutlineInner;
         private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;

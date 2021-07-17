@@ -29,37 +29,37 @@ namespace Pixel_Editor_Test_2.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.boxOutline = new System.Windows.Forms.Panel();
+            this.colorContainer = new System.Windows.Forms.Panel();
             this.colorSlider = new Pixel_Editor_Test_2.Controls.ColorSliderVertical();
             this.colorBox2D = new Pixel_Editor_Test_2.ColorBox2D();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.boxShadow = new System.Windows.Forms.Panel();
+            this.boxOutline.SuspendLayout();
+            this.colorContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // boxOutline
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(224, 128);
-            this.panel1.TabIndex = 0;
+            this.boxOutline.BackColor = System.Drawing.Color.Black;
+            this.boxOutline.Controls.Add(this.colorContainer);
+            this.boxOutline.Location = new System.Drawing.Point(0, 0);
+            this.boxOutline.Margin = new System.Windows.Forms.Padding(0);
+            this.boxOutline.Name = "boxOutline";
+            this.boxOutline.Padding = new System.Windows.Forms.Padding(1);
+            this.boxOutline.Size = new System.Drawing.Size(224, 128);
+            this.boxOutline.TabIndex = 0;
             // 
-            // panel2
+            // colorContainer
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.colorSlider);
-            this.panel2.Controls.Add(this.colorBox2D);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1, 1);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(8);
-            this.panel2.Size = new System.Drawing.Size(222, 126);
-            this.panel2.TabIndex = 0;
+            this.colorContainer.BackColor = System.Drawing.Color.White;
+            this.colorContainer.Controls.Add(this.colorSlider);
+            this.colorContainer.Controls.Add(this.colorBox2D);
+            this.colorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.colorContainer.Location = new System.Drawing.Point(1, 1);
+            this.colorContainer.Name = "colorContainer";
+            this.colorContainer.Padding = new System.Windows.Forms.Padding(8);
+            this.colorContainer.Size = new System.Drawing.Size(222, 126);
+            this.colorContainer.TabIndex = 0;
             // 
             // colorSlider
             // 
@@ -87,35 +87,36 @@ namespace Pixel_Editor_Test_2.Controls
             this.colorBox2D.MouseDown += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseDown);
             this.colorBox2D.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorBox2D_MouseMove);
             // 
-            // panel3
+            // boxShadow
             // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(224, 128);
-            this.panel3.TabIndex = 1;
+            this.boxShadow.BackColor = System.Drawing.Color.Black;
+            this.boxShadow.Location = new System.Drawing.Point(8, 8);
+            this.boxShadow.Margin = new System.Windows.Forms.Padding(0);
+            this.boxShadow.Name = "boxShadow";
+            this.boxShadow.Size = new System.Drawing.Size(224, 128);
+            this.boxShadow.TabIndex = 1;
             // 
             // ColorPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.boxOutline);
+            this.Controls.Add(this.boxShadow);
             this.Name = "ColorPicker";
             this.Size = new System.Drawing.Size(232, 136);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.ColorPicker_Load);
+            this.boxOutline.ResumeLayout(false);
+            this.colorContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel boxOutline;
+        private System.Windows.Forms.Panel colorContainer;
+        private System.Windows.Forms.Panel boxShadow;
         private ColorSliderVertical colorSlider;
         private ColorBox2D colorBox2D;
     }

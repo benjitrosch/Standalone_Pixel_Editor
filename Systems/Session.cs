@@ -18,6 +18,9 @@ namespace Pixel_Editor_Test_2.Systems
         public AnimatedBitmap Animation { get; private set; }
         public event EventHandler<KeyframeAddedEventArgs> OnAddKeyframe;
 
+        public Action CurrentTheme { get; private set; }
+        public event EventHandler OnChangeTheme;
+
         public Color PrimaryColor { get; set; }
         public Color SecondaryColor { get; set; }
         public event EventHandler<Color> OnPrimaryColorChange;
@@ -59,6 +62,13 @@ namespace Pixel_Editor_Test_2.Systems
                 return;
 
             Editor = editor;
+        }
+
+        public void SetEditorTheme(Action theme)
+        {
+            theme();
+            CurrentTheme = theme;
+            OnChangeTheme?.Invoke(this, null);
         }
 
         public AnimatedBitmap CreateNewAnimation()
