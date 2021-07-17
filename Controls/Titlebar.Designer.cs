@@ -54,6 +54,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             this.menuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
+            this.menuStrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
+            this.menuStrip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseUp);
             // 
             // fileToolStripMenuItem
             // 

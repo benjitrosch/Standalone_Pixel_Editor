@@ -116,6 +116,7 @@
     <Compile Include="Controls\Color\PaletteColor.Designer.cs">
       <DependentUpon>PaletteColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Events\KeyframeAddedEventArgs.cs" />
     <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -139,9 +140,6 @@
     </Compile>
     <Compile Include="Controls\ToolButton.Designer.cs">
       <DependentUpon>ToolButton.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditorWindowAnimator.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditorWindowControls.cs">
       <SubType>Form</SubType>

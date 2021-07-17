@@ -36,10 +36,10 @@ namespace Pixel_Editor_Test_2.Controls
         {
             if (_mouseDown)
             {
-                Location = new Point(
-                    (Location.X - _lastLocation.X) + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+                Session.Instance.Editor.Location = new Point(
+                    (Session.Instance.Editor.Location.X - _lastLocation.X) + e.X, (Session.Instance.Editor.Location.Y - _lastLocation.Y) + e.Y);
 
-                Update();
+                Session.Instance.Editor.Update();
             }
         }
 

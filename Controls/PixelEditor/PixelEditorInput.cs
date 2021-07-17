@@ -230,7 +230,12 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
                 case Keys.Z:
                     if (e.Control)
-                        PixelEditor_Undo();
+                    {
+                        if (e.Shift)
+                            PixelEditor_Redo();
+                        else
+                            PixelEditor_Undo();
+                    }
                     break;
 
                 case Keys.Y:

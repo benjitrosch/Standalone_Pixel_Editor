@@ -24,10 +24,10 @@ namespace Pixel_Editor_Test_2.Controls
         private void Keyframe_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Color borderColor = Color.FromArgb(158, 161, 176);
+            Color color = Color.Black;
 
-            using (Pen p = new Pen(borderColor, 1))
-            using (Brush b = new SolidBrush(borderColor))
+            using (Pen p = new Pen(color, 1))
+            using (Brush b = new SolidBrush(color))
             {
                 Rectangle rect = new Rectangle(new Point(4, 21), new Size(8, 8));
                 g.DrawEllipse(p, rect);
@@ -36,28 +36,28 @@ namespace Pixel_Editor_Test_2.Controls
 
             ControlPaint.DrawBorder(g,
                                     ClientRectangle,
-                                    borderColor,
+                                    color,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    borderColor,
+                                    color,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    borderColor,
+                                    color,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    borderColor,
+                                    color,
                                     1,
                                     ButtonBorderStyle.Solid);
         }
 
         private void Keyframe_MouseEnter(object sender, EventArgs e)
         {
-            BackColor = Color.FromArgb(158, 161, 176);
+            BackColor = Color.FromArgb(250, 203, 254);
         }
 
         private void Keyframe_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(74, 79, 99);
+            this.BackColor = Color.White;
         }
     }
 }

@@ -30,24 +30,18 @@ namespace Pixel_Editor_Test_2.Controls
         private void InitializeComponent()
         {
             this.boxOutline = new System.Windows.Forms.Panel();
+            this.boxOutlineWhite = new System.Windows.Forms.Panel();
+            this.boxOutlineInner = new System.Windows.Forms.Panel();
             this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonPlay = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonPause = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.boxOutlineWhite = new System.Windows.Forms.Panel();
-            this.labelShadow = new System.Windows.Forms.Panel();
-            this.labelOutline = new System.Windows.Forms.Panel();
-            this.labelContainer = new System.Windows.Forms.Panel();
-            this.boxOutlineInner = new System.Windows.Forms.Panel();
-            this.labelAnimation = new System.Windows.Forms.Label();
+            this.buttonAddFrame = new System.Windows.Forms.Button();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
-            this.labelOutline.SuspendLayout();
-            this.labelContainer.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +55,30 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline.Padding = new System.Windows.Forms.Padding(1);
             this.boxOutline.Size = new System.Drawing.Size(947, 192);
             this.boxOutline.TabIndex = 0;
+            // 
+            // boxOutlineWhite
+            // 
+            this.boxOutlineWhite.BackColor = System.Drawing.Color.White;
+            this.boxOutlineWhite.Controls.Add(this.boxOutlineInner);
+            this.boxOutlineWhite.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxOutlineWhite.Location = new System.Drawing.Point(1, 1);
+            this.boxOutlineWhite.Margin = new System.Windows.Forms.Padding(0);
+            this.boxOutlineWhite.Name = "boxOutlineWhite";
+            this.boxOutlineWhite.Padding = new System.Windows.Forms.Padding(2);
+            this.boxOutlineWhite.Size = new System.Drawing.Size(945, 190);
+            this.boxOutlineWhite.TabIndex = 0;
+            // 
+            // boxOutlineInner
+            // 
+            this.boxOutlineInner.BackColor = System.Drawing.Color.Black;
+            this.boxOutlineInner.Controls.Add(this.layoutKeyframe);
+            this.boxOutlineInner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxOutlineInner.Location = new System.Drawing.Point(2, 2);
+            this.boxOutlineInner.Margin = new System.Windows.Forms.Padding(0);
+            this.boxOutlineInner.Name = "boxOutlineInner";
+            this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
+            this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
+            this.boxOutlineInner.TabIndex = 0;
             // 
             // layoutKeyframe
             // 
@@ -88,18 +106,19 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel1.Size = new System.Drawing.Size(32, 32);
             this.panel1.TabIndex = 4;
             // 
-            // button2
+            // buttonPlay
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(24, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 32);
-            this.button2.TabIndex = 5;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonPlay.BackColor = System.Drawing.Color.White;
+            this.buttonPlay.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPlay.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlay.Location = new System.Drawing.Point(24, 192);
+            this.buttonPlay.Name = "buttonPlay";
+            this.buttonPlay.Size = new System.Drawing.Size(32, 32);
+            this.buttonPlay.TabIndex = 5;
+            this.buttonPlay.Text = ">";
+            this.buttonPlay.UseVisualStyleBackColor = false;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // panel2
             // 
@@ -110,18 +129,19 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel2.Size = new System.Drawing.Size(32, 32);
             this.panel2.TabIndex = 6;
             // 
-            // button3
+            // buttonPause
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(80, 192);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 32);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "| |";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonPause.BackColor = System.Drawing.Color.White;
+            this.buttonPause.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPause.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPause.Location = new System.Drawing.Point(80, 192);
+            this.buttonPause.Name = "buttonPause";
+            this.buttonPause.Size = new System.Drawing.Size(32, 32);
+            this.buttonPause.TabIndex = 7;
+            this.buttonPause.Text = "| |";
+            this.buttonPause.UseVisualStyleBackColor = false;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // panel3
             // 
@@ -132,108 +152,40 @@ namespace Pixel_Editor_Test_2.Controls
             this.panel3.Size = new System.Drawing.Size(32, 32);
             this.panel3.TabIndex = 8;
             // 
-            // button1
+            // buttonAddFrame
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(896, 192);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // boxOutlineWhite
-            // 
-            this.boxOutlineWhite.BackColor = System.Drawing.Color.White;
-            this.boxOutlineWhite.Controls.Add(this.boxOutlineInner);
-            this.boxOutlineWhite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxOutlineWhite.Location = new System.Drawing.Point(1, 1);
-            this.boxOutlineWhite.Margin = new System.Windows.Forms.Padding(0);
-            this.boxOutlineWhite.Name = "boxOutlineWhite";
-            this.boxOutlineWhite.Padding = new System.Windows.Forms.Padding(2);
-            this.boxOutlineWhite.Size = new System.Drawing.Size(945, 190);
-            this.boxOutlineWhite.TabIndex = 0;
-            // 
-            // labelShadow
-            // 
-            this.labelShadow.BackColor = System.Drawing.Color.Black;
-            this.labelShadow.Location = new System.Drawing.Point(28, 4);
-            this.labelShadow.Margin = new System.Windows.Forms.Padding(0);
-            this.labelShadow.Name = "labelShadow";
-            this.labelShadow.Size = new System.Drawing.Size(160, 32);
-            this.labelShadow.TabIndex = 0;
-            // 
-            // labelOutline
-            // 
-            this.labelOutline.BackColor = System.Drawing.Color.Black;
-            this.labelOutline.Controls.Add(this.labelContainer);
-            this.labelOutline.Location = new System.Drawing.Point(24, 0);
-            this.labelOutline.Margin = new System.Windows.Forms.Padding(0);
-            this.labelOutline.Name = "labelOutline";
-            this.labelOutline.Padding = new System.Windows.Forms.Padding(1);
-            this.labelOutline.Size = new System.Drawing.Size(160, 32);
-            this.labelOutline.TabIndex = 2;
-            // 
-            // labelContainer
-            // 
-            this.labelContainer.BackColor = System.Drawing.Color.White;
-            this.labelContainer.Controls.Add(this.labelAnimation);
-            this.labelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelContainer.Location = new System.Drawing.Point(1, 1);
-            this.labelContainer.Name = "labelContainer";
-            this.labelContainer.Size = new System.Drawing.Size(158, 30);
-            this.labelContainer.TabIndex = 0;
-            // 
-            // boxOutlineInner
-            // 
-            this.boxOutlineInner.BackColor = System.Drawing.Color.Black;
-            this.boxOutlineInner.Controls.Add(this.layoutKeyframe);
-            this.boxOutlineInner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxOutlineInner.Location = new System.Drawing.Point(2, 2);
-            this.boxOutlineInner.Margin = new System.Windows.Forms.Padding(0);
-            this.boxOutlineInner.Name = "boxOutlineInner";
-            this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
-            this.boxOutlineInner.TabIndex = 0;
-            // 
-            // labelAnimation
-            // 
-            this.labelAnimation.BackColor = System.Drawing.Color.Transparent;
-            this.labelAnimation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnimation.Font = new System.Drawing.Font("8-bit Operator+", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnimation.Location = new System.Drawing.Point(0, 0);
-            this.labelAnimation.Name = "labelAnimation";
-            this.labelAnimation.Size = new System.Drawing.Size(158, 30);
-            this.labelAnimation.TabIndex = 0;
-            this.labelAnimation.Text = "Animation";
-            this.labelAnimation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonAddFrame.BackColor = System.Drawing.Color.White;
+            this.buttonAddFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonAddFrame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonAddFrame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddFrame.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddFrame.Location = new System.Drawing.Point(896, 192);
+            this.buttonAddFrame.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAddFrame.Name = "buttonAddFrame";
+            this.buttonAddFrame.Size = new System.Drawing.Size(32, 32);
+            this.buttonAddFrame.TabIndex = 3;
+            this.buttonAddFrame.Text = "+";
+            this.buttonAddFrame.UseVisualStyleBackColor = false;
+            this.buttonAddFrame.Click += new System.EventHandler(this.buttonAddFrame_Click);
             // 
             // KeyframeContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAddFrame);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelOutline);
-            this.Controls.Add(this.labelShadow);
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "KeyframeContainer";
             this.Size = new System.Drawing.Size(955, 232);
+            this.Load += new System.EventHandler(this.KeyframeContainer_Load);
             this.boxOutline.ResumeLayout(false);
             this.boxOutlineWhite.ResumeLayout(false);
-            this.labelOutline.ResumeLayout(false);
-            this.labelContainer.ResumeLayout(false);
             this.boxOutlineInner.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -244,17 +196,13 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel boxOutline;
         private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;
         private System.Windows.Forms.Panel boxShadow;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAddFrame;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel boxOutlineWhite;
-        private System.Windows.Forms.Panel labelShadow;
-        private System.Windows.Forms.Panel labelOutline;
-        private System.Windows.Forms.Panel labelContainer;
         private System.Windows.Forms.Panel boxOutlineInner;
-        private System.Windows.Forms.Label labelAnimation;
     }
 }

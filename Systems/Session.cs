@@ -1,4 +1,6 @@
-﻿using Pixel_Editor_Test_2.Controls.PixelEditor;
+﻿using Pixel_Editor_Test_2.Controls.Events;
+using Pixel_Editor_Test_2.Controls.PixelEditor;
+using Pixel_Editor_Test_2.Util;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,6 +15,8 @@ namespace Pixel_Editor_Test_2.Systems
         private static readonly Session _instance = new Session();
 
         public EditorWindow Editor { get; private set; }
+        public AnimatedBitmap Animation { get; private set; }
+        public event EventHandler<KeyframeAddedEventArgs> OnAddKeyframe;
 
         public Color PrimaryColor { get; set; }
         public Color SecondaryColor { get; set; }
@@ -57,6 +61,12 @@ namespace Pixel_Editor_Test_2.Systems
             Editor = editor;
         }
 
+        public AnimatedBitmap CreateNewAnimation()
+        {
+            Animation = new AnimatedBitmap();
+            return Animation;
+        }
+
         public void SetEditorTool(PixelEditor.Tool tool)
         {
             if (ActiveTool == tool)
@@ -91,6 +101,16 @@ namespace Pixel_Editor_Test_2.Systems
 
             Palette.Add(color);
             OnPaletteUpdate?.Invoke(this, color);
+        }
+
+        public void AddKeyframe(Frame frame)
+        {
+            int frameIndex = Animation.TotalFrames;
+
+            Animation.PauseAnimation();
+            Animation.AddFrame(frame);
+            Animation.GotoFrame(frameIndex);
+            OnAddKeyframe?.Invoke(this, new KeyframeAddedEventArgs(frame, frameIndex));
         }
     }
 }

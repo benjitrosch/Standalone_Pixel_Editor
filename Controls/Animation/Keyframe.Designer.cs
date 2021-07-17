@@ -35,7 +35,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             // divider
             // 
-            this.divider.BackColor = System.Drawing.Color.White;
+            this.divider.BackColor = System.Drawing.Color.Black;
             this.divider.ForeColor = System.Drawing.Color.White;
             this.divider.Location = new System.Drawing.Point(0, 16);
             this.divider.Name = "divider";
@@ -47,7 +47,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.labelIndex.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIndex.BackColor = System.Drawing.Color.Transparent;
             this.labelIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelIndex.ForeColor = System.Drawing.Color.White;
+            this.labelIndex.ForeColor = System.Drawing.Color.Black;
             this.labelIndex.Location = new System.Drawing.Point(-2, 0);
             this.labelIndex.Margin = new System.Windows.Forms.Padding(0);
             this.labelIndex.Name = "labelIndex";
@@ -60,7 +60,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.labelIndex);
             this.Controls.Add(this.divider);
             this.Margin = new System.Windows.Forms.Padding(0);

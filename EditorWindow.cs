@@ -33,16 +33,14 @@ namespace Pixel_Editor_Test_2
             Session.Instance.SetSecondaryColor(Color.White);
             Session.Instance.BrushSize = 1;
 
-            _animation = new AnimatedBitmap(new List<Frame>());
-            _animation.FrameUpdated += (_o, f) => UpdateFrame(f);
-
+            AnimatedBitmap animation = Session.Instance.CreateNewAnimation();
+            animation.FrameUpdated += (_o, f) => UpdateFrame(f);
             Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
-            AddKeyframe(emptyFrame);
-
-            canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
+            Session.Instance.AddKeyframe(emptyFrame);
 
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
+            canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
         }
 
         private void UpdateFrame(Bitmap bmp)

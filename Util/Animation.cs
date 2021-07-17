@@ -56,6 +56,14 @@ namespace Pixel_Editor_Test_2.Util
             FrameUpdated?.Invoke(this, bmp);
         }
 
+        public AnimatedBitmap()
+        {
+            _addQueue = new List<Frame>();
+            _removeQueue = new List<Frame>();
+            _frames = new List<Frame>();
+
+            _cancelToken = new CancellationTokenSource();
+        }
         public AnimatedBitmap(List<Frame> frames)
         {
             _addQueue = new List<Frame>();
