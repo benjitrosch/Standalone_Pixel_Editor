@@ -31,6 +31,7 @@ namespace Pixel_Editor_Test_2
             Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
             Session.Instance.SetPrimaryColor(Color.Black);
             Session.Instance.SetSecondaryColor(Color.White);
+            Session.Instance.BrushSize = 1;
 
             _animation = new AnimatedBitmap(new List<Frame>());
             _animation.FrameUpdated += (_o, f) => UpdateFrame(f);

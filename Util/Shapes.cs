@@ -110,18 +110,15 @@ namespace Pixel_Editor_Test_2.Util
             while (qy >= 0 && qx <= qa)
             {
                 // Draw the new points
-                if (!fill)
+                pixels.Add(new Point(xb - dx, yb - dy));
+                if (dx != 0 || xb != xc)
                 {
-                    pixels.Add(new Point(xb - dx, yb - dy));
-                    if (dx != 0 || xb != xc)
-                    {
-                        pixels.Add(new Point(xc + dx, yb - dy));
-                        if (dy != 0 || yb != yc)
-                            pixels.Add(new Point(xc + dx, yc + dy));
-                    }
+                    pixels.Add(new Point(xc + dx, yb - dy));
                     if (dy != 0 || yb != yc)
-                        pixels.Add(new Point(xb - dx, yc + dy));
+                        pixels.Add(new Point(xc + dx, yc + dy));
                 }
+                if (dy != 0 || yb != yc)
+                    pixels.Add(new Point(xb - dx, yc + dy));
 
                 // If a (+1, 0) step stays inside the ellipse, do it
                 if (qt + 2L * qb * qb * qx + 3L * qb * qb <= 0L ||
@@ -136,9 +133,15 @@ namespace Pixel_Editor_Test_2.Util
                 {
                     if (fill)
                     {
+                        List<Point> row = Line(new Point(xb - dx, yc + dy), new Point(xc + dx, yc + dy));
+                        pixels.AddRange(row);
                         //drawRow(xb - dx, xc + dx, yc + dy);
-                        //if (dy != 0 || yb != yc)
+                        if (dy != 0 || yb != yc)
+                        {
+                            List<Point> row2 = Line(new Point(xb - dx, yb - dy), new Point(xc + dx, yb - dy));
+                            pixels.AddRange(row2);
                             //drawRow(xb - dx, xc + dx, yb - dy);
+                        }
                     }
                     qt += 8L * qa * qa - 4L * qa * qa * qy;
                     dy--;
@@ -149,9 +152,15 @@ namespace Pixel_Editor_Test_2.Util
                 {
                     if (fill)
                     {
+                        List<Point> row = Line(new Point(xb - dx, yc + dy), new Point(xc + dx, yc + dy));
+                        pixels.AddRange(row);
                         //drawRow(xb - dx, xc + dx, yc + dy);
-                        //if (dy != 0 || yb != yc)
+                        if (dy != 0 || yb != yc)
+                        {
+                            List<Point> row2 = Line(new Point(xb - dx, yb - dy), new Point(xc + dx, yb - dy));
+                            pixels.AddRange(row2);
                             //drawRow(xb - dx, xc + dx, yb - dy);
+                        }
                     }
                     qt += 8L * qb * qb + 4L * qb * qb * qx + 8L * qa * qa - 4L * qa * qa * qy;
                     dx++;
@@ -160,7 +169,7 @@ namespace Pixel_Editor_Test_2.Util
                     qy -= 2;
                 }
             }   // End of while loop
-            return pixels;
+            return pixels.Distinct().ToList();
         }
     }
 }

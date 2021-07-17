@@ -45,7 +45,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 (Bitmap)APBox.Image,
                 new Point(x - Session.Instance.BrushSize, y - Session.Instance.BrushSize),
                 new Point(x, y),
-                drawColor
+                drawColor,
+                true
             );
             UndoHistory.Add(drawPixel);
             RedoHistory.Clear();
