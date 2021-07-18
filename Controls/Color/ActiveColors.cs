@@ -25,10 +25,10 @@ namespace Pixel_Editor_Test_2.Controls
             Session.Instance.OnSecondaryColorChange += SecondaryColorChange;
         }
 
-
         protected override void UpdateTheme(object sender, EventArgs e)
         {
-            container.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.BUTTON_BG_COLOR;
+            boxContainer.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.BUTTON_BG_COLOR;
+            boxOutline.BackColor = Themes.OUTLINE_COLOR;
             boxShadow.BackColor = Themes.SHADOW_COLOR;
         }
 
@@ -36,12 +36,14 @@ namespace Pixel_Editor_Test_2.Controls
         {
             buttonPrimaryColor.BackColor = color;
             buttonPrimaryColor.Text = color.R + ", " + color.G + ", " + color.B;
+            buttonPrimaryColor.ForeColor = color.GetBrightness() >= .5f ? Color.Black : Color.White;
         }
 
         private void SecondaryColorChange(object sender, Color color)
         {
             buttonSecondaryColor.BackColor = color;
             buttonSecondaryColor.Text = color.R + ", " + color.G + ", " + color.B;
+            buttonSecondaryColor.ForeColor = color.GetBrightness() >= .5f ? Color.Black : Color.White;
         }
 
         private void buttonSavePrimaryColor_Click(object sender, EventArgs e)

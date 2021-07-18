@@ -74,5 +74,10 @@ namespace Pixel_Editor_Test_2.Controls
         {
             Session.Instance.SetEditorTheme(Themes.WINDOWS98_THEME);
         }
+
+        private void modenrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.MODERN_THEME);
+        }
     }
 }

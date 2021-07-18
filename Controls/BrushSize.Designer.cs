@@ -82,6 +82,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Controls.Add(this.boxOutline);
             this.Name = "BrushSize";
             this.Size = new System.Drawing.Size(160, 32);
+            this.Load += new System.EventHandler(this.BrushSize_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.boxOutline.ResumeLayout(false);
             this.boxContainer.ResumeLayout(false);

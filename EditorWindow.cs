@@ -47,7 +47,8 @@ namespace Pixel_Editor_Test_2
         private void UpdateTheme(object sender, EventArgs e)
         {
             BackColor = Themes.OUTLINE_COLOR;
-            canvasContainer.BackColor = colorContainer.BackColor = Themes.MAIN_BG_COLOR;
+            canvasContainer.BackColor = Themes.MAIN_BG_COLOR;
+            colorContainer.BackColor = Themes.SECONDARY_BG_COLOR;
             canvasOutline.BackColor = colorOutline.BackColor = Themes.OUTLINE_COLOR;
         }
 

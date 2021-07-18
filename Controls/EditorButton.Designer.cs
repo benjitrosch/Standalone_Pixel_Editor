@@ -1,7 +1,7 @@
 ﻿
 namespace Pixel_Editor_Test_2.Controls
 {
-    partial class ToolButton
+    partial class EditorButton
     {
         /// <summary> 
         /// Required designer variable.
@@ -52,21 +52,21 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.boxShadow.BackColor = System.Drawing.Color.Black;
             this.boxShadow.Location = new System.Drawing.Point(4, 4);
+            this.boxShadow.Margin = new System.Windows.Forms.Padding(0);
             this.boxShadow.Name = "boxShadow";
             this.boxShadow.Size = new System.Drawing.Size(32, 32);
             this.boxShadow.TabIndex = 1;
             // 
-            // ToolButton
+            // EditorButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.Controls.Add(this.button);
             this.Controls.Add(this.boxShadow);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "ToolButton";
+            this.Name = "EditorButton";
             this.Size = new System.Drawing.Size(36, 36);
-            this.Load += new System.EventHandler(this.ToolButton_Load);
+            this.Load += new System.EventHandler(this.EditorButton_Load);
             this.ResumeLayout(false);
 
         }

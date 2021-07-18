@@ -35,7 +35,7 @@ namespace Pixel_Editor_Test_2.Controls
 
         protected override void UpdateTheme(object sender, EventArgs e)
         {
-            divider.BackColor = labelIndex.ForeColor = _drawColor = Themes.OUTLINE_COLOR;
+            divider.BackColor = labelIndex.ForeColor = _drawColor = Themes.TEXT_COLOR;
             BackColor = Themes.MAIN_BG_COLOR;
         }
 

@@ -11,24 +11,21 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class ToolButton : EditorControl
+    public partial class EditorButton : EditorControl
     {
         public Image Icon { get; set; }
-        public PixelEditor.PixelEditor.Tool ButtonTool { get; set; }
-        public Action ToolCallback { get; set; }
+        public Action Callback { get; set; }
 
-        public ToolButton()
+        public EditorButton()
         {
             InitializeComponent();
         }
 
-        private void ToolButton_Load(object sender, EventArgs e)
+        protected virtual void EditorButton_Load(object sender, EventArgs e)
         {
             base.OnLoad();
             if (Icon != null)
                 button.BackgroundImage = Icon;
-
-            Session.Instance.OnActiveToolChange += (_o, t) => CheckToolSelection(t);
         }
 
         protected override void UpdateTheme(object sender, EventArgs e)
@@ -60,18 +57,10 @@ namespace Pixel_Editor_Test_2.Controls
             }
         }
 
-        private void CheckToolSelection(PixelEditor.PixelEditor.Tool tool)
-        {
-            if (ButtonTool == tool)
-                button.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
-            else
-                button.BackColor = Themes.BUTTON_BG_COLOR;
-        }
-
         private void button_Click(object sender, EventArgs e)
         {
-            if (ToolCallback != null)
-                ToolCallback();
+            if (Callback != null)
+                Callback();
         }
     }
 }

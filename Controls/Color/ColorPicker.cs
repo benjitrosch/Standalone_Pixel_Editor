@@ -43,7 +43,8 @@ namespace Pixel_Editor_Test_2.Controls
 
         private void colorBox2D_MouseMove(object sender, MouseEventArgs e)
         {
-            PickColor(colorBox2D.ColorHSL.RgbValue, e);
+            if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right)
+                PickColor(colorBox2D.ColorHSL.RgbValue, e);
         }
 
         private void PickColor(Color color, MouseEventArgs e)
