@@ -30,6 +30,7 @@ namespace Pixel_Editor_Test_2.Controls
         {
             menuStrip.BackColor = buttonExit.BackColor =  Themes.MENUSTRIP_COLOR;
             menuOutline.BackColor = Themes.OUTLINE_COLOR;
+            menuStrip.ForeColor = buttonExit.ForeColor = Themes.TEXT_COLOR;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -57,6 +58,21 @@ namespace Pixel_Editor_Test_2.Controls
         private void menuStrip_MouseUp(object sender, MouseEventArgs e)
         {
             _mouseDown = false;
+        }
+
+        private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.DEFAULT_THEME);
+        }
+
+        private void floraleShoppeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.FLORALSHOPPE_THEME);
+        }
+
+        private void windows98ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.WINDOWS98_THEME);
         }
     }
 }

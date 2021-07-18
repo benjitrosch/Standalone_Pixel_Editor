@@ -18,6 +18,8 @@ namespace Pixel_Editor_Test_2.Systems
         public static Color BUTTON_HOVER_COLOR { get; private set; }
         public static Color BUTTON_HIGHLIGHT_COLOR { get; private set; }
 
+        public static Color TEXT_COLOR { get; private set; }
+
         public static Color MENUSTRIP_COLOR { get; private set; }
         public static Color TOOLBAR_COLOR { get; private set; }
         public static Color PALETTE_COLOR { get; private set; }
@@ -34,6 +36,8 @@ namespace Pixel_Editor_Test_2.Systems
             BUTTON_HOVER_COLOR = Color.FromArgb(229, 229, 229);
             BUTTON_HIGHLIGHT_COLOR = Color.FromArgb(250, 203, 254);
 
+            TEXT_COLOR = Color.Black;
+
             MENUSTRIP_COLOR = Color.White;
             TOOLBAR_COLOR = Color.FromArgb(203, 254, 221);
             PALETTE_COLOR = Color.FromArgb(203, 249, 254);
@@ -42,7 +46,7 @@ namespace Pixel_Editor_Test_2.Systems
 
         public static void FLORALSHOPPE_THEME()
         {
-            MAIN_BG_COLOR = Color.FromArgb(214, 193, 212);
+            MAIN_BG_COLOR = Color.FromArgb(207, 156, 203);
             OUTLINE_COLOR = Color.FromArgb(73, 49, 178);
             TRIM_COLOR = Color.FromArgb(107, 212, 209);
             SHADOW_COLOR = Color.FromArgb(73, 49, 178);
@@ -51,10 +55,31 @@ namespace Pixel_Editor_Test_2.Systems
             BUTTON_HOVER_COLOR = Color.FromArgb(229, 229, 229);
             BUTTON_HIGHLIGHT_COLOR = Color.FromArgb(107, 212, 209);
 
+            TEXT_COLOR = Color.FromArgb(73, 49, 178);
+
             MENUSTRIP_COLOR = Color.FromArgb(207, 156, 203);
             TOOLBAR_COLOR = Color.FromArgb(207, 156, 203);
             PALETTE_COLOR = Color.FromArgb(121, 124, 221);
             ANIMATOR_COLOR = Color.FromArgb(203, 108, 147);
+        }
+
+        public static void WINDOWS98_THEME()
+        {
+            MAIN_BG_COLOR = Color.FromArgb(0, 128, 128);
+            OUTLINE_COLOR = Color.FromArgb(184, 184, 184);
+            TRIM_COLOR = Color.White;
+            SHADOW_COLOR = Color.Black;
+
+            BUTTON_BG_COLOR = Color.White;
+            BUTTON_HOVER_COLOR = Color.FromArgb(229, 229, 229);
+            BUTTON_HIGHLIGHT_COLOR = Color.FromArgb(120, 120, 120);
+
+            TEXT_COLOR = Color.White;
+
+            MENUSTRIP_COLOR = Color.FromArgb(0, 0, 120);
+            TOOLBAR_COLOR = Color.FromArgb(184, 184, 184);
+            PALETTE_COLOR = Color.FromArgb(184, 184, 184);
+            ANIMATOR_COLOR = Color.FromArgb(184, 184, 184);
         }
     }
 }

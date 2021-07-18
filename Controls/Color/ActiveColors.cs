@@ -28,7 +28,7 @@ namespace Pixel_Editor_Test_2.Controls
 
         protected override void UpdateTheme(object sender, EventArgs e)
         {
-            container.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.MENUSTRIP_COLOR;
+            container.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.BUTTON_BG_COLOR;
             boxShadow.BackColor = Themes.SHADOW_COLOR;
         }
 
