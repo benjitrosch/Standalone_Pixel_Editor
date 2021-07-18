@@ -116,6 +116,12 @@
     <Compile Include="Controls\Color\PaletteColor.Designer.cs">
       <DependentUpon>PaletteColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EditorButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditorButton.Designer.cs">
+      <DependentUpon>EditorButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EditorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Color\PaletteColor.resx">
       <DependentUpon>PaletteColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EditorButton.resx">
+      <DependentUpon>EditorButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Titlebar.resx">
       <DependentUpon>Titlebar.cs</DependentUpon>

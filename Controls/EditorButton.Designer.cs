@@ -73,7 +73,7 @@ namespace Pixel_Editor_Test_2.Controls
 
         #endregion
 
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.Panel boxShadow;
+        public System.Windows.Forms.Button button;
+        public System.Windows.Forms.Panel boxShadow;
     }
 }

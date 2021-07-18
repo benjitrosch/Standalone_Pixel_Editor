@@ -57,7 +57,7 @@ namespace Pixel_Editor_Test_2.Controls
             }
         }
 
-        private void button_Click(object sender, EventArgs e)
+        protected virtual void button_Click(object sender, EventArgs e)
         {
             if (Callback != null)
                 Callback();

@@ -86,7 +86,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonEllipse.Name = "buttonEllipse";
             this.buttonEllipse.Size = new System.Drawing.Size(36, 36);
             this.buttonEllipse.TabIndex = 33;
-            this.buttonEllipse.ToolCallback = null;
             this.buttonEllipse.Load += new System.EventHandler(this.buttonEllipse_Load);
             // 
             // buttonRectangle
@@ -99,7 +98,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonRectangle.Name = "buttonRectangle";
             this.buttonRectangle.Size = new System.Drawing.Size(36, 36);
             this.buttonRectangle.TabIndex = 31;
-            this.buttonRectangle.ToolCallback = null;
             this.buttonRectangle.Load += new System.EventHandler(this.buttonRectangle_Load);
             // 
             // buttonDropper
@@ -112,7 +110,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonDropper.Name = "buttonDropper";
             this.buttonDropper.Size = new System.Drawing.Size(36, 36);
             this.buttonDropper.TabIndex = 29;
-            this.buttonDropper.ToolCallback = null;
             this.buttonDropper.Load += new System.EventHandler(this.buttonDropper_Load);
             // 
             // buttonLine
@@ -125,7 +122,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonLine.Name = "buttonLine";
             this.buttonLine.Size = new System.Drawing.Size(36, 36);
             this.buttonLine.TabIndex = 27;
-            this.buttonLine.ToolCallback = null;
             this.buttonLine.Load += new System.EventHandler(this.buttonLine_Load);
             // 
             // buttonHand
@@ -138,7 +134,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonHand.Name = "buttonHand";
             this.buttonHand.Size = new System.Drawing.Size(36, 36);
             this.buttonHand.TabIndex = 25;
-            this.buttonHand.ToolCallback = null;
             this.buttonHand.Load += new System.EventHandler(this.buttonHand_Load);
             // 
             // buttonFill
@@ -151,7 +146,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonFill.Name = "buttonFill";
             this.buttonFill.Size = new System.Drawing.Size(36, 36);
             this.buttonFill.TabIndex = 23;
-            this.buttonFill.ToolCallback = null;
             this.buttonFill.Load += new System.EventHandler(this.buttonFill_Load);
             // 
             // buttonPencil
@@ -164,7 +158,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonPencil.Name = "buttonPencil";
             this.buttonPencil.Size = new System.Drawing.Size(36, 36);
             this.buttonPencil.TabIndex = 7;
-            this.buttonPencil.ToolCallback = null;
             this.buttonPencil.Load += new System.EventHandler(this.buttonPencil_Load);
             // 
             // buttonEraser
@@ -177,7 +170,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonEraser.Name = "buttonEraser";
             this.buttonEraser.Size = new System.Drawing.Size(36, 36);
             this.buttonEraser.TabIndex = 5;
-            this.buttonEraser.ToolCallback = null;
             this.buttonEraser.Load += new System.EventHandler(this.buttonEraser_Load);
             // 
             // buttonMagic
@@ -190,7 +182,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonMagic.Name = "buttonMagic";
             this.buttonMagic.Size = new System.Drawing.Size(36, 36);
             this.buttonMagic.TabIndex = 3;
-            this.buttonMagic.ToolCallback = null;
             this.buttonMagic.Load += new System.EventHandler(this.buttonMagic_Load);
             // 
             // buttonSelect
@@ -203,7 +194,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(36, 36);
             this.buttonSelect.TabIndex = 1;
-            this.buttonSelect.ToolCallback = null;
             this.buttonSelect.Load += new System.EventHandler(this.buttonSelect_Load);
             // 
             // Toolbar

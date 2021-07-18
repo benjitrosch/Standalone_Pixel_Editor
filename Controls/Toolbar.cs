@@ -34,7 +34,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.SELECT;
 
             buttonSelect.ButtonTool = tool;
-            buttonSelect.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonSelect.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonMagic_Load(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.MAGICWAND;
 
             buttonMagic.ButtonTool = tool;
-            buttonMagic.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonMagic.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonEraser_Load(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.ERASER;
 
             buttonEraser.ButtonTool = PixelEditor.PixelEditor.Tool.ERASER;
-            buttonEraser.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonEraser.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonPencil_Load(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.PENCIL;
 
             buttonPencil.ButtonTool = tool;
-            buttonPencil.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonPencil.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonFill_Load(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.FILL;
 
             buttonFill.ButtonTool = tool;
-            buttonFill.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonFill.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonHand_Load(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.HAND;
 
             buttonHand.ButtonTool = tool;
-            buttonHand.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonHand.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonLine_Load(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.LINE;
 
             buttonLine.ButtonTool = tool;
-            buttonLine.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonLine.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonDropper_Load(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.EYEDROPPER;
 
             buttonDropper.ButtonTool = tool;
-            buttonDropper.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonDropper.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonRectangle_Load(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.RECTANGLE;
 
             buttonRectangle.ButtonTool = tool;
-            buttonRectangle.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonRectangle.Callback = () => Session.Instance.SetEditorTool(tool);
         }
 
         private void buttonEllipse_Load(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace Pixel_Editor_Test_2.Controls
             PixelEditor.PixelEditor.Tool tool = PixelEditor.PixelEditor.Tool.OVAL;
 
             buttonEllipse.ButtonTool = tool;
-            buttonEllipse.ToolCallback = () => Session.Instance.SetEditorTool(tool);
+            buttonEllipse.Callback = () => Session.Instance.SetEditorTool(tool);
         }
     }
 }

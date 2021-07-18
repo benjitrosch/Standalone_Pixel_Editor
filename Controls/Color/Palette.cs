@@ -27,11 +27,8 @@ namespace Pixel_Editor_Test_2.Controls
         protected override void UpdateTheme(object sender, EventArgs e)
         {
             layoutPalette.BackColor = Themes.PALETTE_COLOR;
-            buttonOpenPalette.BackColor = buttonNewPalette.BackColor = Themes.BUTTON_BG_COLOR;
-            buttonOpenPalette.FlatAppearance.MouseOverBackColor = buttonNewPalette.FlatAppearance.MouseOverBackColor = Themes.BUTTON_HOVER_COLOR;
-            buttonOpenPalette.FlatAppearance.MouseDownBackColor = buttonNewPalette.FlatAppearance.MouseDownBackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
-            boxShadow.BackColor = folderShadow.BackColor = fileShadow.BackColor = Themes.SHADOW_COLOR;
-            boxOutline.BackColor = boxOutlineInner.BackColor = buttonOpenPalette.FlatAppearance.BorderColor = buttonNewPalette.FlatAppearance.BorderColor = Themes.OUTLINE_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
+            boxOutline.BackColor = boxOutlineInner.BackColor = Themes.OUTLINE_COLOR;
             boxOutlineWhite.BackColor = Themes.TRIM_COLOR;
         }
 
