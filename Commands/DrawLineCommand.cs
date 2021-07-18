@@ -11,8 +11,8 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public class DrawLineCommand : Command
     {
-        public DrawLineCommand(PictureBox destination)
-                    : base(destination)
+        public DrawLineCommand(ref Bitmap image)
+                    : base(ref image)
         {}
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
@@ -29,7 +29,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             }
 
-            _destinationRef.Image = bmp;
+            _image = bmp;
         }
     }
 }

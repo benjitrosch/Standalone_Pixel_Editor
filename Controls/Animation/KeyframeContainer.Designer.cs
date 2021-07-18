@@ -34,12 +34,10 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner = new System.Windows.Forms.Panel();
             this.layoutKeyframe = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
-            this.addShadow = new System.Windows.Forms.Panel();
-            this.buttonPlay = new System.Windows.Forms.Button();
-            this.playShadow = new System.Windows.Forms.Panel();
-            this.buttonPause = new System.Windows.Forms.Button();
-            this.pauseShadow = new System.Windows.Forms.Panel();
-            this.buttonAddFrame = new System.Windows.Forms.Button();
+            this.buttonPlay = new Pixel_Editor_Test_2.Controls.EditorButton();
+            this.buttonPause = new Pixel_Editor_Test_2.Controls.EditorButton();
+            this.buttonAddFrame = new Pixel_Editor_Test_2.Controls.EditorButton();
+            this.buttonAddLayer = new Pixel_Editor_Test_2.Controls.EditorButton();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
@@ -97,88 +95,59 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxShadow.Size = new System.Drawing.Size(947, 192);
             this.boxShadow.TabIndex = 1;
             // 
-            // addShadow
-            // 
-            this.addShadow.BackColor = System.Drawing.Color.Black;
-            this.addShadow.Location = new System.Drawing.Point(900, 196);
-            this.addShadow.Margin = new System.Windows.Forms.Padding(0);
-            this.addShadow.Name = "addShadow";
-            this.addShadow.Size = new System.Drawing.Size(32, 32);
-            this.addShadow.TabIndex = 4;
-            // 
             // buttonPlay
             // 
-            this.buttonPlay.BackColor = System.Drawing.Color.White;
-            this.buttonPlay.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlay.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlay.Callback = null;
+            this.buttonPlay.Icon = global::Pixel_Editor_Test_2.Properties.Resources.play_icon;
             this.buttonPlay.Location = new System.Drawing.Point(24, 192);
+            this.buttonPlay.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPlay.Name = "buttonPlay";
-            this.buttonPlay.Size = new System.Drawing.Size(32, 32);
-            this.buttonPlay.TabIndex = 5;
-            this.buttonPlay.Text = ">";
-            this.buttonPlay.UseVisualStyleBackColor = false;
+            this.buttonPlay.Size = new System.Drawing.Size(36, 36);
+            this.buttonPlay.TabIndex = 11;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
-            // 
-            // playShadow
-            // 
-            this.playShadow.BackColor = System.Drawing.Color.Black;
-            this.playShadow.Location = new System.Drawing.Point(28, 196);
-            this.playShadow.Margin = new System.Windows.Forms.Padding(0);
-            this.playShadow.Name = "playShadow";
-            this.playShadow.Size = new System.Drawing.Size(32, 32);
-            this.playShadow.TabIndex = 6;
             // 
             // buttonPause
             // 
-            this.buttonPause.BackColor = System.Drawing.Color.White;
-            this.buttonPause.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPause.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPause.Callback = null;
+            this.buttonPause.Icon = global::Pixel_Editor_Test_2.Properties.Resources.pause_icon;
             this.buttonPause.Location = new System.Drawing.Point(80, 192);
+            this.buttonPause.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPause.Name = "buttonPause";
-            this.buttonPause.Size = new System.Drawing.Size(32, 32);
-            this.buttonPause.TabIndex = 7;
-            this.buttonPause.Text = "| |";
-            this.buttonPause.UseVisualStyleBackColor = false;
+            this.buttonPause.Size = new System.Drawing.Size(36, 36);
+            this.buttonPause.TabIndex = 10;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
-            // 
-            // pauseShadow
-            // 
-            this.pauseShadow.BackColor = System.Drawing.Color.Black;
-            this.pauseShadow.Location = new System.Drawing.Point(84, 196);
-            this.pauseShadow.Margin = new System.Windows.Forms.Padding(0);
-            this.pauseShadow.Name = "pauseShadow";
-            this.pauseShadow.Size = new System.Drawing.Size(32, 32);
-            this.pauseShadow.TabIndex = 8;
             // 
             // buttonAddFrame
             // 
-            this.buttonAddFrame.BackColor = System.Drawing.Color.White;
-            this.buttonAddFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonAddFrame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonAddFrame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddFrame.Font = new System.Drawing.Font("Minecraftia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddFrame.Callback = null;
+            this.buttonAddFrame.Icon = global::Pixel_Editor_Test_2.Properties.Resources.addframe_icon;
             this.buttonAddFrame.Location = new System.Drawing.Point(896, 192);
             this.buttonAddFrame.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAddFrame.Name = "buttonAddFrame";
-            this.buttonAddFrame.Size = new System.Drawing.Size(32, 32);
-            this.buttonAddFrame.TabIndex = 3;
-            this.buttonAddFrame.Text = "+";
-            this.buttonAddFrame.UseVisualStyleBackColor = false;
+            this.buttonAddFrame.Size = new System.Drawing.Size(36, 36);
+            this.buttonAddFrame.TabIndex = 9;
             this.buttonAddFrame.Click += new System.EventHandler(this.buttonAddFrame_Click);
+            // 
+            // buttonAddLayer
+            // 
+            this.buttonAddLayer.Callback = null;
+            this.buttonAddLayer.Icon = global::Pixel_Editor_Test_2.Properties.Resources.file_icon;
+            this.buttonAddLayer.Location = new System.Drawing.Point(840, 192);
+            this.buttonAddLayer.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAddLayer.Name = "buttonAddLayer";
+            this.buttonAddLayer.Size = new System.Drawing.Size(36, 36);
+            this.buttonAddLayer.TabIndex = 13;
+            this.buttonAddLayer.Click += new System.EventHandler(this.buttonAddLayer_Click);
             // 
             // KeyframeContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.buttonPause);
-            this.Controls.Add(this.pauseShadow);
+            this.Controls.Add(this.buttonAddLayer);
             this.Controls.Add(this.buttonPlay);
-            this.Controls.Add(this.playShadow);
+            this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.buttonAddFrame);
-            this.Controls.Add(this.addShadow);
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "KeyframeContainer";
@@ -195,14 +164,12 @@ namespace Pixel_Editor_Test_2.Controls
 
         private System.Windows.Forms.Panel boxOutline;
         private System.Windows.Forms.Panel boxShadow;
-        private System.Windows.Forms.Button buttonAddFrame;
-        private System.Windows.Forms.Panel addShadow;
-        private System.Windows.Forms.Button buttonPlay;
-        private System.Windows.Forms.Panel playShadow;
-        private System.Windows.Forms.Button buttonPause;
-        private System.Windows.Forms.Panel pauseShadow;
         private System.Windows.Forms.Panel boxOutlineWhite;
         private System.Windows.Forms.Panel boxOutlineInner;
         private System.Windows.Forms.FlowLayoutPanel layoutKeyframe;
+        private EditorButton buttonAddFrame;
+        private EditorButton buttonPause;
+        private EditorButton buttonPlay;
+        private EditorButton buttonAddLayer;
     }
 }

@@ -79,5 +79,15 @@ namespace Pixel_Editor_Test_2.Controls
         {
             Session.Instance.SetEditorTheme(Themes.MODERN_THEME);
         }
+
+        private void spotifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.SPOTIFY_THEME);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.Editor.ExitApplication();
+        }
     }
 }

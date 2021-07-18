@@ -63,6 +63,16 @@ namespace Pixel_Editor_Test_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addframe_icon {
+            get {
+                object obj = ResourceManager.GetObject("addframe_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brush_icon {
             get {
                 object obj = ResourceManager.GetObject("brush_icon", resourceCulture);
@@ -156,6 +166,26 @@ namespace Pixel_Editor_Test_2.Properties {
         internal static System.Drawing.Bitmap magic_icon {
             get {
                 object obj = ResourceManager.GetObject("magic_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pause_icon {
+            get {
+                object obj = ResourceManager.GetObject("pause_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_icon {
+            get {
+                object obj = ResourceManager.GetObject("play_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

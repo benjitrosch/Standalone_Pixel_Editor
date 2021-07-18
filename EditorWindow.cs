@@ -25,19 +25,17 @@ namespace Pixel_Editor_Test_2
 
         private void EditorWindow_Load(object sender, EventArgs e)
         {
+            Session.Instance.OnChangeTheme += UpdateTheme;
 
             Session.Instance.SetEditor(this);
-            Session.Instance.OnChangeTheme += UpdateTheme;
             Session.Instance.SetEditorTheme(Themes.DEFAULT_THEME);
             Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
             Session.Instance.SetPrimaryColor(Color.Black);
             Session.Instance.SetSecondaryColor(Color.White);
             Session.Instance.BrushSize = 1;
 
-            AnimatedBitmap animation = Session.Instance.CreateNewAnimation();
-            animation.FrameUpdated += (_o, f) => UpdateFrame(f);
-            Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
-            Session.Instance.AddKeyframe(emptyFrame);
+            Session.Instance.Animation.OnFrameChanged += (_o, f) => UpdateFrame(f);
+            Session.Instance.Animation.AddFrame(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE));
 
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
@@ -52,10 +50,15 @@ namespace Pixel_Editor_Test_2
             canvasOutline.BackColor = colorOutline.BackColor = Themes.OUTLINE_COLOR;
         }
 
-        private void UpdateFrame(Bitmap bmp)
+        private void UpdateFrame(List<Bitmap> bitmaps)
         {
-            srcImage.Image = bmp;
-            canvasPanel.APBox = srcImage;
+            //srcImage.Image = Session.Instance.ActiveLayer.Frames[0];
+            //canvasPanel.APBox = srcImage;
+
+            Console.WriteLine("updating frame data...");
+
+            canvasPanel.ActiveLayer = bitmaps[Session.Instance.ActiveLayer];
+            canvasPanel.Layers = bitmaps;
 
             //ToggleOnionSkin();
 

@@ -1,4 +1,5 @@
-﻿using Pixel_Editor_Test_2.Controls.Events;
+﻿using Pixel_Editor_Test_2.Controls.Animation;
+using Pixel_Editor_Test_2.Controls.Events;
 using Pixel_Editor_Test_2.Systems;
 using Pixel_Editor_Test_2.Util;
 using System;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class KeyframeContainer :EditorControl
+    public partial class KeyframeContainer : EditorControl
     {
         public KeyframeContainer()
         {
@@ -25,7 +26,12 @@ namespace Pixel_Editor_Test_2.Controls
         private void KeyframeContainer_Load(object sender, EventArgs e)
         {
             base.OnLoad();
-            Session.Instance.OnAddKeyframe += (_o, f) => AddKeyframe(f);
+            Session.Instance.Animation.OnAddLayer += (_o, _l) => RefreshLayers();
+
+            buttonPlay.Callback = () => Session.Instance.Animation.PlayAnimation();
+            buttonPause.Callback = () => Session.Instance.Animation.PauseAnimation();
+            buttonAddFrame.Callback = () => Session.Instance.Animation.AddFrame(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE));
+            buttonAddLayer.Callback = () => Session.Instance.Animation.AddLayer();
         }
 
         protected override void UpdateTheme(object sender, EventArgs e)
@@ -34,45 +40,38 @@ namespace Pixel_Editor_Test_2.Controls
             layoutKeyframe.BackColor = Themes.ANIMATOR_COLOR;
             boxOutline.BackColor = boxOutlineInner.BackColor = Themes.OUTLINE_COLOR;
             boxOutlineWhite.BackColor = Themes.TRIM_COLOR;
-            boxShadow.BackColor = playShadow.BackColor = pauseShadow.BackColor = addShadow.BackColor = Themes.SHADOW_COLOR;
-            buttonPlay.BackColor = buttonPause.BackColor = buttonAddFrame.BackColor = Themes.BUTTON_BG_COLOR;
-            buttonPlay.FlatAppearance.BorderColor = buttonPause.FlatAppearance.BorderColor = buttonAddFrame.FlatAppearance.BorderColor = Themes.OUTLINE_COLOR;
-            buttonPlay.FlatAppearance.MouseOverBackColor = buttonPause.FlatAppearance.MouseOverBackColor = buttonAddFrame.FlatAppearance.MouseOverBackColor = Themes.BUTTON_HOVER_COLOR;
-            buttonPlay.FlatAppearance.MouseDownBackColor = buttonPause.FlatAppearance.MouseDownBackColor = buttonAddFrame.FlatAppearance.MouseDownBackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
+            boxShadow.BackColor = Themes.SHADOW_COLOR;
         }
 
-        public void AddKeyframe(KeyframeAddedEventArgs e)
+        public void RefreshLayers()
         {
-            Keyframe newKeyframe = new Keyframe(e.FrameIndex);
+            layoutKeyframe.Controls.Clear();
 
-            newKeyframe.Click += new EventHandler(ClickKeyframe);
-            layoutKeyframe.Controls.Add(newKeyframe);
-        }
-
-        private void ClickKeyframe(object sender, EventArgs e)
-        {
-            Keyframe keyframe = (Keyframe)sender;
-            Session.Instance.Animation.GotoFrame(keyframe.FrameIndex);
+            foreach(Layer layer in Session.Instance.Animation.Layers)
+            {
+                LayerContainer layerContainer = new LayerContainer(layer);
+                layoutKeyframe.Controls.Add(layerContainer);
+            }
         }
 
         private void buttonAddFrame_Click(object sender, EventArgs e)
         {
-            Session.Instance.AddKeyframe(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE));
-        }
-
-        private void ButtomAddEmptyFrame_Click(object sender, EventArgs e)
-        {
-            Session.Instance.AddKeyframe(new Frame(new Bitmap(Session.Instance.Animation.GetLastFrame().Image), Global.STANDARD_FRAMERATE));
+            buttonAddFrame.button_Click(sender, e);
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            Session.Instance.Animation.PlayAnimation();
+            buttonPlay.button_Click(sender, e);
         }
 
         private void buttonPause_Click(object sender, EventArgs e)
         {
-            Session.Instance.Animation.PauseAnimation();
+            buttonPause.button_Click(sender, e);
+        }
+
+        private void buttonAddLayer_Click(object sender, EventArgs e)
+        {
+            buttonAddLayer.button_Click(sender, e);
         }
     }
 }

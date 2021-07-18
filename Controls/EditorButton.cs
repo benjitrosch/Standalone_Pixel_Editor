@@ -30,14 +30,14 @@ namespace Pixel_Editor_Test_2.Controls
 
         protected override void UpdateTheme(object sender, EventArgs e)
         {
-            BackColor = Themes.TOOLBAR_COLOR;
+            BackColor = Color.Transparent;
             boxShadow.BackColor = Themes.SHADOW_COLOR;
             button.BackColor = Themes.BUTTON_BG_COLOR;
             button.FlatAppearance.BorderColor = Themes.OUTLINE_COLOR;
             button.FlatAppearance.MouseOverBackColor = Themes.BUTTON_HOVER_COLOR;
             button.FlatAppearance.MouseDownBackColor = Themes.BUTTON_HOVER_COLOR;
 
-            if (button.ForeColor != Themes.ICON_COLOR)
+            if (Icon != null)
             {
                 Bitmap bmp = new Bitmap(Icon);
 
@@ -45,7 +45,7 @@ namespace Pixel_Editor_Test_2.Controls
                 {
                     for (int y = 0; y < bmp.Height; y++)
                     {
-                        if (bmp.GetPixel(x, y).ToArgb() == button.ForeColor.ToArgb())
+                        if (bmp.GetPixel(x, y).A != 0)
                         {
                             bmp.SetPixel(x, y, Themes.ICON_COLOR);
                         }
@@ -57,7 +57,7 @@ namespace Pixel_Editor_Test_2.Controls
             }
         }
 
-        protected virtual void button_Click(object sender, EventArgs e)
+        public virtual void button_Click(object sender, EventArgs e)
         {
             if (Callback != null)
                 Callback();

@@ -10,8 +10,8 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public class ReplaceColorCommand : Command
     {
-        public ReplaceColorCommand(PictureBox destination)
-            :base(destination)
+        public ReplaceColorCommand(ref Bitmap image)
+            :base(ref image)
         {}
 
         public void Execute(Bitmap bmp, Color oldColor, Color newColor)
@@ -29,7 +29,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             }
 
-            _destinationRef.Image = bmp;
+            _image = bmp;
         }
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)

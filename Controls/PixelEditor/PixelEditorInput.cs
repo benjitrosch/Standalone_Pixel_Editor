@@ -16,7 +16,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         public event EventHandler<MouseEventArgs> OnCanvasMouseDown;
         public event EventHandler<MouseEventArgs> OnCanvasMouseUp;
 
-        private void APBox_MouseClick(object sender, MouseEventArgs e)
+        private void PixelEditor_MouseClick(object sender, MouseEventArgs e)
         {
             TgtMousePos = e.Location;
             Invalidate();
@@ -177,7 +177,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawLineCommand(APBox), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawLineCommand(ref _activeLayer), e);
                     break;
 
                 case Tool.RECTANGLE:
@@ -191,7 +191,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawRectangleCommand(APBox), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawRectangleCommand(ref _activeLayer), e);
                     break;
 
                 case Tool.OVAL:
@@ -205,7 +205,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawCircleCommand(APBox), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawCircleCommand(ref _activeLayer), e);
                     break;
 
                 case Tool.SELECT:
@@ -272,9 +272,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                     int endX = SelectionEndPos.X;
                     int endY = SelectionEndPos.Y;
 
-                    SelectAreaCommand deleteArea = new SelectAreaCommand(APBox);
+                    SelectAreaCommand deleteArea = new SelectAreaCommand(ref _activeLayer);
                     deleteArea.Execute(
-                        (Bitmap)APBox.Image,
+                        _activeLayer,
                         new Point(startX, startY),
                         new Point(endX, endY),
                         Color.Transparent

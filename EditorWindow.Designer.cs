@@ -121,7 +121,6 @@ namespace Pixel_Editor_Test_2
             // 
             // canvasPanel
             // 
-            this.canvasPanel.APBox = null;
             this.canvasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(86)))), ((int)(((byte)(97)))));
             this.canvasPanel.Controls.Add(this.srcImage);
             this.canvasPanel.HandEndPos = new System.Drawing.Point(0, 0);

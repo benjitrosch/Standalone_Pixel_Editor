@@ -21,7 +21,6 @@ namespace Pixel_Editor_Test_2.Controls
         {
             InitializeComponent();
             FrameIndex = index;
-            labelIndex.Text = FrameIndex.ToString();
         }
 
         private void Keyframe_Load(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace Pixel_Editor_Test_2.Controls
 
         protected override void UpdateTheme(object sender, EventArgs e)
         {
-            divider.BackColor = labelIndex.ForeColor = _drawColor = Themes.TEXT_COLOR;
+            _drawColor = Themes.TEXT_COLOR;
             BackColor = Themes.MAIN_BG_COLOR;
         }
 
@@ -52,25 +51,25 @@ namespace Pixel_Editor_Test_2.Controls
             using (Pen p = new Pen(_drawColor, 1))
             using (Brush b = new SolidBrush(_drawColor))
             {
-                Rectangle rect = new Rectangle(new Point(4, 21), new Size(8, 8));
+                Rectangle rect = new Rectangle(new Point(2, 10), new Size(6, 6));
                 g.DrawEllipse(p, rect);
-                if (!BitmapExtensions.IsEmpty(Session.Instance.Animation.GetFrameByIndex(FrameIndex).Image))
+                if (!BitmapExtensions.IsEmpty(Session.Instance.Animation.Layers[Session.Instance.ActiveLayer].GetFrameByIndex(FrameIndex).Image))
                     g.FillEllipse(b, rect);
             }
 
             ControlPaint.DrawBorder(g,
                                     ClientRectangle,
                                     _drawColor,
-                                    1,
+                                    0,
+                                    ButtonBorderStyle.Solid,
+                                    _drawColor,
+                                    0,
                                     ButtonBorderStyle.Solid,
                                     _drawColor,
                                     1,
                                     ButtonBorderStyle.Solid,
                                     _drawColor,
-                                    1,
-                                    ButtonBorderStyle.Solid,
-                                    _drawColor,
-                                    1,
+                                    0,
                                     ButtonBorderStyle.Solid);
         }
 

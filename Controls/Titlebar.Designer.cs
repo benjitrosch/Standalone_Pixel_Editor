@@ -44,10 +44,11 @@ namespace Pixel_Editor_Test_2.Controls
             this.defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.floraleShoppeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windows98ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modenrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOutline = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.modenrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.menuOutline.SuspendLayout();
             this.SuspendLayout();
@@ -90,42 +91,43 @@ namespace Pixel_Editor_Test_2.Controls
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "&New...";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "&Open...";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -147,7 +149,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.defaultToolStripMenuItem,
             this.floraleShoppeToolStripMenuItem,
             this.windows98ToolStripMenuItem,
-            this.modenrToolStripMenuItem});
+            this.modenrToolStripMenuItem,
+            this.spotifyToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
             this.themeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.themeToolStripMenuItem.Text = "&Theme...";
@@ -172,6 +175,20 @@ namespace Pixel_Editor_Test_2.Controls
             this.windows98ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.windows98ToolStripMenuItem.Text = "Windows 98";
             this.windows98ToolStripMenuItem.Click += new System.EventHandler(this.windows98ToolStripMenuItem_Click);
+            // 
+            // modenrToolStripMenuItem
+            // 
+            this.modenrToolStripMenuItem.Name = "modenrToolStripMenuItem";
+            this.modenrToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modenrToolStripMenuItem.Text = "Modern";
+            this.modenrToolStripMenuItem.Click += new System.EventHandler(this.modenrToolStripMenuItem_Click);
+            // 
+            // spotifyToolStripMenuItem
+            // 
+            this.spotifyToolStripMenuItem.Name = "spotifyToolStripMenuItem";
+            this.spotifyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.spotifyToolStripMenuItem.Text = "Spotify";
+            this.spotifyToolStripMenuItem.Click += new System.EventHandler(this.spotifyToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -206,13 +223,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // modenrToolStripMenuItem
-            // 
-            this.modenrToolStripMenuItem.Name = "modenrToolStripMenuItem";
-            this.modenrToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.modenrToolStripMenuItem.Text = "Modern";
-            this.modenrToolStripMenuItem.Click += new System.EventHandler(this.modenrToolStripMenuItem_Click);
             // 
             // Titlebar
             // 
@@ -251,5 +261,6 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.ToolStripMenuItem floraleShoppeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windows98ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modenrToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spotifyToolStripMenuItem;
     }
 }

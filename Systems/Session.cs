@@ -15,8 +15,11 @@ namespace Pixel_Editor_Test_2.Systems
         private static readonly Session _instance = new Session();
 
         public EditorWindow Editor { get; private set; }
-        public AnimatedBitmap Animation { get; private set; }
-        public event EventHandler<KeyframeAddedEventArgs> OnAddKeyframe;
+
+        public int ActiveLayer { get; private set; }
+        public event EventHandler<int> OnActiveLayerChange;
+
+        public AnimatedBitmap Animation { get; private set; } = new AnimatedBitmap();
 
         public Action CurrentTheme { get; private set; }
         public event EventHandler OnChangeTheme;
@@ -42,11 +45,11 @@ namespace Pixel_Editor_Test_2.Systems
             }
         }
 
-        public PixelEditor.Tool ActiveTool { get; set; }
+        public PixelEditor.Tool ActiveTool { get; private set; }
         public event EventHandler<PixelEditor.Tool> OnActiveToolChange;
 
         static Session()
-        {}
+        { }
 
         public static Session Instance
         {
@@ -71,12 +74,6 @@ namespace Pixel_Editor_Test_2.Systems
             OnChangeTheme?.Invoke(this, null);
         }
 
-        public AnimatedBitmap CreateNewAnimation()
-        {
-            Animation = new AnimatedBitmap();
-            return Animation;
-        }
-
         public void SetEditorTool(PixelEditor.Tool tool)
         {
             if (ActiveTool == tool)
@@ -84,6 +81,15 @@ namespace Pixel_Editor_Test_2.Systems
 
             ActiveTool = tool;
             OnActiveToolChange?.Invoke(this, tool);
+        }
+
+        public void SetActiveLayer(int layer)
+        {
+            if (ActiveLayer == layer)
+                return;
+
+            ActiveLayer = layer;
+            OnActiveLayerChange?.Invoke(this, layer);
         }
 
         public void SetPrimaryColor(Color color)
@@ -111,16 +117,6 @@ namespace Pixel_Editor_Test_2.Systems
 
             Palette.Add(color);
             OnPaletteUpdate?.Invoke(this, color);
-        }
-
-        public void AddKeyframe(Frame frame)
-        {
-            int frameIndex = Animation.TotalFrames;
-
-            Animation.PauseAnimation();
-            Animation.AddFrame(frame);
-            Animation.GotoFrame(frameIndex);
-            OnAddKeyframe?.Invoke(this, new KeyframeAddedEventArgs(frame, frameIndex));
         }
     }
 }

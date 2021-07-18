@@ -33,10 +33,5 @@ namespace Pixel_Editor_Test_2.Controls
             else
                 base.button.BackColor = Themes.BUTTON_BG_COLOR;
         }
-
-        protected override void button_Click(object sender, EventArgs e)
-        {
-            base.button_Click(sender, e);
-        }
     }
 }

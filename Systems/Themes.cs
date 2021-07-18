@@ -113,23 +113,23 @@ namespace Pixel_Editor_Test_2.Systems
 
         public static void SPOTIFY_THEME()
         {
-            MAIN_BG_COLOR = Color.FromArgb(46, 51, 73);
-            SECONDARY_BG_COLOR = Color.FromArgb(37, 42, 64);
-            OUTLINE_COLOR = Color.FromArgb(5, 12, 41);
-            TRIM_COLOR = Color.FromArgb(0, 126, 249);
-            SHADOW_COLOR = Color.FromArgb(24, 30, 54);
+            MAIN_BG_COLOR = Color.FromArgb(33, 33, 33);
+            SECONDARY_BG_COLOR = Color.FromArgb(33, 33, 33);
+            OUTLINE_COLOR = Color.FromArgb(83, 83, 83);
+            TRIM_COLOR = Color.FromArgb(29, 185, 84);
+            SHADOW_COLOR = Color.Black;
 
-            BUTTON_BG_COLOR = Color.FromArgb(74, 79, 99);
-            BUTTON_HOVER_COLOR = Color.FromArgb(37, 42, 64);
-            BUTTON_HIGHLIGHT_COLOR = Color.FromArgb(0, 126, 249);
+            BUTTON_BG_COLOR = Color.FromArgb(33, 33, 33);
+            BUTTON_HOVER_COLOR = Color.FromArgb(83, 83, 83);
+            BUTTON_HIGHLIGHT_COLOR = Color.FromArgb(29, 185, 84);
 
-            TEXT_COLOR = Color.FromArgb(158, 161, 176);
-            ICON_COLOR = Color.FromArgb(0, 126, 249);
+            TEXT_COLOR = Color.FromArgb(179, 179, 179);
+            ICON_COLOR = Color.FromArgb(179, 179, 179);
 
-            MENUSTRIP_COLOR = Color.FromArgb(24, 30, 54);
-            TOOLBAR_COLOR = Color.FromArgb(24, 30, 54);
-            PALETTE_COLOR = Color.FromArgb(74, 79, 99);
-            ANIMATOR_COLOR = Color.FromArgb(74, 79, 99);
+            MENUSTRIP_COLOR = Color.Black;
+            TOOLBAR_COLOR = Color.Black;
+            PALETTE_COLOR = Color.FromArgb(83, 83, 83);
+            ANIMATOR_COLOR = Color.FromArgb(83, 83, 83);
         }
     }
 }

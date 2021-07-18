@@ -10,14 +10,14 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public abstract class Command
     {
-        protected PictureBox _destinationRef;
+        protected Bitmap _image;
 
         protected Dictionary<Point, Color> _previousColors = new Dictionary<Point, Color>();
         protected Dictionary<Point, Color> _finalColors = new Dictionary<Point, Color>();
 
-        protected Command(PictureBox destination)
+        protected Command(ref Bitmap image)
         {
-            _destinationRef = destination;
+            _image = image;
         }
 
         public abstract void Execute(Bitmap bmp, Point startPos, Point endPos, Color color);
@@ -30,7 +30,7 @@ namespace Pixel_Editor_Test_2.Commands
             foreach (KeyValuePair<Point, Color> pixel in _previousColors)
                 bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
 
-            _destinationRef.Image = bmp;
+            _image = bmp;
         }
 
         public virtual void Redo(Bitmap bmp)
@@ -41,7 +41,7 @@ namespace Pixel_Editor_Test_2.Commands
             foreach (KeyValuePair<Point, Color> pixel in _finalColors)
                 bmp.SetPixel(pixel.Key.X, pixel.Key.Y, pixel.Value);
 
-            _destinationRef.Image = bmp;
+            _image = bmp;
         }
     }
 }
