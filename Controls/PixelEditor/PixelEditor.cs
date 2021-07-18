@@ -35,6 +35,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         public List<Command> UndoHistory = new List<Command>();
         public List<Command> RedoHistory = new List<Command>();
+        public event EventHandler OnHistoryChange;
 
         public event EventHandler<EyeDropperEventArgs> OnEyedropperChange;
 
@@ -200,6 +201,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             UndoHistory.Remove(lastCommand);
             RedoHistory.Add(lastCommand);
 
+            OnHistoryChange?.Invoke(this, null);
             Invalidate();
         }
 
@@ -214,6 +216,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             RedoHistory.Remove(lastCommand);
             UndoHistory.Add(lastCommand);
 
+            OnHistoryChange?.Invoke(this, null);
             Invalidate();
         }
 

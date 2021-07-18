@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pixel_Editor_Test_2.Systems;
+using Pixel_Editor_Test_2.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,10 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Controls
 {
-    public partial class Keyframe : UserControl
+    public partial class Keyframe : EditorControl
     {
         public int FrameIndex { get; private set; }
+        private Color _drawColor = Themes.OUTLINE_COLOR;
 
         public Keyframe(int index)
         {
@@ -21,43 +24,64 @@ namespace Pixel_Editor_Test_2.Controls
             labelIndex.Text = FrameIndex.ToString();
         }
 
+        private void Keyframe_Load(object sender, EventArgs e)
+        {
+            base.OnLoad();
+            UpdateTheme(sender, e);
+
+            Session.Instance.Editor.canvasPanel.OnCanvasMouseUp += (_o, _e) => CheckUpdate();
+            Session.Instance.Editor.canvasPanel.OnHistoryChange += (_o, _e) => CheckUpdate();
+        }
+
+        protected override void UpdateTheme(object sender, EventArgs e)
+        {
+            divider.BackColor = labelIndex.ForeColor = _drawColor = Themes.OUTLINE_COLOR;
+            BackColor = Themes.MAIN_BG_COLOR;
+        }
+
+        private void CheckUpdate()
+        {
+            if (Session.Instance.Animation.CurrentFrame == FrameIndex)
+                Invalidate();
+        }
+
         private void Keyframe_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Color color = Color.Black;
 
-            using (Pen p = new Pen(color, 1))
-            using (Brush b = new SolidBrush(color))
+            using (Pen p = new Pen(_drawColor, 1))
+            using (Brush b = new SolidBrush(_drawColor))
             {
                 Rectangle rect = new Rectangle(new Point(4, 21), new Size(8, 8));
                 g.DrawEllipse(p, rect);
-                g.FillEllipse(b, rect);
+                if (!BitmapExtensions.IsEmpty(Session.Instance.Animation.GetFrameByIndex(FrameIndex).Image))
+                    g.FillEllipse(b, rect);
             }
 
             ControlPaint.DrawBorder(g,
                                     ClientRectangle,
-                                    color,
+                                    _drawColor,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    color,
+                                    _drawColor,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    color,
+                                    _drawColor,
                                     1,
                                     ButtonBorderStyle.Solid,
-                                    color,
+                                    _drawColor,
                                     1,
                                     ButtonBorderStyle.Solid);
         }
 
         private void Keyframe_MouseEnter(object sender, EventArgs e)
         {
-            BackColor = Color.FromArgb(250, 203, 254);
+            BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
         }
 
         private void Keyframe_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            BackColor = Themes.MAIN_BG_COLOR;
         }
     }
 }

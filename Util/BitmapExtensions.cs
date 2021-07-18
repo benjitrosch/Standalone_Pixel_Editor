@@ -28,6 +28,24 @@ namespace Pixel_Editor_Test_2.Util
             return bmp;
         }
 
+        public static bool IsEmpty(Bitmap src)
+        {
+            BitmapData data = src.LockBits(new Rectangle(0, 0, src.Width, src.Height),
+                                           ImageLockMode.ReadOnly,
+                                           PixelFormat.Format32bppArgb);
+            var bytes = new byte[data.Height * data.Stride];
+            Marshal.Copy(data.Scan0, bytes, 0, bytes.Length);
+            src.UnlockBits(data);
+
+            for (int p = 3; p < bytes.Length; p += 4)
+            {
+                if (bytes[p] > 0)
+                    return false;
+            }
+
+            return true;
+        }
+
         public static List<Point> SelectBitmapArea(Bitmap src, int x, int y)
         {
             List<Point> pixels = new List<Point>();

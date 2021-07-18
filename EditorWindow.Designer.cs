@@ -238,7 +238,6 @@ namespace Pixel_Editor_Test_2
 
         #endregion
         private System.Windows.Forms.PictureBox srcImage;
-        private PixelEditor canvasPanel;
         private Controls.Toolbar toolbar;
         private Controls.Titlebar titlebar;
         private System.Windows.Forms.Panel canvasOutline;
@@ -251,6 +250,7 @@ namespace Pixel_Editor_Test_2
         private Controls.ColorPicker colorPicker1;
         private Controls.ActiveColors activeColors;
         private System.Windows.Forms.Panel colorOutline;
+        public PixelEditor canvasPanel;
     }
 }
 

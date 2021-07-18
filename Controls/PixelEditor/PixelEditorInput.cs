@@ -13,6 +13,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 {
     public partial class PixelEditor
     {
+        public event EventHandler<MouseEventArgs> OnCanvasMouseDown;
+        public event EventHandler<MouseEventArgs> OnCanvasMouseUp;
+
         private void APBox_MouseClick(object sender, MouseEventArgs e)
         {
             TgtMousePos = e.Location;
@@ -21,6 +24,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void PixelEditor_MouseDown(object sender, MouseEventArgs e)
         {
+            OnCanvasMouseDown?.Invoke(this, e);
+            
             int x = TgtMousePos.X + Viewport.X + e.X / Zoom;
             int y = TgtMousePos.Y + Viewport.Y + e.Y / Zoom;
 
@@ -143,6 +148,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void PixelEditor_MouseUp(object sender, MouseEventArgs e)
         {
+            OnCanvasMouseUp?.Invoke(this, e);
+
             int x = TgtMousePos.X + Viewport.X + e.X / Zoom;
             int y = TgtMousePos.Y + Viewport.Y + e.Y / Zoom;
 

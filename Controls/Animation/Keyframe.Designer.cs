@@ -66,6 +66,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Keyframe";
             this.Size = new System.Drawing.Size(24, 48);
+            this.Load += new System.EventHandler(this.Keyframe_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Keyframe_Paint);
             this.MouseEnter += new System.EventHandler(this.Keyframe_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Keyframe_MouseLeave);
