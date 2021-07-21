@@ -40,9 +40,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                     throw new InvalidEnumArgumentException("No tool selected.");
             }
 
-            DrawCircleCommand drawPixel = new DrawCircleCommand(ref _activeLayer);
+            DrawCircleCommand drawPixel = new DrawCircleCommand(APBox);
             drawPixel.Execute(
-                _activeLayer,
+                (Bitmap)APBox.Image,
                 new Point(x - Session.Instance.BrushSize, y - Session.Instance.BrushSize),
                 new Point(x, y),
                 drawColor,
@@ -57,7 +57,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         private void PixelEditor_DrawShape<T>(Point startPos, Point endPos, T command, MouseEventArgs e) where T : Command
         {
             command.Execute(
-                _activeLayer,
+                (Bitmap)APBox.Image,
                 startPos,
                 endPos,
                 e.Button == MouseButtons.Left ? Session.Instance.PrimaryColor : Session.Instance.SecondaryColor
@@ -73,9 +73,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void PixelEditor_Fill(int x, int y, MouseEventArgs e)
         {
-            FillCommand fill = new FillCommand(ref _activeLayer);
+            FillCommand fill = new FillCommand(APBox);
             fill.Execute(
-                _activeLayer,
+                (Bitmap)APBox.Image,
                 new Point(x, y),
                 Point.Empty,
                 e.Button == MouseButtons.Left ? Session.Instance.PrimaryColor : Session.Instance.SecondaryColor
@@ -88,9 +88,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void PixelEditor_ReplaceColor(Color oldColor, Color newColor)
         {
-            ReplaceColorCommand replaceColor = new ReplaceColorCommand(ref _activeLayer);
+            ReplaceColorCommand replaceColor = new ReplaceColorCommand(APBox);
             replaceColor.Execute(
-                _activeLayer,
+                (Bitmap)APBox.Image,
                 oldColor,
                 newColor
             );

@@ -51,7 +51,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutline.Margin = new System.Windows.Forms.Padding(0);
             this.boxOutline.Name = "boxOutline";
             this.boxOutline.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutline.Size = new System.Drawing.Size(947, 192);
+            this.boxOutline.Size = new System.Drawing.Size(947, 200);
             this.boxOutline.TabIndex = 0;
             // 
             // boxOutlineWhite
@@ -63,7 +63,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineWhite.Margin = new System.Windows.Forms.Padding(0);
             this.boxOutlineWhite.Name = "boxOutlineWhite";
             this.boxOutlineWhite.Padding = new System.Windows.Forms.Padding(2);
-            this.boxOutlineWhite.Size = new System.Drawing.Size(945, 190);
+            this.boxOutlineWhite.Size = new System.Drawing.Size(945, 198);
             this.boxOutlineWhite.TabIndex = 0;
             // 
             // boxOutlineInner
@@ -75,7 +75,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner.Margin = new System.Windows.Forms.Padding(0);
             this.boxOutlineInner.Name = "boxOutlineInner";
             this.boxOutlineInner.Padding = new System.Windows.Forms.Padding(1);
-            this.boxOutlineInner.Size = new System.Drawing.Size(941, 186);
+            this.boxOutlineInner.Size = new System.Drawing.Size(941, 194);
             this.boxOutlineInner.TabIndex = 0;
             // 
             // layoutKeyframe
@@ -84,7 +84,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.layoutKeyframe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutKeyframe.Location = new System.Drawing.Point(1, 1);
             this.layoutKeyframe.Name = "layoutKeyframe";
-            this.layoutKeyframe.Size = new System.Drawing.Size(939, 184);
+            this.layoutKeyframe.Size = new System.Drawing.Size(939, 192);
             this.layoutKeyframe.TabIndex = 0;
             // 
             // boxShadow
@@ -92,14 +92,14 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxShadow.BackColor = System.Drawing.Color.Black;
             this.boxShadow.Location = new System.Drawing.Point(8, 24);
             this.boxShadow.Name = "boxShadow";
-            this.boxShadow.Size = new System.Drawing.Size(947, 192);
+            this.boxShadow.Size = new System.Drawing.Size(947, 200);
             this.boxShadow.TabIndex = 1;
             // 
             // buttonPlay
             // 
             this.buttonPlay.Callback = null;
             this.buttonPlay.Icon = global::Pixel_Editor_Test_2.Properties.Resources.play_icon;
-            this.buttonPlay.Location = new System.Drawing.Point(24, 192);
+            this.buttonPlay.Location = new System.Drawing.Point(24, 208);
             this.buttonPlay.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(36, 36);
@@ -110,7 +110,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonPause.Callback = null;
             this.buttonPause.Icon = global::Pixel_Editor_Test_2.Properties.Resources.pause_icon;
-            this.buttonPause.Location = new System.Drawing.Point(80, 192);
+            this.buttonPause.Location = new System.Drawing.Point(80, 208);
             this.buttonPause.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(36, 36);
@@ -121,7 +121,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonAddFrame.Callback = null;
             this.buttonAddFrame.Icon = global::Pixel_Editor_Test_2.Properties.Resources.addframe_icon;
-            this.buttonAddFrame.Location = new System.Drawing.Point(896, 192);
+            this.buttonAddFrame.Location = new System.Drawing.Point(896, 208);
             this.buttonAddFrame.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAddFrame.Name = "buttonAddFrame";
             this.buttonAddFrame.Size = new System.Drawing.Size(36, 36);
@@ -132,7 +132,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonAddLayer.Callback = null;
             this.buttonAddLayer.Icon = global::Pixel_Editor_Test_2.Properties.Resources.file_icon;
-            this.buttonAddLayer.Location = new System.Drawing.Point(840, 192);
+            this.buttonAddLayer.Location = new System.Drawing.Point(840, 208);
             this.buttonAddLayer.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAddLayer.Name = "buttonAddLayer";
             this.buttonAddLayer.Size = new System.Drawing.Size(36, 36);
@@ -151,8 +151,7 @@ namespace Pixel_Editor_Test_2.Controls
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "KeyframeContainer";
-            this.Size = new System.Drawing.Size(955, 232);
-            this.Load += new System.EventHandler(this.KeyframeContainer_Load);
+            this.Size = new System.Drawing.Size(955, 244);
             this.boxOutline.ResumeLayout(false);
             this.boxOutlineWhite.ResumeLayout(false);
             this.boxOutlineInner.ResumeLayout(false);

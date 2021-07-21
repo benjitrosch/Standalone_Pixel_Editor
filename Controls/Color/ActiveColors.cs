@@ -18,14 +18,14 @@ namespace Pixel_Editor_Test_2.Controls
             InitializeComponent();
         }
 
-        private void ActiveColors_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
             Session.Instance.OnPrimaryColorChange += PrimaryColorChange;
             Session.Instance.OnSecondaryColorChange += SecondaryColorChange;
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             boxContainer.BackColor = primaryContainer.BackColor = secondaryContainer.BackColor = Themes.BUTTON_BG_COLOR;
             boxOutline.BackColor = Themes.OUTLINE_COLOR;

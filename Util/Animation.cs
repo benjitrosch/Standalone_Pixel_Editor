@@ -38,7 +38,7 @@ namespace Pixel_Editor_Test_2.Util
 
         public AnimatedBitmap()
         {
-            Layers = new List<Layer>() { new Layer() };
+            Layers = new List<Layer>();
             _cancelToken = new CancellationTokenSource();
         }
 
@@ -78,8 +78,8 @@ namespace Pixel_Editor_Test_2.Util
 
         public void GotoFrame(int i)
         {
-            if (i < 0 || (i >= TotalFrames && TotalFrames > 0))
-                throw new ArgumentOutOfRangeException(i.ToString(), "Index must be greater than 0 and less than the total number of frames.");
+            if (i < 0 || i >= TotalFrames)
+                throw new ArgumentOutOfRangeException(i.ToString(), $"Index ({i}) must be greater than 0 and less than the total number of frames ({TotalFrames}).");
 
             PauseAnimation();
             FrameChanged(i);
@@ -88,7 +88,6 @@ namespace Pixel_Editor_Test_2.Util
         public void AddLayer()
         {
             Layer layer = new Layer(TotalFrames);
-            Console.WriteLine(layer.Frames.Count);
 
             Layers.Add(layer);
             OnAddLayer?.Invoke(this, layer);
@@ -102,7 +101,7 @@ namespace Pixel_Editor_Test_2.Util
                 layer.AddFrame(frame);
 
             GotoFrame(TotalFrames - 1);
-            OnAddKeyframe?.Invoke(this, new KeyframeAddedEventArgs(frame, TotalFrames));
+            OnAddKeyframe?.Invoke(this, new KeyframeAddedEventArgs(frame, TotalFrames - 1));
         }
 
         public void Dispose()

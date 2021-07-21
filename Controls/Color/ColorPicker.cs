@@ -18,12 +18,7 @@ namespace Pixel_Editor_Test_2.Controls
             InitializeComponent();
         }
 
-        private void ColorPicker_Load(object sender, EventArgs e)
-        {
-            base.OnLoad();
-        }
-
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             colorContainer.BackColor = Themes.BUTTON_BG_COLOR;
             boxOutline.BackColor = Themes.OUTLINE_COLOR;

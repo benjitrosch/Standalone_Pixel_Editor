@@ -74,16 +74,16 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         Point lastPoint = Point.Empty;
 
-        private Bitmap _activeLayer;
-        public Bitmap ActiveLayer
+        PictureBox aPBox = null;
+        public PictureBox APBox
         {
-            get
-            {
-                return _activeLayer;
-            }
+            get { return aPBox; }
             set
             {
-                _activeLayer = value;
+                if (value == null) return;
+                aPBox = value;
+                aPBox.MouseClick -= APBox_MouseClick;
+                aPBox.MouseClick += APBox_MouseClick;
             }
         }
         public List<Bitmap> Layers { get; set; }
@@ -96,14 +96,13 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             Zoom = 8;
             TgtMousePos = Point.Empty;
 
-            MouseClick += PixelEditor_MouseClick;
             MouseDown += PixelEditor_MouseDown;
             MouseMove += PixelEditor_MouseMove;
             MouseUp += PixelEditor_MouseUp;
             MouseWheel += PixelEditor_MouseWheel;
             Paint += PixelEditor_Paint;
 
-            Session.Instance.OnActiveLayerChange += (_o, l) => _activeLayer = Layers[l];
+            //Session.Instance.OnActiveLayerChange += (_o, l) => _activeLayer = Layers[l];
         }
 
         private void PixelEditor_Paint(object sender, PaintEventArgs e)
@@ -111,12 +110,12 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             if (DesignMode) return;
 
             Graphics g = e.Graphics;
-            Bitmap bmp = _activeLayer;
+            Bitmap bmp = (Bitmap)APBox.Image;
 
             int cols = (int)Math.Round((double)ClientSize.Width / Zoom);
             int rows = (int)Math.Round((double)ClientSize.Height / Zoom);
 
-            if (_activeLayer == null || TgtMousePos.X < 0 || TgtMousePos.Y < 0) return;
+            if (TgtMousePos.X < 0 || TgtMousePos.Y < 0) return;
 
             for (int x = 0; x < cols; x++)
                 for (int y = 0; y < rows; y++)
@@ -157,8 +156,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             {
                 Rectangle rect = new Rectangle(0 - (Viewport.X * Zoom),
                                                0 - (Viewport.Y * Zoom),
-                                               _activeLayer.Width * Zoom,
-                                               _activeLayer.Height * Zoom);
+                                               APBox.Image.Width * Zoom,
+                                               APBox.Image.Height * Zoom);
 
 
                 s.Alignment = PenAlignment.Outset;
@@ -186,7 +185,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         protected virtual void GetColorAt(int x, int y)
         {
-            Bitmap bmp = _activeLayer;
+            Bitmap bmp = (Bitmap)APBox.Image;
             MouseButtons mouseButton = _activeMouseButton == 0 ? MouseButtons.Left : MouseButtons.Right;
 
             EventHandler<EyeDropperEventArgs> handler = OnEyedropperChange;
@@ -200,7 +199,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             
             Command lastCommand = UndoHistory[UndoHistory.Count - 1];
 
-            lastCommand.Undo(_activeLayer);
+            lastCommand.Undo((Bitmap)APBox.Image);
             UndoHistory.Remove(lastCommand);
             RedoHistory.Add(lastCommand);
 
@@ -215,7 +214,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
             Command lastCommand = RedoHistory[RedoHistory.Count - 1];
 
-            lastCommand.Redo(_activeLayer);
+            lastCommand.Redo((Bitmap)APBox.Image);
             RedoHistory.Remove(lastCommand);
             UndoHistory.Add(lastCommand);
 

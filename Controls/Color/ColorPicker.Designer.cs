@@ -105,7 +105,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.Controls.Add(this.boxShadow);
             this.Name = "ColorPicker";
             this.Size = new System.Drawing.Size(232, 136);
-            this.Load += new System.EventHandler(this.ColorPicker_Load);
             this.boxOutline.ResumeLayout(false);
             this.colorContainer.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -18,6 +18,8 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow : Form
     {
+        private List<EditorControl> _controls = new List<EditorControl>();
+
         public EditorWindow()
         {
             InitializeComponent();
@@ -27,7 +29,8 @@ namespace Pixel_Editor_Test_2
         {
             Session.Instance.OnChangeTheme += UpdateTheme;
 
-            Session.Instance.SetEditor(this);
+            Session.Instance.InitializeSession(this, new AnimatedBitmap());
+
             Session.Instance.SetEditorTheme(Themes.DEFAULT_THEME);
             Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
             Session.Instance.SetPrimaryColor(Color.Black);
@@ -40,6 +43,21 @@ namespace Pixel_Editor_Test_2
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
             canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
+
+            InitializeControls();
+        }
+
+        private void InitializeControls()
+        {
+            _controls.Add(titlebar);
+            _controls.Add(keyframeContainer);
+            _controls.Add(palette);
+            _controls.Add(colorPicker);
+            _controls.Add(activeColors);
+            _controls.Add(toolbar);
+
+            foreach (EditorControl control in _controls)
+                control.Initialize();
         }
 
         private void UpdateTheme(object sender, EventArgs e)
@@ -52,12 +70,10 @@ namespace Pixel_Editor_Test_2
 
         private void UpdateFrame(List<Bitmap> bitmaps)
         {
-            //srcImage.Image = Session.Instance.ActiveLayer.Frames[0];
-            //canvasPanel.APBox = srcImage;
+            srcImage.Image = bitmaps[Session.Instance.ActiveLayer];
+            canvasPanel.APBox = srcImage;
 
-            Console.WriteLine("updating frame data...");
-
-            canvasPanel.ActiveLayer = bitmaps[Session.Instance.ActiveLayer];
+            //canvasPanel.ActiveLayer = bitmaps[Session.Instance.ActiveLayer];
             canvasPanel.Layers = bitmaps;
 
             //ToggleOnionSkin();

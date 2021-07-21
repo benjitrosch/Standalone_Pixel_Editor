@@ -16,7 +16,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         public event EventHandler<MouseEventArgs> OnCanvasMouseDown;
         public event EventHandler<MouseEventArgs> OnCanvasMouseUp;
 
-        private void PixelEditor_MouseClick(object sender, MouseEventArgs e)
+        private void APBox_MouseClick(object sender, MouseEventArgs e)
         {
             TgtMousePos = e.Location;
             Invalidate();
@@ -25,7 +25,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         private void PixelEditor_MouseDown(object sender, MouseEventArgs e)
         {
             OnCanvasMouseDown?.Invoke(this, e);
-            
+
             int x = TgtMousePos.X + Viewport.X + e.X / Zoom;
             int y = TgtMousePos.Y + Viewport.Y + e.Y / Zoom;
 
@@ -177,7 +177,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawLineCommand(ref _activeLayer), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawLineCommand(APBox), e);
                     break;
 
                 case Tool.RECTANGLE:
@@ -191,7 +191,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawRectangleCommand(ref _activeLayer), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawRectangleCommand(APBox), e);
                     break;
 
                 case Tool.OVAL:
@@ -205,7 +205,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                                                     (int)Math.Round(ShapeStartPos.Y + distanceY));
                     }
 
-                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawCircleCommand(ref _activeLayer), e);
+                    PixelEditor_DrawShape(ShapeStartPos, ShapeEndPos, new DrawCircleCommand(APBox), e);
                     break;
 
                 case Tool.SELECT:
@@ -272,9 +272,9 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                     int endX = SelectionEndPos.X;
                     int endY = SelectionEndPos.Y;
 
-                    SelectAreaCommand deleteArea = new SelectAreaCommand(ref _activeLayer);
+                    SelectAreaCommand deleteArea = new SelectAreaCommand(APBox);
                     deleteArea.Execute(
-                        _activeLayer,
+                        (Bitmap)APBox.Image,
                         new Point(startX, startY),
                         new Point(endX, endY),
                         Color.Transparent

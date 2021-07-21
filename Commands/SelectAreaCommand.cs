@@ -10,8 +10,8 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public class SelectAreaCommand : Command
     {
-        public SelectAreaCommand(ref Bitmap image)
-            :base(ref image)
+        public SelectAreaCommand(PictureBox destination)
+            : base(destination)
         {}
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
@@ -30,7 +30,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             }
 
-            _image = bmp;
+            _destinationRef.Image = bmp;
         }
     }
 }

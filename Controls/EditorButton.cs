@@ -28,7 +28,7 @@ namespace Pixel_Editor_Test_2.Controls
                 button.BackgroundImage = Icon;
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             BackColor = Color.Transparent;
             boxShadow.BackColor = Themes.SHADOW_COLOR;

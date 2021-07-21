@@ -11,8 +11,8 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public class DrawCircleCommand : Command
     {
-        public DrawCircleCommand(ref Bitmap image)
-            : base(ref image)
+        public DrawCircleCommand(PictureBox destination)
+            : base(destination)
         {}
 
         public void Execute(Bitmap bmp, Point startPos, Point endPos, Color color, bool fill)
@@ -29,7 +29,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             }
 
-            _image = bmp;
+            _destinationRef.Image = bmp;
         }
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {

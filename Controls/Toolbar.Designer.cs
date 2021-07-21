@@ -80,6 +80,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonEllipse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonEllipse.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.OVAL;
+            this.buttonEllipse.Callback = null;
             this.buttonEllipse.Icon = global::Pixel_Editor_Test_2.Properties.Resources.ellipse_icon;
             this.buttonEllipse.Location = new System.Drawing.Point(6, 448);
             this.buttonEllipse.Margin = new System.Windows.Forms.Padding(0);
@@ -92,6 +93,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonRectangle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonRectangle.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.RECTANGLE;
+            this.buttonRectangle.Callback = null;
             this.buttonRectangle.Icon = global::Pixel_Editor_Test_2.Properties.Resources.rectangle_icon;
             this.buttonRectangle.Location = new System.Drawing.Point(6, 400);
             this.buttonRectangle.Margin = new System.Windows.Forms.Padding(0);
@@ -104,6 +106,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonDropper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonDropper.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.EYEDROPPER;
+            this.buttonDropper.Callback = null;
             this.buttonDropper.Icon = global::Pixel_Editor_Test_2.Properties.Resources.eyedropper_icon;
             this.buttonDropper.Location = new System.Drawing.Point(6, 352);
             this.buttonDropper.Margin = new System.Windows.Forms.Padding(0);
@@ -116,6 +119,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonLine.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.LINE;
+            this.buttonLine.Callback = null;
             this.buttonLine.Icon = global::Pixel_Editor_Test_2.Properties.Resources.line_icon;
             this.buttonLine.Location = new System.Drawing.Point(6, 304);
             this.buttonLine.Margin = new System.Windows.Forms.Padding(0);
@@ -128,6 +132,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonHand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonHand.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.HAND;
+            this.buttonHand.Callback = null;
             this.buttonHand.Icon = global::Pixel_Editor_Test_2.Properties.Resources.hand_icon;
             this.buttonHand.Location = new System.Drawing.Point(6, 256);
             this.buttonHand.Margin = new System.Windows.Forms.Padding(0);
@@ -140,6 +145,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonFill.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.FILL;
+            this.buttonFill.Callback = null;
             this.buttonFill.Icon = global::Pixel_Editor_Test_2.Properties.Resources.fill_icon;
             this.buttonFill.Location = new System.Drawing.Point(6, 208);
             this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
@@ -152,6 +158,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonPencil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonPencil.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.PENCIL;
+            this.buttonPencil.Callback = null;
             this.buttonPencil.Icon = global::Pixel_Editor_Test_2.Properties.Resources.brush_icon;
             this.buttonPencil.Location = new System.Drawing.Point(6, 160);
             this.buttonPencil.Margin = new System.Windows.Forms.Padding(0);
@@ -164,6 +171,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonEraser.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.ERASER;
+            this.buttonEraser.Callback = null;
             this.buttonEraser.Icon = global::Pixel_Editor_Test_2.Properties.Resources.eraser_icon;
             this.buttonEraser.Location = new System.Drawing.Point(6, 112);
             this.buttonEraser.Margin = new System.Windows.Forms.Padding(0);
@@ -176,6 +184,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonMagic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonMagic.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.MAGICWAND;
+            this.buttonMagic.Callback = null;
             this.buttonMagic.Icon = global::Pixel_Editor_Test_2.Properties.Resources.magic_icon;
             this.buttonMagic.Location = new System.Drawing.Point(6, 64);
             this.buttonMagic.Margin = new System.Windows.Forms.Padding(0);
@@ -188,6 +197,7 @@ namespace Pixel_Editor_Test_2.Controls
             // 
             this.buttonSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.buttonSelect.ButtonTool = Pixel_Editor_Test_2.Controls.PixelEditor.PixelEditor.Tool.SELECT;
+            this.buttonSelect.Callback = null;
             this.buttonSelect.Icon = global::Pixel_Editor_Test_2.Properties.Resources.select_icon;
             this.buttonSelect.Location = new System.Drawing.Point(6, 16);
             this.buttonSelect.Margin = new System.Windows.Forms.Padding(0);
@@ -204,7 +214,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Toolbar";
             this.Size = new System.Drawing.Size(48, 688);
-            this.Load += new System.EventHandler(this.Toolbar_Load);
             this.boxOutline.ResumeLayout(false);
             this.toolContainer.ResumeLayout(false);
             this.ResumeLayout(false);

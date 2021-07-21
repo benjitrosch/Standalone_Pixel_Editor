@@ -24,7 +24,7 @@ namespace Pixel_Editor_Test_2.Controls
             Session.Instance.OnPaletteUpdate += PaletteUpdate;
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             layoutPalette.BackColor = Themes.PALETTE_COLOR;
             boxShadow.BackColor = Themes.SHADOW_COLOR;

@@ -19,7 +19,7 @@ namespace Pixel_Editor_Test_2.Systems
         public int ActiveLayer { get; private set; }
         public event EventHandler<int> OnActiveLayerChange;
 
-        public AnimatedBitmap Animation { get; private set; } = new AnimatedBitmap();
+        public AnimatedBitmap Animation { get; private set; }
 
         public Action CurrentTheme { get; private set; }
         public event EventHandler OnChangeTheme;
@@ -49,7 +49,7 @@ namespace Pixel_Editor_Test_2.Systems
         public event EventHandler<PixelEditor.Tool> OnActiveToolChange;
 
         static Session()
-        { }
+        {}
 
         public static Session Instance
         {
@@ -59,12 +59,12 @@ namespace Pixel_Editor_Test_2.Systems
             }
         }
 
-        public void SetEditor(EditorWindow editor)
+        public void InitializeSession(EditorWindow editor, AnimatedBitmap animation)
         {
-            if (Editor != null)
-                return;
-
             Editor = editor;
+            Animation = animation;
+
+            Animation.AddLayer();
         }
 
         public void SetEditorTheme(Action theme)

@@ -15,46 +15,57 @@ namespace Pixel_Editor_Test_2.Controls.Animation
 {
     public partial class LayerContainer : EditorControl
     {
-        public Layer Layer { get; set; }
+        public Layer Layer { get; private set; }
+        public int LayerIndex { get; private set; }
 
-        public LayerContainer(Layer layer = null)
+        public LayerContainer(Layer layer, int layerIndex)
         {
             InitializeComponent();
+
             textLayerName.AutoSize = false;
             textLayerName.Size = new Size(64, 32);
 
             Layer = layer;
+            LayerIndex = layerIndex;
         }
 
-        private void LayerContainer_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
             Session.Instance.Animation.OnAddKeyframe += (_o, f) => AddKeyframe(f);
+            Session.Instance.OnActiveLayerChange += (_o, l) => CheckLayerSelection(l);
 
             RefreshKeyframes();
+            UpdateTheme();
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
-        {}
+        protected override void UpdateTheme()
+        {
+            frameLayout.BackColor = buttonVisibility.BackColor = Themes.ANIMATOR_COLOR;
+            BackColor = divider.BackColor = Themes.TEXT_COLOR;
+
+            CheckLayerSelection(Session.Instance.ActiveLayer);
+        }
 
         private void RefreshKeyframes()
         {
             frameLayout.Controls.Clear();
 
             int i = 0;
-            foreach(Image frame in Layer.Frames)
+            foreach (Image frame in Layer.Frames)
             {
-                Keyframe newKeyframe = new Keyframe(i);
+                Keyframe newKeyframe = new Keyframe(i, LayerIndex);
 
                 newKeyframe.Click += new EventHandler(ClickKeyframe);
                 frameLayout.Controls.Add(newKeyframe);
+                newKeyframe.Initialize();
                 i++;
             }
         }
 
         public void AddKeyframe(KeyframeAddedEventArgs e)
         {
-            Keyframe newKeyframe = new Keyframe(e.FrameIndex);
+            Keyframe newKeyframe = new Keyframe(e.FrameIndex, LayerIndex);
 
             newKeyframe.Click += new EventHandler(ClickKeyframe);
             frameLayout.Controls.Add(newKeyframe);
@@ -64,6 +75,15 @@ namespace Pixel_Editor_Test_2.Controls.Animation
         {
             Keyframe keyframe = (Keyframe)sender;
             Session.Instance.Animation.GotoFrame(keyframe.FrameIndex);
+            Session.Instance.SetActiveLayer(LayerIndex);
+        }
+
+        private void CheckLayerSelection(int layerIndex)
+        {
+            if (LayerIndex == layerIndex)
+                textLayerName.BackColor = buttonVisibility.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
+            else
+                textLayerName.BackColor = buttonVisibility.BackColor = Themes.ANIMATOR_COLOR;
         }
     }
 }

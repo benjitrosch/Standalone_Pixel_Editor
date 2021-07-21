@@ -47,7 +47,7 @@ namespace Pixel_Editor_Test_2.Util
         public Frame GetFrameByIndex(int i)
         {
             if (i < 0 || i >= _frames.Count)
-                throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
+                throw new ArgumentOutOfRangeException(i.ToString(), "Index must be greater than 0 and less than the total number of frames.");
 
             return _frames[i];
         }

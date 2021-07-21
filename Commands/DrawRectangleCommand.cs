@@ -11,8 +11,8 @@ namespace Pixel_Editor_Test_2.Commands
 {
     public class DrawRectangleCommand : Command
     {
-        public DrawRectangleCommand(ref Bitmap image)
-            : base(ref image)
+        public DrawRectangleCommand(PictureBox destination)
+            : base(destination)
         {}
 
         public void Execute(Bitmap bmp, Point startPos, Point endPos, Color color, bool filled)
@@ -47,7 +47,7 @@ namespace Pixel_Editor_Test_2.Commands
                 }
             }
 
-            _image = bmp;
+            _destinationRef.Image = bmp;
         }
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)

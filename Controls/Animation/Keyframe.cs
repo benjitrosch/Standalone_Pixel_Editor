@@ -14,28 +14,36 @@ namespace Pixel_Editor_Test_2.Controls
 {
     public partial class Keyframe : EditorControl
     {
+        private int _layerIndex;
         public int FrameIndex { get; private set; }
         private Color _drawColor = Themes.OUTLINE_COLOR;
 
-        public Keyframe(int index)
+        public Keyframe(int index, int layer)
         {
             InitializeComponent();
+
             FrameIndex = index;
+            _layerIndex = layer;
         }
 
-        private void Keyframe_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
-            UpdateTheme(sender, e);
+            UpdateTheme();
 
             Session.Instance.Editor.canvasPanel.OnCanvasMouseUp += (_o, _e) => CheckUpdate();
             Session.Instance.Editor.canvasPanel.OnHistoryChange += (_o, _e) => CheckUpdate();
+            Session.Instance.OnActiveLayerChange += (_o, l) => CheckLayerSelection(l);
+
+            CheckLayerSelection(Session.Instance.ActiveLayer);
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             _drawColor = Themes.TEXT_COLOR;
-            BackColor = Themes.MAIN_BG_COLOR;
+            BackColor = Themes.ANIMATOR_COLOR;
+
+            CheckLayerSelection(Session.Instance.ActiveLayer);
         }
 
         private void CheckUpdate()
@@ -53,7 +61,7 @@ namespace Pixel_Editor_Test_2.Controls
             {
                 Rectangle rect = new Rectangle(new Point(2, 10), new Size(6, 6));
                 g.DrawEllipse(p, rect);
-                if (!BitmapExtensions.IsEmpty(Session.Instance.Animation.Layers[Session.Instance.ActiveLayer].GetFrameByIndex(FrameIndex).Image))
+                if (!BitmapExtensions.IsEmpty(Session.Instance.Animation.Layers[_layerIndex].GetFrameByIndex(FrameIndex).Image))
                     g.FillEllipse(b, rect);
             }
 
@@ -80,7 +88,25 @@ namespace Pixel_Editor_Test_2.Controls
 
         private void Keyframe_MouseLeave(object sender, EventArgs e)
         {
-            BackColor = Themes.MAIN_BG_COLOR;
+            BackColor = Session.Instance.ActiveLayer == _layerIndex ? Themes.BUTTON_HIGHLIGHT_COLOR : Themes.ANIMATOR_COLOR;
+        }
+
+        private bool LayerSelected()
+        {
+            return _layerIndex == Session.Instance.ActiveLayer;
+        }
+
+        private bool KeyframeSelected()
+        {
+            return FrameIndex == Session.Instance.Animation.CurrentFrame && LayerSelected();
+        }
+
+        private void CheckLayerSelection(int layerIndex)
+        {
+            if (layerIndex == _layerIndex)
+                BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
+            else
+                BackColor = Themes.ANIMATOR_COLOR;
         }
     }
 }

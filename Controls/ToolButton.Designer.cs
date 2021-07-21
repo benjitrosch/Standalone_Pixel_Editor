@@ -41,7 +41,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Name = "ToolButton";
-            this.Load += new System.EventHandler(this.ToolButton_Load);
             this.ResumeLayout(false);
 
         }

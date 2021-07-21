@@ -18,12 +18,14 @@ namespace Pixel_Editor_Test_2.Controls
 {
     public partial class KeyframeContainer : EditorControl
     {
+        private List<EditorButton> _buttons = new List<EditorButton>();
+
         public KeyframeContainer()
         {
             InitializeComponent();
         }
 
-        private void KeyframeContainer_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
             Session.Instance.Animation.OnAddLayer += (_o, _l) => RefreshLayers();
@@ -32,9 +34,17 @@ namespace Pixel_Editor_Test_2.Controls
             buttonPause.Callback = () => Session.Instance.Animation.PauseAnimation();
             buttonAddFrame.Callback = () => Session.Instance.Animation.AddFrame(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE));
             buttonAddLayer.Callback = () => Session.Instance.Animation.AddLayer();
+
+            _buttons.Add(buttonPlay);
+            _buttons.Add(buttonPause);
+            _buttons.Add(buttonAddFrame);
+            _buttons.Add(buttonAddLayer);
+
+            foreach (EditorButton button in _buttons)
+                button.Initialize();
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             BackColor = Themes.MAIN_BG_COLOR;
             layoutKeyframe.BackColor = Themes.ANIMATOR_COLOR;
@@ -47,10 +57,13 @@ namespace Pixel_Editor_Test_2.Controls
         {
             layoutKeyframe.Controls.Clear();
 
+            int i = 0;
             foreach(Layer layer in Session.Instance.Animation.Layers)
             {
-                LayerContainer layerContainer = new LayerContainer(layer);
+                LayerContainer layerContainer = new LayerContainer(layer, i);
                 layoutKeyframe.Controls.Add(layerContainer);
+                layerContainer.Initialize();
+                i++;
             }
         }
 

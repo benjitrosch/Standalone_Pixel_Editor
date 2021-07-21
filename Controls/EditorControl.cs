@@ -13,17 +13,30 @@ namespace Pixel_Editor_Test_2.Controls
 {
     public partial class EditorControl : UserControl
     {
+        private bool _hasLoaded;
+
         public EditorControl()
         {
             InitializeComponent();
+            Visible = false;
+        }
+
+        public void Initialize()
+        {
+            if (_hasLoaded)
+                return;
+
+            OnLoad();
         }
 
         protected virtual void OnLoad()
         {
-            Session.Instance.OnChangeTheme += UpdateTheme;
+            Session.Instance.OnChangeTheme += (_o, _e) => UpdateTheme();
+            _hasLoaded = true;
+            Visible = true;
         }
 
-        protected virtual void UpdateTheme(object sender, EventArgs e)
+        protected virtual void UpdateTheme()
         {}
     }
 }
