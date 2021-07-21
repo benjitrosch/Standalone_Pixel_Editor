@@ -23,6 +23,9 @@ namespace Pixel_Editor_Test_2.Controls
             base.OnLoad();
             Session.Instance.OnPrimaryColorChange += PrimaryColorChange;
             Session.Instance.OnSecondaryColorChange += SecondaryColorChange;
+
+            PrimaryColorChange(null, Session.Instance.PrimaryColor);
+            SecondaryColorChange(null, Session.Instance.SecondaryColor);
         }
 
         protected override void UpdateTheme()

@@ -69,6 +69,7 @@ namespace Pixel_Editor_Test_2.Controls.Animation
 
             newKeyframe.Click += new EventHandler(ClickKeyframe);
             frameLayout.Controls.Add(newKeyframe);
+            newKeyframe.Initialize();
         }
 
         private void ClickKeyframe(object sender, EventArgs e)

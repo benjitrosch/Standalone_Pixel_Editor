@@ -29,6 +29,7 @@ namespace Pixel_Editor_Test_2.Controls
         {
             base.OnLoad();
             Session.Instance.Animation.OnAddLayer += (_o, _l) => RefreshLayers();
+            RefreshLayers();
 
             buttonPlay.Callback = () => Session.Instance.Animation.PlayAnimation();
             buttonPause.Callback = () => Session.Instance.Animation.PauseAnimation();

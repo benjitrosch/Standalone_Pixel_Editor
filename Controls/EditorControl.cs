@@ -18,7 +18,6 @@ namespace Pixel_Editor_Test_2.Controls
         public EditorControl()
         {
             InitializeComponent();
-            Visible = false;
         }
 
         public void Initialize()
@@ -33,7 +32,6 @@ namespace Pixel_Editor_Test_2.Controls
         {
             Session.Instance.OnChangeTheme += (_o, _e) => UpdateTheme();
             _hasLoaded = true;
-            Visible = true;
         }
 
         protected virtual void UpdateTheme()

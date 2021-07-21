@@ -23,7 +23,6 @@ namespace Pixel_Editor_Test_2.Controls
 
         protected virtual void EditorButton_Load(object sender, EventArgs e)
         {
-            base.OnLoad();
             if (Icon != null)
                 button.BackgroundImage = Icon;
         }
