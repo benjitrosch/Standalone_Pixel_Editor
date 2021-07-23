@@ -345,5 +345,8 @@
   <ItemGroup>
     <None Include="Resources\eye_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hidden_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

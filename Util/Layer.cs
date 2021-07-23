@@ -27,6 +27,7 @@ namespace Pixel_Editor_Test_2.Util
         {
             _frames = Enumerable.Repeat(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE), emptyFrames).ToList();
             Name = "New Layer";
+            Visible = true;
         }
 
         public void ToggleVisibility()

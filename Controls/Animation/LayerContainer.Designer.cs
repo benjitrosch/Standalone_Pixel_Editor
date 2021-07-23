@@ -32,8 +32,8 @@ namespace Pixel_Editor_Test_2.Controls.Animation
             this.textLayerName = new System.Windows.Forms.TextBox();
             this.frameLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.divider = new System.Windows.Forms.Panel();
-            this.buttonVisibility = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonVisibility = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textLayerName
@@ -69,6 +69,15 @@ namespace Pixel_Editor_Test_2.Controls.Animation
             this.divider.Size = new System.Drawing.Size(1, 31);
             this.divider.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(32, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 31);
+            this.panel1.TabIndex = 4;
+            // 
             // buttonVisibility
             // 
             this.buttonVisibility.BackColor = System.Drawing.Color.White;
@@ -84,15 +93,7 @@ namespace Pixel_Editor_Test_2.Controls.Animation
             this.buttonVisibility.Size = new System.Drawing.Size(32, 31);
             this.buttonVisibility.TabIndex = 3;
             this.buttonVisibility.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(32, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 31);
-            this.panel1.TabIndex = 4;
+            this.buttonVisibility.Click += new System.EventHandler(this.buttonVisibility_Click);
             // 
             // LayerContainer
             // 

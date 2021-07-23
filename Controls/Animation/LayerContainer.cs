@@ -32,7 +32,7 @@ namespace Pixel_Editor_Test_2.Controls.Animation
         protected override void OnLoad()
         {
             base.OnLoad();
-            Session.Instance.Animation.OnAddKeyframe += (_o, f) => AddKeyframe(f);
+            Session.Instance.Animation.OnAddKeyframe += (_o, f) => AddKeyframe(f.FrameIndex);
             Session.Instance.OnActiveLayerChange += (_o, l) => CheckLayerSelection(l);
 
             RefreshKeyframes();
@@ -54,18 +54,14 @@ namespace Pixel_Editor_Test_2.Controls.Animation
             int i = 0;
             foreach (Image frame in Layer.Frames)
             {
-                Keyframe newKeyframe = new Keyframe(i, LayerIndex);
-
-                newKeyframe.Click += new EventHandler(ClickKeyframe);
-                frameLayout.Controls.Add(newKeyframe);
-                newKeyframe.Initialize();
+                AddKeyframe(i);
                 i++;
             }
         }
 
-        public void AddKeyframe(KeyframeAddedEventArgs e)
+        public void AddKeyframe(int index)
         {
-            Keyframe newKeyframe = new Keyframe(e.FrameIndex, LayerIndex);
+            Keyframe newKeyframe = new Keyframe(index, LayerIndex);
 
             newKeyframe.Click += new EventHandler(ClickKeyframe);
             frameLayout.Controls.Add(newKeyframe);
@@ -85,6 +81,12 @@ namespace Pixel_Editor_Test_2.Controls.Animation
                 textLayerName.BackColor = buttonVisibility.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
             else
                 textLayerName.BackColor = buttonVisibility.BackColor = Themes.ANIMATOR_COLOR;
+        }
+
+        private void buttonVisibility_Click(object sender, EventArgs e)
+        {
+            Layer.ToggleVisibility();
+            buttonVisibility.BackgroundImage = Layer.Visible ? Properties.Resources.eye_icon : Properties.Resources.hidden_icon;
         }
     }
 }

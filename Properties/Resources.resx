@@ -139,6 +139,9 @@
   <data name="eyedropper_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyedropper_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eye_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fill_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fill_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,7 +166,7 @@
   <data name="folder_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hidden_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hidden_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
