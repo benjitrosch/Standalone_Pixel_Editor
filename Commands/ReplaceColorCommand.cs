@@ -11,7 +11,7 @@ namespace Pixel_Editor_Test_2.Commands
     public class ReplaceColorCommand : Command
     {
         public ReplaceColorCommand(PictureBox destination)
-            :base(destination)
+           : base(destination)
         {}
 
         public void Execute(Bitmap bmp, Color oldColor, Color newColor)

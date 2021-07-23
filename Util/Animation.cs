@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pixel_Editor_Test_2.Controls.Events;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,131 +12,48 @@ using System.Windows.Forms;
 
 namespace Pixel_Editor_Test_2.Util
 {
-    public class Frame
-    {
-        public Bitmap Image { get; set; }
-        public int Delay { get; set; }
-
-        public Frame(Bitmap image, int delay)
-        {
-            Image = image;
-            Delay = delay;
-        }
-    }
-
     public class AnimatedBitmap : IDisposable
     {
-        public event EventHandler<Bitmap> FrameUpdated;
+        public event EventHandler<List<Bitmap>> OnFrameChanged;
+        public event EventHandler<Layer> OnAddLayer;
+        public event EventHandler<KeyframeAddedEventArgs> OnAddKeyframe;
 
-        private List<Frame> _addQueue;
-        private List<Frame> _removeQueue;
-        private List<Frame> _frames;
+        public List<Layer> Layers;
 
-        public List<Bitmap> Frames
-        {
-            get
-            {
-                return _frames.Select(frame => frame.Image).ToList();
-            }
-        }
-
-        public int TotalFrames
-        {
-            get
-            {
-                return _frames.Count;
-            }
-        }
+        public int TotalFrames { get; private set; }
         public int CurrentFrame { get; set; }
 
         private bool _isPlaying;
         private CancellationTokenSource _cancelToken;
 
-        protected void OnFrameUpdated(Bitmap bmp)
+        protected void FrameChanged(int currentFrame)
         {
-            FrameUpdated?.Invoke(this, bmp);
+            List<Bitmap> layerBitmaps = new List<Bitmap>();
+            foreach (Layer layer in Layers)
+                layerBitmaps.Add(layer.GetFrameByIndex(currentFrame).Image);
+
+            CurrentFrame = currentFrame;
+            OnFrameChanged?.Invoke(this, layerBitmaps);
         }
 
         public AnimatedBitmap()
         {
-            _addQueue = new List<Frame>();
-            _removeQueue = new List<Frame>();
-            _frames = new List<Frame>();
-
+            Layers = new List<Layer>();
             _cancelToken = new CancellationTokenSource();
-        }
-        public AnimatedBitmap(List<Frame> frames)
-        {
-            _addQueue = new List<Frame>();
-            _removeQueue = new List<Frame>();
-            _frames = frames;
-
-            _cancelToken = new CancellationTokenSource();
-        }
-
-        public void AddFrame(Frame frame)
-        {
-            if (_isPlaying)
-                _addQueue.Add(frame);
-            else
-                _frames.Add(frame);
-        }
-
-        public void RemoveFrame(Frame frame)
-        {
-            if (_isPlaying)
-                _removeQueue.Add(frame);
-            else
-                _frames.Remove(frame);
-        }
-
-        public void GotoFrame(int i)
-        {
-            if (i < 0 || i >= _frames.Count)
-                throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
-
-            PauseAnimation();
-            CurrentFrame = i;
-            OnFrameUpdated(_frames[i].Image);
-        }
-
-        public Frame GetFrameByIndex(int i)
-        {
-            if (i < 0 || i >= _frames.Count)
-                throw new ArgumentOutOfRangeException(nameof(i), "Index must be greater than 0 and less than the total number of frames.");
-
-            return _frames[i];
-        }
-
-        public Frame GetLastFrame()
-        {
-            return _frames[_frames.Count - 1];
         }
 
         private void Animate(object obj)
         {
             while (!_cancelToken.IsCancellationRequested)
             {
-                int i = 0;
-                foreach (Frame frame in _frames)
+                for (int i = 0; i < TotalFrames; i++)
                 {
                     if (_cancelToken.IsCancellationRequested)
                         break;
 
-                    CurrentFrame = i;
-                    i++;
-
-                    OnFrameUpdated(frame.Image);
-                    Thread.Sleep(frame.Delay);
+                    FrameChanged(i);
+                    Thread.Sleep(83); // REFACTOR TO USE DELAY FROM FRAMES (LATER)
                 }
-
-                _frames.AddRange(_addQueue);
-
-                foreach (Frame frame in _removeQueue)
-                    _frames.Remove(frame);
-
-                _addQueue.Clear();
-                _removeQueue.Clear();
             }
         }
 
@@ -148,15 +66,42 @@ namespace Pixel_Editor_Test_2.Util
 
             _cancelToken = new CancellationTokenSource();
             Task.Factory.StartNew(Animate,
-                                    TaskCreationOptions.LongRunning,
-                                    _cancelToken.Token);
+                                  TaskCreationOptions.LongRunning,
+                                  _cancelToken.Token);
         }
 
         public void PauseAnimation()
         {
             _isPlaying = false;
-
             _cancelToken.Cancel();
+        }
+
+        public void GotoFrame(int i)
+        {
+            if (i < 0 || i >= TotalFrames)
+                throw new ArgumentOutOfRangeException(i.ToString(), $"Index ({i}) must be greater than 0 and less than the total number of frames ({TotalFrames}).");
+
+            PauseAnimation();
+            FrameChanged(i);
+        }
+
+        public void AddLayer()
+        {
+            Layer layer = new Layer(TotalFrames);
+
+            Layers.Add(layer);
+            OnAddLayer?.Invoke(this, layer);
+        }
+
+        public void AddFrame(Frame frame)
+        {
+            TotalFrames++;
+
+            foreach(Layer layer in Layers)
+                layer.AddFrame(frame);
+
+            GotoFrame(TotalFrames - 1);
+            OnAddKeyframe?.Invoke(this, new KeyframeAddedEventArgs(frame, TotalFrames - 1));
         }
 
         public void Dispose()

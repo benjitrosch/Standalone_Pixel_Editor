@@ -21,12 +21,7 @@ namespace Pixel_Editor_Test_2.Controls
             InitializeComponent();
         }
 
-        private void Titlebar_Load(object sender, EventArgs e)
-        {
-            base.OnLoad();
-        }
-
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             menuStrip.BackColor = buttonExit.BackColor =  Themes.MENUSTRIP_COLOR;
             menuOutline.BackColor = Themes.OUTLINE_COLOR;
@@ -78,6 +73,16 @@ namespace Pixel_Editor_Test_2.Controls
         private void modenrToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Session.Instance.SetEditorTheme(Themes.MODERN_THEME);
+        }
+
+        private void spotifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.SetEditorTheme(Themes.SPOTIFY_THEME);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Instance.Editor.ExitApplication();
         }
     }
 }

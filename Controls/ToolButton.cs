@@ -20,7 +20,7 @@ namespace Pixel_Editor_Test_2.Controls
             InitializeComponent();
         }
 
-        private void ToolButton_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
             Session.Instance.OnActiveToolChange += (_o, t) => CheckToolSelection(t);
@@ -29,14 +29,9 @@ namespace Pixel_Editor_Test_2.Controls
         private void CheckToolSelection(PixelEditor.PixelEditor.Tool tool)
         {
             if (ButtonTool == tool)
-                base.button.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
+                button.BackColor = Themes.BUTTON_HIGHLIGHT_COLOR;
             else
-                base.button.BackColor = Themes.BUTTON_BG_COLOR;
-        }
-
-        protected override void button_Click(object sender, EventArgs e)
-        {
-            base.button_Click(sender, e);
+                button.BackColor = Themes.BUTTON_BG_COLOR;
         }
     }
 }

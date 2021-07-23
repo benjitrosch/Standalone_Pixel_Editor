@@ -13,17 +13,33 @@ namespace Pixel_Editor_Test_2.Controls
 {
     public partial class Toolbar : EditorControl
     {
+        private List<ToolButton> _buttons = new List<ToolButton>();
+
         public Toolbar()
         {
             InitializeComponent();
         }
 
-        private void Toolbar_Load(object sender, EventArgs e)
+        protected override void OnLoad()
         {
             base.OnLoad();
+
+            _buttons.Add(buttonSelect);
+            _buttons.Add(buttonMagic);
+            _buttons.Add(buttonEraser);
+            _buttons.Add(buttonPencil);
+            _buttons.Add(buttonFill);
+            _buttons.Add(buttonHand);
+            _buttons.Add(buttonLine);
+            _buttons.Add(buttonDropper);
+            _buttons.Add(buttonRectangle);
+            _buttons.Add(buttonEllipse);
+
+            foreach (ToolButton button in _buttons)
+                button.Initialize();
         }
 
-        protected override void UpdateTheme(object sender, EventArgs e)
+        protected override void UpdateTheme()
         {
             toolContainer.BackColor = Themes.TOOLBAR_COLOR;
             boxOutline.BackColor = Themes.OUTLINE_COLOR;

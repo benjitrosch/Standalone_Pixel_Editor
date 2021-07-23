@@ -18,6 +18,8 @@ namespace Pixel_Editor_Test_2
 {
     public partial class EditorWindow : Form
     {
+        private List<EditorControl> _controls = new List<EditorControl>();
+
         public EditorWindow()
         {
             InitializeComponent();
@@ -25,23 +27,37 @@ namespace Pixel_Editor_Test_2
 
         private void EditorWindow_Load(object sender, EventArgs e)
         {
-
-            Session.Instance.SetEditor(this);
             Session.Instance.OnChangeTheme += UpdateTheme;
+
+            Session.Instance.InitializeSession(this, new AnimatedBitmap());
+
             Session.Instance.SetEditorTheme(Themes.DEFAULT_THEME);
             Session.Instance.SetEditorTool(PixelEditor.Tool.PENCIL);
             Session.Instance.SetPrimaryColor(Color.Black);
             Session.Instance.SetSecondaryColor(Color.White);
             Session.Instance.BrushSize = 1;
 
-            AnimatedBitmap animation = Session.Instance.CreateNewAnimation();
-            animation.FrameUpdated += (_o, f) => UpdateFrame(f);
-            Frame emptyFrame = new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE);
-            Session.Instance.AddKeyframe(emptyFrame);
+            Session.Instance.Animation.OnFrameChanged += (_o, f) => UpdateFrame(f);
+            Session.Instance.Animation.AddFrame(new Frame(Canvas.CreateNewCanvas(32, 32), Global.STANDARD_FRAMERATE));
 
             canvasPanel.Zoom = 8;
             canvasPanel.PixelEditor_AddToViewport(new Size(-32, -4));
             canvasPanel.OnEyedropperChange += (_o, i) => SetEyedropperColor(i);
+
+            InitializeControls();
+        }
+
+        private void InitializeControls()
+        {
+            _controls.Add(titlebar);
+            _controls.Add(keyframeContainer);
+            _controls.Add(palette);
+            _controls.Add(colorPicker);
+            _controls.Add(activeColors);
+            _controls.Add(toolbar);
+
+            foreach (EditorControl control in _controls)
+                control.Initialize();
         }
 
         private void UpdateTheme(object sender, EventArgs e)
@@ -52,10 +68,13 @@ namespace Pixel_Editor_Test_2
             canvasOutline.BackColor = colorOutline.BackColor = Themes.OUTLINE_COLOR;
         }
 
-        private void UpdateFrame(Bitmap bmp)
+        private void UpdateFrame(List<Bitmap> bitmaps)
         {
-            srcImage.Image = bmp;
+            srcImage.Image = bitmaps[Session.Instance.ActiveLayer];
             canvasPanel.APBox = srcImage;
+
+            //canvasPanel.ActiveLayer = bitmaps[Session.Instance.ActiveLayer];
+            canvasPanel.Layers = bitmaps;
 
             //ToggleOnionSkin();
 

@@ -25,7 +25,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         private void PixelEditor_MouseDown(object sender, MouseEventArgs e)
         {
             OnCanvasMouseDown?.Invoke(this, e);
-            
+
             int x = TgtMousePos.X + Viewport.X + e.X / Zoom;
             int y = TgtMousePos.Y + Viewport.Y + e.Y / Zoom;
 

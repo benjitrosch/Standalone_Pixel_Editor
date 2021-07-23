@@ -34,8 +34,8 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxOutlineInner = new System.Windows.Forms.Panel();
             this.layoutPalette = new System.Windows.Forms.FlowLayoutPanel();
             this.boxShadow = new System.Windows.Forms.Panel();
-            this.editorButton1 = new Pixel_Editor_Test_2.Controls.EditorButton();
-            this.editorButton2 = new Pixel_Editor_Test_2.Controls.EditorButton();
+            this.buttonNewPalette = new Pixel_Editor_Test_2.Controls.EditorButton();
+            this.buttonOpenPalette = new Pixel_Editor_Test_2.Controls.EditorButton();
             this.boxOutline.SuspendLayout();
             this.boxOutlineWhite.SuspendLayout();
             this.boxOutlineInner.SuspendLayout();
@@ -91,33 +91,35 @@ namespace Pixel_Editor_Test_2.Controls
             this.boxShadow.Size = new System.Drawing.Size(202, 360);
             this.boxShadow.TabIndex = 1;
             // 
-            // editorButton1
+            // buttonNewPalette
             // 
-            this.editorButton1.Callback = null;
-            this.editorButton1.Icon = global::Pixel_Editor_Test_2.Properties.Resources.file_icon;
-            this.editorButton1.Location = new System.Drawing.Point(160, 350);
-            this.editorButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.editorButton1.Name = "editorButton1";
-            this.editorButton1.Size = new System.Drawing.Size(36, 36);
-            this.editorButton1.TabIndex = 9;
+            this.buttonNewPalette.Callback = null;
+            this.buttonNewPalette.Icon = global::Pixel_Editor_Test_2.Properties.Resources.file_icon;
+            this.buttonNewPalette.Location = new System.Drawing.Point(160, 350);
+            this.buttonNewPalette.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonNewPalette.Name = "buttonNewPalette";
+            this.buttonNewPalette.Size = new System.Drawing.Size(36, 36);
+            this.buttonNewPalette.TabIndex = 9;
+            this.buttonNewPalette.Click += new System.EventHandler(this.buttonNewPalette_Click);
             // 
-            // editorButton2
+            // buttonOpenPalette
             // 
-            this.editorButton2.Callback = null;
-            this.editorButton2.Icon = global::Pixel_Editor_Test_2.Properties.Resources.folder_icon;
-            this.editorButton2.Location = new System.Drawing.Point(120, 350);
-            this.editorButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.editorButton2.Name = "editorButton2";
-            this.editorButton2.Size = new System.Drawing.Size(36, 36);
-            this.editorButton2.TabIndex = 11;
+            this.buttonOpenPalette.Callback = null;
+            this.buttonOpenPalette.Icon = global::Pixel_Editor_Test_2.Properties.Resources.folder_icon;
+            this.buttonOpenPalette.Location = new System.Drawing.Point(120, 350);
+            this.buttonOpenPalette.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonOpenPalette.Name = "buttonOpenPalette";
+            this.buttonOpenPalette.Size = new System.Drawing.Size(36, 36);
+            this.buttonOpenPalette.TabIndex = 11;
+            this.buttonOpenPalette.Click += new System.EventHandler(this.buttonOpenPalette_Click);
             // 
             // Palette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.editorButton2);
-            this.Controls.Add(this.editorButton1);
+            this.Controls.Add(this.buttonOpenPalette);
+            this.Controls.Add(this.buttonNewPalette);
             this.Controls.Add(this.boxOutline);
             this.Controls.Add(this.boxShadow);
             this.Name = "Palette";
@@ -137,7 +139,7 @@ namespace Pixel_Editor_Test_2.Controls
         private System.Windows.Forms.Panel boxShadow;
         private System.Windows.Forms.Panel boxOutlineWhite;
         private System.Windows.Forms.Panel boxOutlineInner;
-        private EditorButton editorButton1;
-        private EditorButton editorButton2;
+        private EditorButton buttonNewPalette;
+        private EditorButton buttonOpenPalette;
     }
 }

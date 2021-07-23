@@ -86,7 +86,7 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 aPBox.MouseClick += APBox_MouseClick;
             }
         }
-
+        public List<Bitmap> Layers { get; set; }
         public Bitmap OnionSkin { get; set; } = null;
 
         public PixelEditor()
@@ -101,6 +101,8 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
             MouseUp += PixelEditor_MouseUp;
             MouseWheel += PixelEditor_MouseWheel;
             Paint += PixelEditor_Paint;
+
+            //Session.Instance.OnActiveLayerChange += (_o, l) => _activeLayer = Layers[l];
         }
 
         private void PixelEditor_Paint(object sender, PaintEventArgs e)

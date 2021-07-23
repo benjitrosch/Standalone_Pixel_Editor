@@ -31,19 +31,19 @@ namespace Pixel_Editor_Test_2.Controls
         {
             this.buttonSavePrimaryColor = new System.Windows.Forms.Button();
             this.primaryContainer = new System.Windows.Forms.Panel();
-            this.secondaryContainer = new System.Windows.Forms.Panel();
-            this.buttonSaveSecondaryColor = new System.Windows.Forms.Button();
-            this.boxShadow = new System.Windows.Forms.Panel();
-            this.secondaryColorPanel = new System.Windows.Forms.Panel();
-            this.buttonSecondaryColor = new System.Windows.Forms.Button();
             this.primaryColorPanel = new System.Windows.Forms.Panel();
             this.buttonPrimaryColor = new System.Windows.Forms.Button();
+            this.secondaryContainer = new System.Windows.Forms.Panel();
+            this.buttonSaveSecondaryColor = new System.Windows.Forms.Button();
+            this.secondaryColorPanel = new System.Windows.Forms.Panel();
+            this.buttonSecondaryColor = new System.Windows.Forms.Button();
+            this.boxShadow = new System.Windows.Forms.Panel();
             this.boxOutline = new System.Windows.Forms.Panel();
             this.boxContainer = new System.Windows.Forms.Panel();
             this.primaryContainer.SuspendLayout();
+            this.primaryColorPanel.SuspendLayout();
             this.secondaryContainer.SuspendLayout();
             this.secondaryColorPanel.SuspendLayout();
-            this.primaryColorPanel.SuspendLayout();
             this.boxOutline.SuspendLayout();
             this.boxContainer.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,30 @@ namespace Pixel_Editor_Test_2.Controls
             this.primaryContainer.Size = new System.Drawing.Size(200, 39);
             this.primaryContainer.TabIndex = 5;
             // 
+            // primaryColorPanel
+            // 
+            this.primaryColorPanel.BackColor = System.Drawing.Color.Transparent;
+            this.primaryColorPanel.Controls.Add(this.buttonPrimaryColor);
+            this.primaryColorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.primaryColorPanel.Location = new System.Drawing.Point(5, 5);
+            this.primaryColorPanel.Name = "primaryColorPanel";
+            this.primaryColorPanel.Size = new System.Drawing.Size(190, 32);
+            this.primaryColorPanel.TabIndex = 6;
+            // 
+            // buttonPrimaryColor
+            // 
+            this.buttonPrimaryColor.BackColor = System.Drawing.Color.Magenta;
+            this.buttonPrimaryColor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonPrimaryColor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonPrimaryColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrimaryColor.ForeColor = System.Drawing.Color.White;
+            this.buttonPrimaryColor.Location = new System.Drawing.Point(0, 0);
+            this.buttonPrimaryColor.Name = "buttonPrimaryColor";
+            this.buttonPrimaryColor.Size = new System.Drawing.Size(160, 32);
+            this.buttonPrimaryColor.TabIndex = 8;
+            this.buttonPrimaryColor.Text = "255 255 255";
+            this.buttonPrimaryColor.UseVisualStyleBackColor = false;
+            // 
             // secondaryContainer
             // 
             this.secondaryContainer.BackColor = System.Drawing.Color.White;
@@ -104,14 +128,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSaveSecondaryColor.UseVisualStyleBackColor = false;
             this.buttonSaveSecondaryColor.Click += new System.EventHandler(this.buttonSaveSecondaryColor_Click);
             // 
-            // boxShadow
-            // 
-            this.boxShadow.BackColor = System.Drawing.Color.Black;
-            this.boxShadow.Location = new System.Drawing.Point(8, 8);
-            this.boxShadow.Name = "boxShadow";
-            this.boxShadow.Size = new System.Drawing.Size(202, 80);
-            this.boxShadow.TabIndex = 1;
-            // 
             // secondaryColorPanel
             // 
             this.secondaryColorPanel.BackColor = System.Drawing.Color.Transparent;
@@ -136,29 +152,13 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonSecondaryColor.Text = "255 255 255";
             this.buttonSecondaryColor.UseVisualStyleBackColor = false;
             // 
-            // primaryColorPanel
+            // boxShadow
             // 
-            this.primaryColorPanel.BackColor = System.Drawing.Color.Transparent;
-            this.primaryColorPanel.Controls.Add(this.buttonPrimaryColor);
-            this.primaryColorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.primaryColorPanel.Location = new System.Drawing.Point(5, 5);
-            this.primaryColorPanel.Name = "primaryColorPanel";
-            this.primaryColorPanel.Size = new System.Drawing.Size(190, 32);
-            this.primaryColorPanel.TabIndex = 6;
-            // 
-            // buttonPrimaryColor
-            // 
-            this.buttonPrimaryColor.BackColor = System.Drawing.Color.Magenta;
-            this.buttonPrimaryColor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonPrimaryColor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonPrimaryColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrimaryColor.ForeColor = System.Drawing.Color.White;
-            this.buttonPrimaryColor.Location = new System.Drawing.Point(0, 0);
-            this.buttonPrimaryColor.Name = "buttonPrimaryColor";
-            this.buttonPrimaryColor.Size = new System.Drawing.Size(160, 32);
-            this.buttonPrimaryColor.TabIndex = 8;
-            this.buttonPrimaryColor.Text = "255 255 255";
-            this.buttonPrimaryColor.UseVisualStyleBackColor = false;
+            this.boxShadow.BackColor = System.Drawing.Color.Black;
+            this.boxShadow.Location = new System.Drawing.Point(8, 8);
+            this.boxShadow.Name = "boxShadow";
+            this.boxShadow.Size = new System.Drawing.Size(202, 80);
+            this.boxShadow.TabIndex = 1;
             // 
             // boxOutline
             // 
@@ -194,11 +194,10 @@ namespace Pixel_Editor_Test_2.Controls
             this.Name = "ActiveColors";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Size = new System.Drawing.Size(210, 88);
-            this.Load += new System.EventHandler(this.ActiveColors_Load);
             this.primaryContainer.ResumeLayout(false);
+            this.primaryColorPanel.ResumeLayout(false);
             this.secondaryContainer.ResumeLayout(false);
             this.secondaryColorPanel.ResumeLayout(false);
-            this.primaryColorPanel.ResumeLayout(false);
             this.boxOutline.ResumeLayout(false);
             this.boxContainer.ResumeLayout(false);
             this.ResumeLayout(false);
