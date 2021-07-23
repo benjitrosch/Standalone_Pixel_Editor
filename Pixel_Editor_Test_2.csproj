@@ -159,10 +159,10 @@
     <Compile Include="Controls\ToolButton.Designer.cs">
       <DependentUpon>ToolButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditorWindowControls.cs">
+    <Compile Include="EditorWindow,Controls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditorWindowInput.cs">
+    <Compile Include="EditorWindow,Input.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
