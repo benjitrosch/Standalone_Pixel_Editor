@@ -40,7 +40,7 @@ namespace Pixel_Editor_Test_2
             this.keyframeContainer = new Pixel_Editor_Test_2.Controls.KeyframeContainer();
             this.colorContainer = new System.Windows.Forms.Panel();
             this.activeColors = new Pixel_Editor_Test_2.Controls.ActiveColors();
-            this.palette = new Pixel_Editor_Test_2.Controls.Palette();
+            this.palette = new Pixel_Editor_Test_2.Controls.PaletteContainer();
             this.colorPicker = new Pixel_Editor_Test_2.Controls.ColorPicker();
             this.colorOutline = new System.Windows.Forms.Panel();
             this.toolbar = new Pixel_Editor_Test_2.Controls.Toolbar();
@@ -247,7 +247,7 @@ namespace Pixel_Editor_Test_2
         private Controls.KeyframeContainer keyframeContainer;
         private Controls.BrushSize brushSize;
         private System.Windows.Forms.Panel colorContainer;
-        private Controls.Palette palette;
+        private Controls.PaletteContainer palette;
         private Controls.ColorPicker colorPicker;
         private Controls.ActiveColors activeColors;
         private System.Windows.Forms.Panel colorOutline;
