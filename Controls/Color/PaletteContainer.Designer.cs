@@ -1,7 +1,7 @@
 ﻿
 namespace Pixel_Editor_Test_2.Controls
 {
-    partial class Palette
+    partial class PaletteContainer
     {
         /// <summary> 
         /// Required designer variable.
@@ -100,7 +100,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonNewPalette.Name = "buttonNewPalette";
             this.buttonNewPalette.Size = new System.Drawing.Size(36, 36);
             this.buttonNewPalette.TabIndex = 9;
-            this.buttonNewPalette.Click += new System.EventHandler(this.buttonNewPalette_Click);
             // 
             // buttonOpenPalette
             // 
@@ -111,7 +110,6 @@ namespace Pixel_Editor_Test_2.Controls
             this.buttonOpenPalette.Name = "buttonOpenPalette";
             this.buttonOpenPalette.Size = new System.Drawing.Size(36, 36);
             this.buttonOpenPalette.TabIndex = 11;
-            this.buttonOpenPalette.Click += new System.EventHandler(this.buttonOpenPalette_Click);
             // 
             // Palette
             // 
