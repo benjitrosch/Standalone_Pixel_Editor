@@ -51,8 +51,9 @@ namespace Pixel_Editor_Test_2.Controls
         private void buttonOpenPalette_Click()
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Palette (.pclr)|*.pclr";
+            ofd.Filter = Global.PALETTE_FILETYPE;
 
+            // TODO: CAn totally make a genertic method for both opening and saving files... Do that next time I create a save dialog somewhere?
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 Stream stream = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
@@ -68,7 +69,7 @@ namespace Pixel_Editor_Test_2.Controls
         private void buttonNewPalette_Click()
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Palette (.pclr)|*.pclr";
+            sfd.Filter = Global.PALETTE_FILETYPE;
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
