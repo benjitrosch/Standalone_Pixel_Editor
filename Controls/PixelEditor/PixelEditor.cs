@@ -39,9 +39,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         public event EventHandler<EyeDropperEventArgs> OnEyedropperChange;
 
-        private int _activeMouseButton = -1;
-        public bool KeyShiftDown { get; set; }
-
         private int _zoom = 8;
         public int Zoom
         {
@@ -63,16 +60,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
                 Invalidate();
             }
         }
-
-        public Point TgtMousePos { get; set; }
-        public Point HandStartPos { get; set; }
-        public Point HandEndPos { get; set; }
-        public Point SelectionStartPos { get; set; }
-        public Point SelectionEndPos { get; set; }
-        public Point ShapeStartPos { get; set; }
-        public Point ShapeEndPos { get; set; }
-
-        Point lastPoint = Point.Empty;
 
         PictureBox aPBox = null;
         public PictureBox APBox
@@ -251,29 +238,67 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void PixelEditor_RenderSelectionPreview(PaintEventArgs e)
         {
-            Point startPos = SelectionStartPos;
-            Point endPos = SelectionEndPos;
+            if (SelectedPixels.Count < 1)
+                return;
 
-            int width = Math.Abs(startPos.X - endPos.X);
-            int height = Math.Abs(startPos.Y - endPos.Y);
+            Region region = new Region(new Rectangle(SelectedPixels[0].X * Zoom - (Viewport.X * Zoom),
+                                               SelectedPixels[0].Y * Zoom - (Viewport.Y * Zoom),
+                                               Zoom,
+                                               Zoom));
 
-            if (width > 0 && height > 0)
+            foreach (Point pixel in SelectedPixels)
             {
-                Rectangle rect = new Rectangle((int)Math.Round((double)Math.Min(startPos.X, endPos.X) * Zoom - (Viewport.X * Zoom)),
-                                               (int)Math.Round((double)Math.Min(startPos.Y, endPos.Y) * Zoom - (Viewport.Y * Zoom)),
-                                               (int)Math.Round((double)width * Zoom),
-                                               (int)Math.Round((double)height * Zoom));
+                Rectangle rect = new Rectangle(pixel.X * Zoom - (Viewport.X * Zoom),
+                                               pixel.Y * Zoom - (Viewport.Y * Zoom),
+                                               Zoom,
+                                               Zoom);
 
-                using (Pen pen = new Pen(Color.DimGray, 1F))
-                {
-                    e.Graphics.DrawRectangle(pen, rect);
-                }
-                using (Pen pen = new Pen(Color.White, 1F))
-                {
-                    pen.DashPattern = new float[] { 5, 5 };
-                    e.Graphics.DrawRectangle(pen, rect);
-                }
+                region.Union(rect);
             }
+
+            Console.WriteLine(region);
+
+            GraphicsPath gPath = new GraphicsPath();
+            gPath.AddRectangles(region.GetRegionScans(new Matrix()));
+
+            using (Pen pen = new Pen(Color.Red, 2F))
+            {
+                pen.DashStyle = DashStyle.Dash;
+                e.Graphics.DrawPath(pen, gPath);
+            }
+
+            /*using (SolidBrush b = new SolidBrush(Color.Green))
+            {
+                e.Graphics.FillRegion(b, region);
+            }*/
+
+            /*GraphicsPath gPath = new GraphicsPath();
+            List<Rectangle> rects = new List<Rectangle>();
+
+            foreach (Point pixel in SelectedPixels)
+            {
+                Rectangle rect = new Rectangle(pixel.X * Zoom - (Viewport.X * Zoom),
+                               pixel.Y * Zoom - (Viewport.Y * Zoom),
+                               Zoom,
+                               Zoom);
+
+                rects.Add(rect);
+            }
+
+            if (rects.Count < 1)
+                return;
+
+            gPath.AddRectangles(rects.ToArray());
+
+            using (Pen pen = new Pen(Color.DimGray, 1F))
+            {
+                e.Graphics.DrawPath(pen, gPath);
+            }
+            using (Pen pen = new Pen(Color.White, 1F))
+            {
+                pen.DashPattern = new float[] { 5, 5 };
+                e.Graphics.DrawPath(pen, gPath);
+            }*/
         }
 
         private void PixelEditor_RenderShapePreview(PaintEventArgs e)
@@ -320,8 +345,11 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
         private void ResetAllPoints()
         {
+            SelectedPixels.Clear();
             SelectionStartPos = SelectionEndPos = Point.Empty;
             ShapeStartPos = ShapeEndPos = Point.Empty;
+
+            Invalidate();
         }
     }
 }

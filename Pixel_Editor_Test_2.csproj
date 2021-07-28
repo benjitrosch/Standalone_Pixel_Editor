@@ -135,10 +135,10 @@
       <DependentUpon>EditorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Events\KeyframeAddedEventArgs.cs" />
-    <Compile Include="Controls\PixelEditor\PixelEditorCommands.cs">
+    <Compile Include="Controls\PixelEditor\PixelEditor.Commands.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\PixelEditor\PixelEditorInput.cs">
+    <Compile Include="Controls\PixelEditor\PixelEditor.Input.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Titlebar.cs">

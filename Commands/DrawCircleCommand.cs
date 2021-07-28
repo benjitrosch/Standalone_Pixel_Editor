@@ -35,5 +35,11 @@ namespace Pixel_Editor_Test_2.Commands
         {
             Execute(bmp, startPos, endPos, color, false);
         }
+
+        public override List<Point> GetAreaOfExecute(Bitmap bmp, Point startPos, Point endPos)
+        {
+            List<Point> pixels = Shapes.Ellipse(startPos, endPos, true);
+            return pixels;
+        }
     }
 }

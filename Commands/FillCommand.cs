@@ -36,5 +36,11 @@ namespace Pixel_Editor_Test_2.Commands
 
             _destinationRef.Image = bmp;
         }
+
+        public override List<Point> GetAreaOfExecute(Bitmap bmp, Point startPos, Point endPos)
+        {
+            List<Point> pixels = BitmapExtensions.SelectBitmapArea(bmp, startPos.X, startPos.Y);
+            return pixels;
+        }
     }
 }

@@ -16,6 +16,21 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
         public event EventHandler<MouseEventArgs> OnCanvasMouseDown;
         public event EventHandler<MouseEventArgs> OnCanvasMouseUp;
 
+        public Point TgtMousePos { get; set; }
+        public Point HandStartPos { get; set; }
+        public Point HandEndPos { get; set; }
+        public Point SelectionStartPos { get; set; }
+        public Point SelectionEndPos { get; set; }
+        public Point ShapeStartPos { get; set; }
+        public Point ShapeEndPos { get; set; }
+
+        private Point lastPoint = Point.Empty;
+
+        public List<Point> SelectedPixels { get; set; } = new List<Point>();
+
+        private int _activeMouseButton = -1;
+        public bool KeyShiftDown { get; set; }
+
         private void APBox_MouseClick(object sender, MouseEventArgs e)
         {
             TgtMousePos = e.Location;
@@ -83,11 +98,6 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
             Point p = new Point(x, y);
 
-            Invalidate();
-
-            int width = Math.Abs(SelectionStartPos.X - SelectionEndPos.X);
-            int height = Math.Abs(SelectionStartPos.Y - SelectionEndPos.Y);
-
             if (e.Button == MouseButtons.Middle)
             {
                 HandEndPos = e.Location;
@@ -126,6 +136,23 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
                 case Tool.SELECT:
                     SelectionEndPos = p;
+
+                    SelectAreaCommand selectArea = new SelectAreaCommand(APBox);
+                    List<Point> selectedPixels = selectArea.GetAreaOfExecute(
+                        (Bitmap)APBox.Image,
+                        SelectionStartPos,
+                        SelectionEndPos
+                    );
+
+                    if (KeyShiftDown)
+                    {
+                        SelectedPixels.AddRange(selectedPixels);
+                        SelectedPixels = SelectedPixels.Distinct().ToList();
+                    }
+                    else
+                        SelectedPixels = new List<Point>(selectedPixels);
+
+                    Invalidate();
                     break;
 
                 case Tool.HAND:
@@ -210,6 +237,29 @@ namespace Pixel_Editor_Test_2.Controls.PixelEditor
 
                 case Tool.SELECT:
                     SelectionEndPos = p;
+
+                    SelectAreaCommand selectArea = new SelectAreaCommand(APBox);
+                    List<Point> selectedPixels = selectArea.GetAreaOfExecute(
+                        (Bitmap)APBox.Image,
+                        SelectionStartPos,
+                        SelectionEndPos
+                    );
+
+                    if (KeyShiftDown)
+                    {
+                        if (e.Button == MouseButtons.Right)
+                        {
+                            foreach (Point pixel in selectedPixels)
+                                    SelectedPixels.Remove(pixel);
+                        } else
+                        {
+                            SelectedPixels.AddRange(selectedPixels);
+                            SelectedPixels = SelectedPixels.Distinct().ToList();
+                        }
+                    }
+                    else
+                        SelectedPixels = new List<Point>(selectedPixels);
+
                     Invalidate();
                     break;
             }

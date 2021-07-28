@@ -26,5 +26,10 @@ namespace Pixel_Editor_Test_2.Commands
 
             _destinationRef.Image = bmp;
         }
+
+        public override List<Point> GetAreaOfExecute(Bitmap bmp, Point startPos, Point endPos)
+        {
+            return new List<Point>() { new Point(startPos.X, startPos.Y) };
+        }
     }
 }

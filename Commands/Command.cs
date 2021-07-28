@@ -22,6 +22,8 @@ namespace Pixel_Editor_Test_2.Commands
 
         public abstract void Execute(Bitmap bmp, Point startPos, Point endPos, Color color);
 
+        public abstract List<Point> GetAreaOfExecute(Bitmap bmp, Point startPos, Point endPos);
+
         public virtual void Undo(Bitmap bmp)
         {
             if (_previousColors.Count < 1)

@@ -34,5 +34,10 @@ namespace Pixel_Editor_Test_2.Commands
 
         public override void Execute(Bitmap bmp, Point startPos, Point endPos, Color color)
         {}
+
+        public override List<Point> GetAreaOfExecute(Bitmap bmp, Point startPos, Point endPos)
+        {
+            return new List<Point>();
+        }
     }
 }
